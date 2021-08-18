@@ -3,13 +3,13 @@
 // Company: The College of New Jersey
 // Engineer: Jeffrey Blanda
 // 
-// Create Date: 08/18/2021 02:14:53 PM
-// Design Name: VGA Controller
-// Module Name: VGA_Controller
+// Create Date: 08/18/2021 02:17:39 PM
+// Design Name: Vertical Counter
+// Module Name: VCounter
 // Project Name: Video FX FPGA
-// Target Devices: Nexus 4 DDR
+// Target Devices: 
 // Tool Versions: 
-// Description: This file will generate a VGA signal
+// Description: This will generate the Vertical Sync signal
 // 
 // Dependencies: 
 // 
@@ -18,13 +18,13 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
+// for 800x600 resolution @60Hz
+// 1px front porch
+// 23 pixel back porch
+// 40Mhz Pixel Clock
 
-
-module VGA_Controller(
-    output Vsync,
-    output Hsync,
-    output [3:0] R,
-    output [3:0] G,
-    output [2:0] B
+module VCounter(
+input Hsync,
+output Vsync
     );
 endmodule

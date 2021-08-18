@@ -3,13 +3,13 @@
 // Company: The College of New Jersey
 // Engineer: Jeffrey Blanda
 // 
-// Create Date: 08/18/2021 02:14:53 PM
-// Design Name: VGA Controller
-// Module Name: VGA_Controller
+// Create Date: 08/18/2021 02:40:21 PM
+// Design Name: Clock Transformer
+// Module Name: Clk
 // Project Name: Video FX FPGA
 // Target Devices: Nexus 4 DDR
 // Tool Versions: 
-// Description: This file will generate a VGA signal
+// Description: This will generate a 40Mhz clock from a 100 Mhz clock
 // 
 // Dependencies: 
 // 
@@ -20,11 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module VGA_Controller(
-    output Vsync,
-    output Hsync,
-    output [3:0] R,
-    output [3:0] G,
-    output [2:0] B
+module Clk(
+    input Clk,
+    output OutClk
     );
 endmodule
