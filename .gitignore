@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# Added by Jeffrey 9-15-21
+*.log
+*.xml
+*.wpc
+*.wdf
+*.jou
+Project Files/Senior-Project/Senior-Project.cache/*
+*.wpc
