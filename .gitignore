@@ -39,3 +39,7 @@
 *.jou
 Project Files/Senior-Project/Senior-Project.cache/*
 *.wpc
+Project Files/Senior-Project/Senior-Project.cache/wt/project.wpc
+Project Files/Senior-Project/Senior-Project.cache/wt/project.wpc
+*.bat
+*.log

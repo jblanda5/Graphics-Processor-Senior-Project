@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../Senior-Project.srcs/sources_1/new/frameBuffer.v" \
+"../../../../Senior-Project.srcs/sources_1/new/Clk.v" \
+"../../../../Senior-Project.srcs/sources_1/new/HCounter.v" \
+"../../../../Senior-Project.srcs/sources_1/new/VCounter.v" \
+"../../../../Senior-Project.srcs/sources_1/new/VGA_Controller.v" \
+"../../../../Senior-Project.srcs/sim_1/new/TB_Hsync.v" \
+"../../../../Senior-Project.srcs/sim_1/new/frameBufferTB.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
