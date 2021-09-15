@@ -40,6 +40,5 @@ module frameBuffer(
     R_read <= (frame[index] >> 5) & 3'b111;
     G_read <= (frame[index] >> 2) & 3'b111;
     B_read <= (frame[index]) & 2'b11;
-    Pixel <= frame[index];
     end
 endmodule
