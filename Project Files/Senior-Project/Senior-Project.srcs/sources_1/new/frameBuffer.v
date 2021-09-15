@@ -22,18 +22,23 @@
 
 module frameBuffer(
     // Write to frame inputs
-    input [18:0] writeAddr,
-    input [7:0] pixel_write,
+    input [18:0] writeBus,
+    input [2:0] R_write,
+    input [2:0] G_write,
+    input [1:0] B_write,
     // Output frame I/O
-    input [18:0] readAddr,
-    output reg [7:0] pixel_read,
+    input [18:0] index,
+    output reg [2:0] R_read,
+    output reg [2:0] G_read,
+    output reg [1:0] B_read,
     // Clock
     input CLK
     );
-    reg[7:0] frame[479999:0]; //Frame buffer for 800x600.
+    reg[7:0] frame[480000:0]; //Frame buffer for 800x600. Extra pixel for designated blanking.
     always @(posedge CLK) begin
-    frame[writeAddr] <= pixel_write;
-    pixel_read <= (frame[readAddr+7] << 7) + (frame[readAddr+6] << 6) + (frame[readAddr+5] << 5) + (frame[readAddr+4] << 4) + (frame[readAddr+3] << 3) + (frame[readAddr+2] << 2) + (frame[readAddr+1] << 1) + (frame[readAddr]);
-    pixel_read <= frame[readAddr];
+    frame[writeBus] <= (R_write << 5) + (G_write << 2) + (B_write);
+    R_read <= (frame[index] >> 5) & 3'b111;
+    G_read <= (frame[index] >> 2) & 3'b111;
+    B_read <= (frame[index]) & 2'b11;
     end
 endmodule
