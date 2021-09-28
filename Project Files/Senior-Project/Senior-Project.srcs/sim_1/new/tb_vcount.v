@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 08/18/2021 03:25:43 PM
+// Create Date: 09/27/2021 06:36:24 PM
 // Design Name: 
-// Module Name: TB_Hsync
+// Module Name: tb_vcount
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,20 +20,20 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module TB_Hsync;
-reg Clk;
-wire Hsync, Active;
-HCounter test(Clk, Hsync, Active);
-integer i=0;
-
-initial begin
-while (i<1100) 
-    begin
-    Clk <= 0;
-    #1
-    Clk <= 1;
-    #1
-    i=i+1;
-    end
-end
-endmodule
+module tb_vcount;
+    reg clk;
+    wire [10:0] v_count;
+    v_counter test(clk, v_count);
+    
+    integer i = 0;
+    
+    initial begin
+    while (i<1100) begin
+        clk <= 0;
+        #1;
+        clk <= 1;
+        i = i+1;
+        #1;
+        end
+     end
+ endmodule
