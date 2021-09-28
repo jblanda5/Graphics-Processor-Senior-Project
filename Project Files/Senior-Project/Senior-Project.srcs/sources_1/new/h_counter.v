@@ -33,10 +33,10 @@ module h_counter(
     always@(posedge clk) begin
         if (h_count == 11'b10000100000) begin
            h_count <= 11'b00000000001;
-           v_clk <= 1;
+            v_clk <= 1;
        end
        else begin
-            h_count <= h_count + 1;
+            h_count <= h_count + 11'b1;
             v_clk <= 0;
        end
 

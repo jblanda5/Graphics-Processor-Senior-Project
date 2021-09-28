@@ -32,7 +32,6 @@ module v_counter(
     always@(posedge clk) begin
         if (v_count == 11'b01001110100) begin
            v_count = 11'b00000000001;
-           
        end
         else begin
             v_count <= v_count + 11'b1;

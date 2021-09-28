@@ -21,12 +21,13 @@
 
 
 module vga_controller(
-    input clk,
+    input wire CLK100MHZ,
     output reg Hsync, //Horizontal Sync signal  
     output reg Vsync,  
     output reg [7:0] pixel
     );
-    
+wire clk;
+clk_wiz_0 clockModule(clk,0,0,CLK100MHZ);
 wire [10:0]h_count;
 wire [10:0]v_count;
 wire v_clk; //This will be used to increment the vertical counter. Will be high on reset and low elsewhere
@@ -45,7 +46,7 @@ always @(posedge clk) begin
         pixel <= 8'b00000000;
     end
     //Vsync Pulse
-    else if (v_count > 11'b01001011001 & v_count <= 11'b01001011100) begin //From 602 to 604 Vsync is 1 and video is not active
+    else if (v_count > 11'b01001011001 & v_count <= 11'b01001011101) begin //From 602 to 605 Vsync is 1 and video is not active
         Vsync <= 1;
         pixel <= 8'b00000000;
     end
@@ -56,22 +57,23 @@ always @(posedge clk) begin
     end
 
 //Hsync
-    if (h_count <= 11'b01100100000) begin //From 1 to 800, Hsync is 0 (low-active) and video is active
+//Every value is 1 clock cycle early, as it won't take effect until the next cycle.
+    if (h_count <= 11'b01100011111) begin //From 1 to 800, Hsync is 0 (low-active) and video is active
         Hsync <= 0;
         pixel <= 8'b00000000;
     end
     //Front Porch
-    else if (h_count > 11'b01100100000 & h_count <= 11'b01101001000) begin //From 801 to 840, Hsync is 0 and video is not active
+    else if (h_count > 11'b01100011111 & h_count <= 11'b01101000111) begin //From 801 to 840, Hsync is 0 and video is not active
         Hsync <= 0;
         pixel <= 8'b00000000;
     end
     //Hsync Pulse
-    else if (h_count > 11'b01101001000 & h_count <= 11'b01111001000) begin //From 841 to 968 Hsync is 1 and video is not active
+    else if (h_count > 11'b01101000111 & h_count <= 11'b01111000111) begin //From 841 to 968 Hsync is 1 and video is not active
         Hsync <= 1;
         pixel <= 8'b00000000;
     end
     //Back Porch
-    else if (h_count > 11'b01111001000 & h_count <= 11'b10000100000) begin //From 968 to 1056 Hsync is 0 and video is not active
+    else if (h_count > 11'b01111000111 & h_count <= 11'b10000011111) begin //From 968 to 1056 Hsync is 0 and video is not active
         Hsync <= 0;
         pixel <= 8'b00000000;
     end
