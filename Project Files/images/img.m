@@ -1,16 +1,22 @@
+clear
+clc
 % This will convert any 8 bit BMP to hex that we can store.
 b=imread('testPattern.bmp'); % 8-bit BMP image RGB332 
 k=1;
 for i=1:600% image is written from the last row to the first row
 for j=1:800
-    r = bitget(b(i,j,1),1)*4 + bitget(b(i,j,1),2)*2 + bitget(b(i,j,1),3);
-    g = bitget(b(i,j,1),4)*32 + bitget(b(i,j,1),5)*16 + bitget(b(i,j,1),6)*8;
-    bl = bitget(b(i,j,1),7)*128 + bitget(b(i,j,1),8)*64;
-    a(k)= r+g+bl;
+    p8(k) = bitget(b(i,j,1),8);
+    p7(k) = bitget(b(i,j,1),7);
+    p6(k) = bitget(b(i,j,1),6);
+    p5(k) = bitget(b(i,j,1),5);
+    p4(k) = bitget(b(i,j,1),4);
+    p3(k) = bitget(b(i,j,1),3);
+    p2(k) = bitget(b(i,j,1),2);
+    p1(k) = bitget(b(i,j,1),1);
     k=k+1;
 end
 end
-fid = fopen('testPattern.txt', 'wt');
-fprintf(fid, '%x', a);
+fid = fopen('pixels.txt', 'wt');
+fprintf(fid, "%d",p);
 disp('Text file write done');disp(' ');
 fclose(fid);
