@@ -33,7 +33,7 @@ module frameBufferTB;
     
     frameBuffer testBuffer(writeAddr, pixel_write, readAddr, pixel_read, CLK);
     
-    reg testPattern[3839999:0] = 3840000'b;//Put test pattern data here
+    reg [3839999:0]testPattern = 3840000'b1;//Put test pattern data here
     integer i=0;
     initial begin
         while (i<3840000) 
