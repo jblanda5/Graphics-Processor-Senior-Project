@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_vgaController_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_vgaController" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1,269,307.700 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,269,314.061 ns"></ZoomEndTime>
+      <Cursor1Time time="1,269,313.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="276"></NameColumnWidth>
+      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/tb_vgaController/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_vgaController/pixel" type="array">
+      <obj_property name="ElementShortName">pixel[7:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_vgaController/Hsync" type="logic">
+      <obj_property name="ElementShortName">Hsync</obj_property>
+      <obj_property name="ObjectShortName">Hsync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_vgaController/Vsync" type="logic">
+      <obj_property name="ElementShortName">Vsync</obj_property>
+      <obj_property name="ObjectShortName">Vsync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_vgaController/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_vgaController/test/h_count" type="array">
+      <obj_property name="ElementShortName">h_count[10:0]</obj_property>
+      <obj_property name="ObjectShortName">h_count[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_vgaController/test/v_count" type="array">
+      <obj_property name="ElementShortName">v_count[10:0]</obj_property>
+      <obj_property name="ObjectShortName">v_count[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_vgaController/test/v_clk" type="logic">
+      <obj_property name="ElementShortName">v_clk</obj_property>
+      <obj_property name="ObjectShortName">v_clk</obj_property>
+   </wvobject>
+</wave_config>
