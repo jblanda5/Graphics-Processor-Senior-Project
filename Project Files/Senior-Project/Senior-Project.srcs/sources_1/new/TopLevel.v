@@ -31,8 +31,7 @@ endfunction
     
 //Define our clock
 wire clk;
-wire CLK400MHZ;
-clk_wiz_0 clockModule(clk,CLK400MHZ,CLK100MHZ); //Convert CLK100MHZ to a 40MHz clock
+clk_wiz_0 clockModule(clk,CLK100MHZ); //Convert CLK100MHZ to a 40MHz clock
 
 //Define our Frame Buffer module
 reg[18:0] writeAddr;
@@ -42,10 +41,12 @@ wire[7:0] pixel_read;
 frameBuffer frame(writeAddr,pixel_write,readAddr,pixel_read,clk);
 
 //Define our display engine module
+
+//Add write enable flag
 wire [7:0]active;
 wire [10:0] h_count;
 wire [10:0] v_count;
-vga_controller displayEngine(clk,Hsync,Vsync,active,h_count,v_count,CLK400MHZ);
+vga_controller displayEngine(clk,Hsync,Vsync,active,h_count,v_count);
 
 //Output pixel read & active
 assign pixel = pixel_read & active;

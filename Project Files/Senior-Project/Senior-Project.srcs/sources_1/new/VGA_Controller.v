@@ -26,14 +26,13 @@ module vga_controller(
     output reg Vsync,  
     output reg [7:0]active,
     output wire [10:0]h_count,
-    output wire [10:0]v_count,
-    input wire CLK100MHZ
+    output wire [10:0]v_count
     );
 wire v_clk; //This will be used to increment the vertical counter. Will be high on reset and low elsewhere
 h_counter Hcounter(clk, v_clk, h_count);
 v_counter Vcounter(v_clk, v_count);
 
-always @(posedge CLK100MHZ) begin
+always @(posedge clk) begin
 //Vsync
     if (v_count <= 11'b1001011000) begin //From 1 to 600, Vsync is 0 (low-active) and video is active
         Vsync <= 0;
