@@ -27,14 +27,13 @@ module frameBuffer(
     // Output frame I/O
     input [18:0] readAddr,
     output wire [7:0] pixel_read,
+    input wire writeEnable,
     // Clock
-    input CLK
+    input wire CLK
     );
-    reg [7:0]frame[479999:0]; //Frame buffer for 800x600.
-    initial begin
-    end
-    always @(posedge CLK) begin
-    frame[writeAddr] <= pixel_write;
-    end
-    assign pixel_read = frame[readAddr];
+    blk_mem_gen_0 frameBufferMemory( //This is wrong and needs to be fixed.
+    .addra(writeAddr),
+    
+    writeAddr,readAddr,CLK,CLK,pixel_write,writeEnable,pixel_read
+    ); //Frame buffer for 800x600.
 endmodule

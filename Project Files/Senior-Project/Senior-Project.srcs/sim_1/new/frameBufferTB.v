@@ -27,20 +27,26 @@ module frameBufferTB;
     // Output frame I/O
     reg [18:0] readAddr;
     wire [7:0] pixel_read;
+    reg writeEnable;
     // Clock
     reg CLK;
     
     
-    frameBuffer testBuffer(writeAddr, pixel_write, readAddr, pixel_read, CLK);
+    frameBuffer testBuffer(writeAddr, pixel_write, readAddr, pixel_read, writeEnable, CLK);
     
-    reg [3839999:0]testPattern = 3840000'b1;//Put test pattern data here
     integer i=0;
     initial begin
         while (i<3840000) 
             begin
             CLK <= 0;
+            if (i<524288) begin
+            writeEnable <= 1;
+            end
+            else begin 
+            writeEnable <= 0;
+            end
             writeAddr <= i;
-            pixel_write <= testPattern[i];
+            pixel_write <= 8'b11111111;
             readAddr <= i;
             #1
             CLK <= 1;
