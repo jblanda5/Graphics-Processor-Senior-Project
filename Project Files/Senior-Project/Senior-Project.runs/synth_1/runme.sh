@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log frameBuffer.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source frameBuffer.tcl
+EAStep vivado -log TopLevel.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source TopLevel.tcl

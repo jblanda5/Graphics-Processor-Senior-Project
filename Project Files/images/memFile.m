@@ -1,1 +1,0 @@
-coewrite(p,2,"image.coe");
