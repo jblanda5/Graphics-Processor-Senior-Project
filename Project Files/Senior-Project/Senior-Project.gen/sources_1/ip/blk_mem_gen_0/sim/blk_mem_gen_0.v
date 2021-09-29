@@ -59,6 +59,7 @@ module blk_mem_gen_0 (
   addra,
   dina,
   clkb,
+  enb,
   addrb,
   doutb
 );
@@ -74,6 +75,8 @@ input wire [18 : 0] addra;
 input wire [7 : 0] dina;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK" *)
 input wire clkb;
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB EN" *)
+input wire enb;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB ADDR" *)
 input wire [18 : 0] addrb;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME BRAM_PORTB, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_LATENCY 1" *)
@@ -96,10 +99,10 @@ output wire [7 : 0] doutb;
     .C_BYTE_SIZE(8),
     .C_ALGORITHM(1),
     .C_PRIM_TYPE(1),
-    .C_LOAD_INIT_FILE(0),
-    .C_INIT_FILE_NAME("no_coe_file_loaded"),
+    .C_LOAD_INIT_FILE(1),
+    .C_INIT_FILE_NAME("blk_mem_gen_0.mif"),
     .C_INIT_FILE("blk_mem_gen_0.mem"),
-    .C_USE_DEFAULT_DATA(0),
+    .C_USE_DEFAULT_DATA(1),
     .C_DEFAULT_DATA("0"),
     .C_HAS_RSTA(0),
     .C_RST_PRIORITY_A("CE"),
@@ -119,7 +122,7 @@ output wire [7 : 0] doutb;
     .C_RST_PRIORITY_B("CE"),
     .C_RSTRAM_B(0),
     .C_INITB_VAL("0"),
-    .C_HAS_ENB(0),
+    .C_HAS_ENB(1),
     .C_HAS_REGCEB(0),
     .C_USE_BYTE_WEB(1),
     .C_WEB_WIDTH(1),
@@ -130,7 +133,7 @@ output wire [7 : 0] doutb;
     .C_READ_DEPTH_B(480000),
     .C_ADDRB_WIDTH(19),
     .C_HAS_MEM_OUTPUT_REGS_A(0),
-    .C_HAS_MEM_OUTPUT_REGS_B(0),
+    .C_HAS_MEM_OUTPUT_REGS_B(1),
     .C_HAS_MUX_OUTPUT_REGS_A(0),
     .C_HAS_MUX_OUTPUT_REGS_B(0),
     .C_MUX_PIPELINE_STAGES(0),
@@ -167,7 +170,7 @@ output wire [7 : 0] doutb;
     .douta(),
     .clkb(clkb),
     .rstb(1'D0),
-    .enb(1'D0),
+    .enb(enb),
     .regceb(1'D0),
     .web(1'B0),
     .addrb(addrb),

@@ -36,22 +36,24 @@ module frameBufferTB;
     
     integer i=0;
     initial begin
-        while (i<3840000) 
+        while (i<960000) 
             begin
             CLK <= 0;
-            if (i<524288) begin
+            if (i<480000) begin
             writeEnable <= 1;
+            writeAddr <= i;
+            readAddr <= i+1;
             end
             else begin 
             writeEnable <= 0;
+            writeAddr <= i-480000;
+            readAddr <= i+1-480000;
             end
-            writeAddr <= i;
             pixel_write <= 8'b11111111;
-            readAddr <= i;
             #1
             CLK <= 1;
             #1
-            i=i+8;
+            i=i+1;
         end
     
     end

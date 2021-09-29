@@ -26,7 +26,7 @@ module TopLevel(
     );
     
 function [18:0]xyToMem(input[18:0]x, input[18:0]y);
-    xyToMem = (x-1)+((y-1)*800);
+    xyToMem = (x)+(y*800);
 endfunction    
     
 //Define our clock
@@ -38,7 +38,8 @@ reg[18:0] writeAddr;
 reg[7:0] pixel_write;
 wire[18:0] readAddr;
 wire[7:0] pixel_read;
-frameBuffer frame(writeAddr,pixel_write,readAddr,pixel_read,clk);
+wire writeEnable;
+frameBuffer frame(writeAddr,pixel_write,readAddr,pixel_read,writeEnable,clk);
 
 //Define our display engine module
 

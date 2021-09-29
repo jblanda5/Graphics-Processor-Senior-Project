@@ -26,12 +26,12 @@ module v_counter(
     );
     
     initial begin
-        v_count = 11'b00000000001;
+        v_count = 11'b00000000000;
     
     end
     always@(posedge clk) begin
-        if (v_count == 11'b01001110100) begin
-           v_count = 11'b00000000001;
+        if (v_count == 11'b01001110011) begin
+           v_count = 11'b00000000000;
        end
         else begin
             v_count <= v_count + 11'b1;

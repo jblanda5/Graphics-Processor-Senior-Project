@@ -3,45 +3,69 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="frameBufferTB_behav.wdb" id="1">
+      <db_ref path="tb_topLevel_behav.wdb" id="1">
          <top_modules>
-            <top_module name="frameBufferTB" />
             <top_module name="glbl" />
+            <top_module name="tb_topLevel" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="104.629031 us"></ZoomStartTime>
-      <ZoomEndTime time="148.274194 us"></ZoomEndTime>
-      <Cursor1Time time="141.000000 us"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="16.000001 us"></ZoomEndTime>
+      <Cursor1Time time="16.000000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="92"></ValueColumnWidth>
+      <ValueColumnWidth column_width="76"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="6" />
-   <wvobject fp_name="/frameBufferTB/writeAddr" type="array">
-      <obj_property name="ElementShortName">writeAddr[18:0]</obj_property>
-      <obj_property name="ObjectShortName">writeAddr[18:0]</obj_property>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/tb_topLevel/CLK100MHZ" type="logic">
+      <obj_property name="ElementShortName">CLK100MHZ</obj_property>
+      <obj_property name="ObjectShortName">CLK100MHZ</obj_property>
    </wvobject>
-   <wvobject fp_name="/frameBufferTB/pixel_write" type="array">
-      <obj_property name="ElementShortName">pixel_write[7:0]</obj_property>
-      <obj_property name="ObjectShortName">pixel_write[7:0]</obj_property>
+   <wvobject fp_name="/tb_topLevel/Hsync" type="logic">
+      <obj_property name="ElementShortName">Hsync</obj_property>
+      <obj_property name="ObjectShortName">Hsync</obj_property>
    </wvobject>
-   <wvobject fp_name="/frameBufferTB/readAddr" type="array">
-      <obj_property name="ElementShortName">readAddr[18:0]</obj_property>
-      <obj_property name="ObjectShortName">readAddr[18:0]</obj_property>
+   <wvobject fp_name="/tb_topLevel/Vsync" type="logic">
+      <obj_property name="ElementShortName">Vsync</obj_property>
+      <obj_property name="ObjectShortName">Vsync</obj_property>
    </wvobject>
-   <wvobject fp_name="/frameBufferTB/pixel_read" type="array">
-      <obj_property name="ElementShortName">pixel_read[7:0]</obj_property>
-      <obj_property name="ObjectShortName">pixel_read[7:0]</obj_property>
+   <wvobject fp_name="/tb_topLevel/pixel" type="array">
+      <obj_property name="ElementShortName">pixel[7:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/frameBufferTB/CLK" type="logic">
-      <obj_property name="ElementShortName">CLK</obj_property>
-      <obj_property name="ObjectShortName">CLK</obj_property>
-   </wvobject>
-   <wvobject fp_name="/frameBufferTB/i" type="array">
+   <wvobject fp_name="/tb_topLevel/i" type="array">
       <obj_property name="ElementShortName">i[31:0]</obj_property>
       <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/Hsync" type="logic">
+      <obj_property name="ElementShortName">Hsync</obj_property>
+      <obj_property name="ObjectShortName">Hsync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/Vsync" type="logic">
+      <obj_property name="ElementShortName">Vsync</obj_property>
+      <obj_property name="ObjectShortName">Vsync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/active" type="array">
+      <obj_property name="ElementShortName">active[7:0]</obj_property>
+      <obj_property name="ObjectShortName">active[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/h_count" type="array">
+      <obj_property name="ElementShortName">h_count[10:0]</obj_property>
+      <obj_property name="ObjectShortName">h_count[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/v_count" type="array">
+      <obj_property name="ElementShortName">v_count[10:0]</obj_property>
+      <obj_property name="ObjectShortName">v_count[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/v_clk" type="logic">
+      <obj_property name="ElementShortName">v_clk</obj_property>
+      <obj_property name="ObjectShortName">v_clk</obj_property>
    </wvobject>
 </wave_config>

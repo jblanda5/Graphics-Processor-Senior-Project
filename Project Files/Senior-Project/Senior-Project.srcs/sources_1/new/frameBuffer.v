@@ -26,14 +26,19 @@ module frameBuffer(
     input [7:0] pixel_write,
     // Output frame I/O
     input [18:0] readAddr,
-    output wire [7:0] pixel_read,
+    output [7:0] pixel_read,
     input wire writeEnable,
     // Clock
-    input wire CLK
+    input wire clk
     );
     blk_mem_gen_0 frameBufferMemory( //This is wrong and needs to be fixed.
+    .addrb(readAddr),
     .addra(writeAddr),
-    
-    writeAddr,readAddr,CLK,CLK,pixel_write,writeEnable,pixel_read
+    .clkb(clk),
+    .clka(clk),
+    .doutb(pixel_read),
+    .dina(pixel_write),
+    .wea(writeEnable),
+    .enb(1)
     ); //Frame buffer for 800x600.
 endmodule
