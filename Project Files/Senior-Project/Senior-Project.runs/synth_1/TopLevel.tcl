@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
+set_param xicom.use_bs_reader 1
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 OPTRACE "Creating in-memory project" START { }
@@ -90,21 +92,23 @@ set_property ip_output_repo {c:/Users/jblan/Documents/GitHub/Graphics-Processor-
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-add_files {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/images/xilinx-coe-generator-master/output/output.coe}}
+add_files {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/images/imgTestPattern.coe}}
+add_files {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/images/genTestPattern.coe}}
 read_verilog -library xil_defaultlib {
   {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/VGA_Controller.v}
   {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/frameBuffer.v}
   {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/h_counter.v}
   {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/v_counter.v}
   {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/TopLevel.v}
+  {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/rgb_lookup.v}
 }
+read_ip -quiet {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci}}
+set_property used_in_implementation false [get_files -all {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc}}]
+
 read_ip -quiet {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci}}
 set_property used_in_implementation false [get_files -all {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc}}]
-
-read_ip -quiet {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci}}
-set_property used_in_implementation false [get_files -all {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc}}]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

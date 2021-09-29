@@ -125,6 +125,7 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 3
+  set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a100tcsg324-1
   set_property board_part_repo_paths {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/vivado-boards/new/board_files} [current_project]
@@ -141,8 +142,8 @@ OPTRACE "set parameters" START { }
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/synth_1/TopLevel.dcp}}
-  read_ip -quiet {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci}}
   read_ip -quiet {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci}}
+  read_ip -quiet {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci}}
 OPTRACE "read constraints: implementation" START { }
   read_xdc {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Nexys4DDR_Master.xdc}}
 OPTRACE "read constraints: implementation" END { }

@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "blk_mem_gen_0_synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
+set_param xicom.use_bs_reader 1
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_param project.vivado.isBlockSynthRun true

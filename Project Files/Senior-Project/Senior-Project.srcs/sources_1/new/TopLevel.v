@@ -22,9 +22,11 @@ module TopLevel(
     input wire CLK100MHZ,
     output wire Hsync, //Horizontal Sync signal  
     output wire Vsync, //Vertical Sync signal
-    output wire [7:0] pixel //Pixel output
+    output wire [11:0] vga //Pixel output
     );
-    
+wire [7:0] pixel;
+rgb_lookup lookupTable(pixel,vga);
+
 function [18:0]xyToMem(input[18:0]x, input[18:0]y);
     xyToMem = (x)+(y*800);
 endfunction    

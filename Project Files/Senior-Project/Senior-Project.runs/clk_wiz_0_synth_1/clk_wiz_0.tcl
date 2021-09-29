@@ -70,12 +70,9 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "clk_wiz_0_synth_1" START { ROLLUP_AUTO }
-set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/.Xil/Vivado-8372-Apollo/incrSyn}
+set_param xicom.use_bs_reader 1
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }

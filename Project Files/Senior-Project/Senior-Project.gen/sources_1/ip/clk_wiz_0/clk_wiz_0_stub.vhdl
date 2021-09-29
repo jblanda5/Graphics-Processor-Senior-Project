@@ -1,8 +1,8 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
--- Date        : Wed Sep 29 10:35:07 2021
--- Host        : Apollo running 64-bit major release  (build 9200)
+-- Date        : Wed Sep 29 12:15:50 2021
+-- Host        : DESKTOP-U5OEAVQ running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               {c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project
 --               Files/Senior-Project/Senior-Project.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.vhdl}

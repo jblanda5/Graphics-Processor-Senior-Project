@@ -24,8 +24,8 @@ module tb_topLevel();
 reg CLK100MHZ;
 wire Hsync;
 wire Vsync;
-wire [7:0]pixel;
-TopLevel testTopLevel(CLK100MHZ,Hsync,Vsync,pixel);
+wire [11:0]vga;
+TopLevel testTopLevel(CLK100MHZ,Hsync,Vsync,vga);
 
 integer i=0;
   initial begin
