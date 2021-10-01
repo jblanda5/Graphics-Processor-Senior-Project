@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Wed Sep 29 18:12:42 2021
+| Date         : Fri Oct  1 16:16:01 2021
 | Host         : DESKTOP-U5OEAVQ running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file TopLevel_clock_utilization_routed.rpt
 | Design       : TopLevel
@@ -53,7 +53,7 @@ Table of Contents
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+----------------------+--------------------------------+-----------------------------------------+
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site           | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                | Driver Pin                     | Net                                     |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+----------------------+--------------------------------+-----------------------------------------+
-| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 8 |         270 |               0 |       25.000 | clk_out1_clk_wiz_0_1 | clockModule/inst/clkout1_buf/O | clockModule/inst/clk_out1               |
+| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 8 |         270 |               0 |       25.000 | clk_out1_clk_wiz_0   | clockModule/inst/clkout1_buf/O | clockModule/inst/clk_out1               |
 | g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y17 | n/a          |                 1 |           1 |               0 |       50.000 | clkfbout_clk_wiz_0_1 | clockModule/inst/clkf_buf/O    | clockModule/inst/clkfbout_buf_clk_wiz_0 |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+----------------------+--------------------------------+-----------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)

@@ -26,6 +26,3 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Gra
 INFO: [VRFC 10-311] analyzing module frameBufferTB
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sim_1/new/tb_topLevel.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module tb_topLevel
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'glbl' [C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.sim/sim_1/behav/xsim/glbl.v:6]

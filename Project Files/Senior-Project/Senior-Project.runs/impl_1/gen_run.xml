@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1632953441">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1633119232">
   <File Type="ROUTE-PWR" Name="TopLevel_power_routed.rpt"/>
   <File Type="PA-TCL" Name="TopLevel.tcl"/>
   <File Type="BITSTR-MMI" Name="TopLevel.mmi"/>
@@ -122,6 +122,18 @@
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../images/imgTestPattern3.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../images/imgTestPattern4.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>

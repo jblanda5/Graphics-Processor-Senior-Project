@@ -93,6 +93,8 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 add_files {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/images/imgTestPattern.coe}}
+add_files {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/images/imgTestPattern3.coe}}
+add_files {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/images/imgTestPattern4.coe}}
 read_verilog -library xil_defaultlib {
   {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/VGA_Controller.v}
   {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/frameBuffer.v}
