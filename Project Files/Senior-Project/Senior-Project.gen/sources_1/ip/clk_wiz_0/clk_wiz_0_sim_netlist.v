@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-// Date        : Tue Sep 28 11:20:12 2021
+// Date        : Wed Sep 29 12:15:50 2021
 // Host        : DESKTOP-U5OEAVQ running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               {c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project
@@ -16,34 +16,22 @@
 (* NotValidForBitStream *)
 module clk_wiz_0
    (clk_out1,
-    reset,
-    locked,
     clk_in1);
   output clk_out1;
-  input reset;
-  output locked;
   input clk_in1;
 
   (* IBUF_LOW_PWR *) wire clk_in1;
   wire clk_out1;
-  wire locked;
-  wire reset;
 
   clk_wiz_0_clk_wiz inst
        (.clk_in1(clk_in1),
-        .clk_out1(clk_out1),
-        .locked(locked),
-        .reset(reset));
+        .clk_out1(clk_out1));
 endmodule
 
 module clk_wiz_0_clk_wiz
    (clk_out1,
-    reset,
-    locked,
     clk_in1);
   output clk_out1;
-  input reset;
-  output locked;
   input clk_in1;
 
   wire clk_in1;
@@ -52,14 +40,13 @@ module clk_wiz_0_clk_wiz
   wire clk_out1_clk_wiz_0;
   wire clkfbout_buf_clk_wiz_0;
   wire clkfbout_clk_wiz_0;
-  wire locked;
-  wire reset;
   wire NLW_plle2_adv_inst_CLKOUT1_UNCONNECTED;
   wire NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED;
   wire NLW_plle2_adv_inst_CLKOUT3_UNCONNECTED;
   wire NLW_plle2_adv_inst_CLKOUT4_UNCONNECTED;
   wire NLW_plle2_adv_inst_CLKOUT5_UNCONNECTED;
   wire NLW_plle2_adv_inst_DRDY_UNCONNECTED;
+  wire NLW_plle2_adv_inst_LOCKED_UNCONNECTED;
   wire [15:0]NLW_plle2_adv_inst_DO_UNCONNECTED;
 
   (* BOX_TYPE = "PRIMITIVE" *) 
@@ -131,9 +118,9 @@ module clk_wiz_0_clk_wiz
         .DO(NLW_plle2_adv_inst_DO_UNCONNECTED[15:0]),
         .DRDY(NLW_plle2_adv_inst_DRDY_UNCONNECTED),
         .DWE(1'b0),
-        .LOCKED(locked),
+        .LOCKED(NLW_plle2_adv_inst_LOCKED_UNCONNECTED),
         .PWRDWN(1'b0),
-        .RST(reset));
+        .RST(1'b0));
 endmodule
 `ifndef GLBL
 `define GLBL
