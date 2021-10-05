@@ -72,6 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 3
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 OPTRACE "Creating in-memory project" START { }
@@ -94,7 +95,7 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 add_files {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/images/imgTestPattern.coe}}
 add_files {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/images/imgTestPattern3.coe}}
-add_files {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/images/imgTestPattern4.coe}}
+add_files {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/images/imgTestPattern4.coe}}
 read_verilog -library xil_defaultlib {
   {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/VGA_Controller.v}
   {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/frameBuffer.v}

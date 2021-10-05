@@ -1,3 +1,4 @@
+%This file foor some reason sets "FF" as 0. 
 clear
 clc
 X=imread('testPattern4.bmp'); %Convert an indexed color bmp image to binary
@@ -8,6 +9,9 @@ fprintf(fid, "memory_initialization_radix=16;\n");
 fprintf(fid, "memory_initialization_vector=\n");
 for i=1:height
     for j=1:width
+    if (X(i,j) == 0)
+        X(i,j) = 255;
+    end
     fprintf(fid, "%x ",X(i,j));
     end
     fprintf(fid, "\n");

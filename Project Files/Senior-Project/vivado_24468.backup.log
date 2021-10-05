@@ -1,0 +1,106 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Tue Sep 28 17:58:42 2021
+# Process ID: 24468
+# Current directory: C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13248 C:\Users\jblan\Documents\GitHub\Graphics-Processor-Senior-Project\Project Files\Senior-Project\Senior-Project.xpr
+# Log file: C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/vivado.log
+# Journal file: C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.xpr}
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project'
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-509] GeneratedRun file for 'synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'clk_wiz_0_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'impl_1' not found
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.1/data/ip'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 1455.113 ; gain = 0.000
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name blk_mem_gen_0
+set_property -dict [list CONFIG.Memory_Type {Simple_Dual_Port_RAM} CONFIG.Use_Byte_Write_Enable {true} CONFIG.Byte_Size {8} CONFIG.Algorithm {Minimum_Area} CONFIG.Primitive {2kx9} CONFIG.Write_Width_A {8} CONFIG.Write_Depth_A {480000} CONFIG.Read_Width_A {8} CONFIG.Operating_Mode_A {READ_FIRST} CONFIG.Enable_A {Always_Enabled} CONFIG.Write_Width_B {8} CONFIG.Read_Width_B {8} CONFIG.Enable_B {Always_Enabled} CONFIG.Register_PortA_Output_of_Memory_Primitives {false} CONFIG.Register_PortB_Output_of_Memory_Primitives {false} CONFIG.Port_B_Clock {100} CONFIG.Port_B_Enable_Rate {100} CONFIG.Collision_Warnings {NONE} CONFIG.Disable_Collision_Warnings {true} CONFIG.Disable_Out_of_Range_Warnings {true}] [get_ips blk_mem_gen_0]
+WARNING: [IP_Flow 19-3374] An attempt to modify the value of disabled parameter 'Primitive' from '8kx2' to '2kx9' has been ignored for IP 'blk_mem_gen_0'
+generate_target {instantiation_template} [get_files {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci}}]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'blk_mem_gen_0'...
+generate_target all [get_files  {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci}}]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'blk_mem_gen_0'...
+catch { config_ip_cache -export [get_ips -all blk_mem_gen_0] }
+export_ip_user_files -of_objects [get_files {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci}}] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci}}]
+launch_runs blk_mem_gen_0_synth_1 -jobs 6
+[Tue Sep 28 18:09:45 2021] Launched blk_mem_gen_0_synth_1...
+Run output will be captured here: C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/blk_mem_gen_0_synth_1/runme.log
+export_simulation -of_objects [get_files {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci}}] -directory {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.ip_user_files} -ipstatic_source_dir {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.cache/compile_simlib/modelsim} {questa=C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.cache/compile_simlib/questa} {riviera=C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.cache/compile_simlib/riviera} {activehdl=C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+set_property -dict [list CONFIG.CLKOUT2_USED {false} CONFIG.MMCM_DIVCLK_DIVIDE {5} CONFIG.MMCM_CLKFBOUT_MULT_F {42} CONFIG.MMCM_CLKOUT0_DIVIDE_F {21} CONFIG.MMCM_CLKOUT1_DIVIDE {1} CONFIG.NUM_OUT_CLKS {1} CONFIG.CLKOUT1_JITTER {338.471} CONFIG.CLKOUT1_PHASE_ERROR {310.955}] [get_ips clk_wiz_0]
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.ASSOCIATED_BUSIF' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.ASSOCIATED_BUSIF' to value '' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.ASSOCIATED_RESET' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.ASSOCIATED_RESET' to value '' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.CLK_DOMAIN' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.CLK_DOMAIN' to value '' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.FREQ_HZ' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.FREQ_HZ' to value '100000000' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.FREQ_TOLERANCE_HZ' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.FREQ_TOLERANCE_HZ' to value '0' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.INSERT_VIP' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.INSERT_VIP' to value '0' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.PHASE' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.PHASE' to value '0.0' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_IN1.INSERT_VIP' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_IN1.INSERT_VIP' to value '0' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT1.INSERT_VIP' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT1.INSERT_VIP' to value '0' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.INSERT_VIP' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.INSERT_VIP' to value '0' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_IN1.ASSOCIATED_BUSIF' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_IN1.ASSOCIATED_BUSIF' to value '' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_IN1.ASSOCIATED_RESET' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_IN1.ASSOCIATED_RESET' to value '' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_IN1.CLK_DOMAIN' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_IN1.CLK_DOMAIN' to value '' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_IN1.FREQ_HZ' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_IN1.FREQ_HZ' to value '100000000' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_IN1.FREQ_TOLERANCE_HZ' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_IN1.FREQ_TOLERANCE_HZ' to value '0' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_IN1.PHASE' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_IN1.PHASE' to value '0.0' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT1.ASSOCIATED_BUSIF' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT1.ASSOCIATED_BUSIF' to value '' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT1.ASSOCIATED_RESET' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT1.ASSOCIATED_RESET' to value '' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT1.CLK_DOMAIN' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT1.CLK_DOMAIN' to value '' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT1.FREQ_HZ' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT1.FREQ_HZ' to value '100000000' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT1.FREQ_TOLERANCE_HZ' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT1.FREQ_TOLERANCE_HZ' to value '0' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT1.PHASE' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT1.PHASE' to value '0.0' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.ASSOCIATED_BUSIF' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.ASSOCIATED_BUSIF' to value '' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.ASSOCIATED_RESET' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.ASSOCIATED_RESET' to value '' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.CLK_DOMAIN' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.CLK_DOMAIN' to value '' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.FREQ_HZ' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.FREQ_HZ' to value '100000000' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.FREQ_TOLERANCE_HZ' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.FREQ_TOLERANCE_HZ' to value '0' for IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-4038] Could not find interface 'CLOCK_CLK_OUT2.PHASE' on IP 'clk_wiz_0'.
+ERROR: [IP_Flow 19-2270] Failed to set configurable element 'CLOCK_CLK_OUT2.PHASE' to value '0.0' for IP 'clk_wiz_0'.
+INFO: [IP_Flow 19-3438] Customization errors found on 'clk_wiz_0'. Restoring to previous valid configuration.
+ERROR: [IP_Flow 19-3439] Failed to restore IP 'clk_wiz_0' customization to its previous valid configuration.
+INFO: [Common 17-17] undo 'set_property -dict [list CONFIG.CLKOUT2_USED {false} CONFIG.MMCM_DIVCLK_DIVIDE {5} CONFIG.MMCM_CLKFBOUT_MULT_F {42} CONFIG.MMCM_CLKOUT0_DIVIDE_F {21} CONFIG.MMCM_CLKOUT1_DIVIDE {1} CONFIG.NUM_OUT_CLKS {1} CONFIG.CLKOUT1_JITTER {338.471} CONFIG.CLKOUT1_PHASE_ERROR {310.955}] [get_ips clk_wiz_0]'
+ERROR: [Common 17-39] 'set_property' failed due to earlier errors.
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 28 18:32:46 2021...

@@ -1,8 +1,8 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Fri Oct  1 16:15:24 2021
-| Host         : DESKTOP-U5OEAVQ running 64-bit major release  (build 9200)
+| Date         : Tue Oct  5 19:06:48 2021
+| Host         : Apollo running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file TopLevel_control_sets_placed.rpt
 | Design       : TopLevel
 | Device       : xc7a100t
@@ -70,13 +70,13 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+-------------------------------------+------------------------------------------+-----------------------------------------+------------------+----------------+--------------+
-|             Clock Signal            |               Enable Signal              |             Set/Reset Signal            | Slice Load Count | Bel Load Count | Bels / Slice |
-+-------------------------------------+------------------------------------------+-----------------------------------------+------------------+----------------+--------------+
-|  clockModule/inst/clk_out1          | displayEngine/Hcounter/h_count_reg[10]_0 | displayEngine/Hcounter/h_count_reg[7]_0 |                1 |              1 |         1.00 |
-|  clockModule/inst/clk_out1          | displayEngine/Vcounter/v_count_reg[2]_0  | displayEngine/Vcounter/Vsync0           |                1 |              1 |         1.00 |
-|  displayEngine/Hcounter/v_clk_reg_0 |                                          |                                         |                3 |             11 |         3.67 |
-|  clockModule/inst/clk_out1          |                                          |                                         |               18 |             31 |         1.72 |
-+-------------------------------------+------------------------------------------+-----------------------------------------+------------------+----------------+--------------+
++-------------------------------------+-----------------------------------------+-----------------------------------------+------------------+----------------+--------------+
+|             Clock Signal            |              Enable Signal              |             Set/Reset Signal            | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------------------------+-----------------------------------------+-----------------------------------------+------------------+----------------+--------------+
+|  clockModule/inst/clk_out1          | displayEngine/Vcounter/v_count_reg[2]_0 | displayEngine/Vcounter/Vsync0           |                1 |              1 |         1.00 |
+|  clockModule/inst/clk_out1          | displayEngine/Hcounter/h_count_reg[7]_1 | displayEngine/Hcounter/h_count_reg[9]_0 |                1 |              1 |         1.00 |
+|  displayEngine/Hcounter/v_clk_reg_0 |                                         |                                         |                5 |             11 |         2.20 |
+|  clockModule/inst/clk_out1          |                                         |                                         |               16 |             31 |         1.94 |
++-------------------------------------+-----------------------------------------+-----------------------------------------+------------------+----------------+--------------+
 
 
