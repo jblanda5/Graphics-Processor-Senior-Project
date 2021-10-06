@@ -1,0 +1,24 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../Senior-Project.gen/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" \
+"../../../../Senior-Project.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v" \
+"../../../../Senior-Project.gen/sources_1/ip/commandFIFO/sim/commandFIFO.v" \
+"../../../../Senior-Project.srcs/sources_1/new/VGA_Controller.v" \
+"../../../../Senior-Project.srcs/sources_1/new/frameBuffer.v" \
+"../../../../Senior-Project.srcs/sources_1/new/h_counter.v" \
+"../../../../Senior-Project.srcs/sources_1/new/v_counter.v" \
+"../../../../Senior-Project.srcs/sources_1/new/TopLevel.v" \
+"../../../../Senior-Project.srcs/sources_1/new/rgb_lookup.v" \
+"../../../../Senior-Project.srcs/sources_1/new/commandProcessor.v" \
+"../../../../Senior-Project.srcs/sim_1/new/tb_vgaController.v" \
+"../../../../Senior-Project.srcs/sim_1/new/tb_hcount.v" \
+"../../../../Senior-Project.srcs/sim_1/new/tb_vcount.v" \
+"../../../../Senior-Project.srcs/sim_1/new/frameBufferTB.v" \
+"../../../../Senior-Project.srcs/sim_1/new/tb_topLevel.v" \
+"../../../../Senior-Project.srcs/sim_1/new/tb_commandProcessor.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
