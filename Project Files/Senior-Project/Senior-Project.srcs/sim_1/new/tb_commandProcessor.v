@@ -24,8 +24,8 @@ module tb_commandProcessor;
 reg write_en; 
 wire full, empty;
 reg read_en;
-wire [31:0] dataOut;
-reg [31:0] dataIn;
+wire [39:0] dataOut;
+reg [39:0] dataIn;
 reg clk;
 commandProcessor vram(
 write_en,

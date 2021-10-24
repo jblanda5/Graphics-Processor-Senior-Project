@@ -21,36 +21,35 @@
 
 
 module drawLine(
-input wire [10:0]x1,  //X for first point
-input wire [10:0]y1,  //Y for first point
-input wire [10:0]x2,  //X for second point
-input wire [10:0]y2,  //Y for second point
+input wire [9:0]x1,  //X for first point
+input wire [9:0]y1,  //Y for first point
+input wire [9:0]x2,  //X for second point
+input wire [9:0]y2,  //Y for second point
 input wire clk,
 output reg ready, //Will be used to tell its parent if this module is busy or ready to be used.
-output reg [10:0]x_out,
-output reg [10:0]y_out,
+output reg [9:0]x_out,
+output reg [9:0]y_out,
 output reg pixelWrite
 );
 
-function [10:0]pixelCheck(input[10:0]x, input[10:0]y, input[10:0]deltaX, input [10:0]deltaY);
-    if ((deltaY*x) >= (deltaX*y)) begin //Check to see if the output would be negative
+function [9:0]pixelCheck(input[10:0]x, input[10:0]y, input[10:0]deltaX, input [10:0]deltaY); begin
     pixelCheck = (deltaY*x)-(deltaX*y);
+    if (pixelCheck[9] == 1) begin
+    pixelCheck = ~pixelCheck + 1; //Return the 2's compliment as the value is negative.
     end
-    else begin //We're simply using this for error, so sign doesn't matter.
-    pixelCheck = (deltaX*y)-(deltaY*x);
-    end
-endfunction    
+end
+endfunction
 
 
-reg [10:0]y_current;
-reg [10:0]x_current;
-reg [10:0]y_offset;
-reg [10:0]x_offset;  //Used to move the origin for simplicity of the alogirthm, will be added to the output
-reg [10:0]x2_shift;
-reg [10:0]y2_shift;
-reg [10:0]error_unchanged;
-reg [10:0]error_above;
-reg [10:0]error_below;
+reg [9:0]y_current;
+reg [9:0]x_current;
+reg [9:0]y_offset;
+reg [9:0]x_offset;  //Used to move the origin for simplicity of the alogirthm, will be added to the output
+reg [9:0]x2_shift;
+reg [9:0]y2_shift;
+reg [9:0]error_unchanged;
+reg [9:0]error_above;
+reg [9:0]error_below;
 
 initial begin
 ready <= 1;
@@ -61,8 +60,8 @@ y_current <= 0;
 x_current <= 0;
 y_offset <= y1;
 x_offset <= x1;
-x2_shift <= x2 - x_offset;
-y2_shift <= y2 - y_offset;
+x2_shift <= x2 - x1;
+y2_shift <= y2 - y1;
 ready <= 0;
 end
 

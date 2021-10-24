@@ -3,45 +3,93 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_commandProcessor_behav.wdb" id="1">
+      <db_ref path="tb_drawLine_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="tb_commandProcessor" />
+            <top_module name="tb_drawLine" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="166.666 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,166.667 ns"></ZoomEndTime>
-      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="28.066 ns"></ZoomEndTime>
+      <Cursor1Time time="20.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="64"></ValueColumnWidth>
+      <NameColumnWidth column_width="274"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="6" />
-   <wvobject fp_name="/tb_commandProcessor/write_en" type="logic">
-      <obj_property name="ElementShortName">write_en</obj_property>
-      <obj_property name="ObjectShortName">write_en</obj_property>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/tb_drawLine/lineDraw/x1" type="array">
+      <obj_property name="ElementShortName">x1[9:0]</obj_property>
+      <obj_property name="ObjectShortName">x1[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_commandProcessor/read_en" type="logic">
-      <obj_property name="ElementShortName">read_en</obj_property>
-      <obj_property name="ObjectShortName">read_en</obj_property>
+   <wvobject fp_name="/tb_drawLine/lineDraw/y1" type="array">
+      <obj_property name="ElementShortName">y1[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y1[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_commandProcessor/dataOut" type="array">
-      <obj_property name="ElementShortName">dataOut[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dataOut[31:0]</obj_property>
+   <wvobject fp_name="/tb_drawLine/lineDraw/x2" type="array">
+      <obj_property name="ElementShortName">x2[9:0]</obj_property>
+      <obj_property name="ObjectShortName">x2[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_commandProcessor/dataIn" type="array">
-      <obj_property name="ElementShortName">dataIn[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dataIn[31:0]</obj_property>
+   <wvobject fp_name="/tb_drawLine/lineDraw/y2" type="array">
+      <obj_property name="ElementShortName">y2[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y2[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_commandProcessor/clk" type="logic">
+   <wvobject fp_name="/tb_drawLine/lineDraw/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_commandProcessor/i" type="array">
-      <obj_property name="ElementShortName">i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   <wvobject fp_name="/tb_drawLine/lineDraw/ready" type="logic">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_drawLine/lineDraw/x_out" type="array">
+      <obj_property name="ElementShortName">x_out[9:0]</obj_property>
+      <obj_property name="ObjectShortName">x_out[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_drawLine/lineDraw/y_out" type="array">
+      <obj_property name="ElementShortName">y_out[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y_out[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_drawLine/lineDraw/pixelWrite" type="logic">
+      <obj_property name="ElementShortName">pixelWrite</obj_property>
+      <obj_property name="ObjectShortName">pixelWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_drawLine/lineDraw/y_current" type="array">
+      <obj_property name="ElementShortName">y_current[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y_current[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_drawLine/lineDraw/x_current" type="array">
+      <obj_property name="ElementShortName">x_current[9:0]</obj_property>
+      <obj_property name="ObjectShortName">x_current[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_drawLine/lineDraw/y_offset" type="array">
+      <obj_property name="ElementShortName">y_offset[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y_offset[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_drawLine/lineDraw/x_offset" type="array">
+      <obj_property name="ElementShortName">x_offset[9:0]</obj_property>
+      <obj_property name="ObjectShortName">x_offset[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_drawLine/lineDraw/x2_shift" type="array">
+      <obj_property name="ElementShortName">x2_shift[9:0]</obj_property>
+      <obj_property name="ObjectShortName">x2_shift[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_drawLine/lineDraw/y2_shift" type="array">
+      <obj_property name="ElementShortName">y2_shift[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y2_shift[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_drawLine/lineDraw/error_unchanged" type="array">
+      <obj_property name="ElementShortName">error_unchanged[9:0]</obj_property>
+      <obj_property name="ObjectShortName">error_unchanged[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_drawLine/lineDraw/error_above" type="array">
+      <obj_property name="ElementShortName">error_above[9:0]</obj_property>
+      <obj_property name="ObjectShortName">error_above[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_drawLine/lineDraw/error_below" type="array">
+      <obj_property name="ElementShortName">error_below[9:0]</obj_property>
+      <obj_property name="ObjectShortName">error_below[9:0]</obj_property>
    </wvobject>
 </wave_config>

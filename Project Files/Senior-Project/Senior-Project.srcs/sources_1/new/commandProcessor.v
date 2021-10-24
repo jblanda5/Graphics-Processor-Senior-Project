@@ -23,11 +23,11 @@
 module commandProcessor(
 input wire write_en, read_en,
 output wire full, empty,
-output wire [31:0] dataOut,
-input wire [31:0] dataIn,
+output wire [39:0] dataOut,
+input wire [39:0] dataIn,
 input wire clk
 );
-
+reg readClk;
 //Instantiate FIFO object
 commandFIFO commandBuffer(
 .full(full), 
