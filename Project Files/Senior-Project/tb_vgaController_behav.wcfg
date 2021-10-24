@@ -3,73 +3,45 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_topLevel_behav.wdb" id="1">
+      <db_ref path="tb_commandProcessor_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="tb_topLevel" />
+            <top_module name="tb_commandProcessor" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="3,316,455,200 ps"></ZoomStartTime>
-      <ZoomEndTime time="3,316,458,621 ps"></ZoomEndTime>
-      <Cursor1Time time="3,316,456,700 ps"></Cursor1Time>
+      <ZoomStartTime time="166.666 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,166.667 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="68"></ValueColumnWidth>
+      <ValueColumnWidth column_width="64"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="13" />
-   <wvobject fp_name="/tb_topLevel/CLK100MHZ" type="logic">
-      <obj_property name="ElementShortName">CLK100MHZ</obj_property>
-      <obj_property name="ObjectShortName">CLK100MHZ</obj_property>
+   <WVObjectSize size="6" />
+   <wvobject fp_name="/tb_commandProcessor/write_en" type="logic">
+      <obj_property name="ElementShortName">write_en</obj_property>
+      <obj_property name="ObjectShortName">write_en</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/Hsync" type="logic">
-      <obj_property name="ElementShortName">Hsync</obj_property>
-      <obj_property name="ObjectShortName">Hsync</obj_property>
+   <wvobject fp_name="/tb_commandProcessor/read_en" type="logic">
+      <obj_property name="ElementShortName">read_en</obj_property>
+      <obj_property name="ObjectShortName">read_en</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/Vsync" type="logic">
-      <obj_property name="ElementShortName">Vsync</obj_property>
-      <obj_property name="ObjectShortName">Vsync</obj_property>
+   <wvobject fp_name="/tb_commandProcessor/dataOut" type="array">
+      <obj_property name="ElementShortName">dataOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dataOut[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/i" type="array">
-      <obj_property name="ElementShortName">i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   <wvobject fp_name="/tb_commandProcessor/dataIn" type="array">
+      <obj_property name="ElementShortName">dataIn[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dataIn[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/clk" type="logic">
+   <wvobject fp_name="/tb_commandProcessor/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/Hsync" type="logic">
-      <obj_property name="ElementShortName">Hsync</obj_property>
-      <obj_property name="ObjectShortName">Hsync</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/Vsync" type="logic">
-      <obj_property name="ElementShortName">Vsync</obj_property>
-      <obj_property name="ObjectShortName">Vsync</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/active" type="array">
-      <obj_property name="ElementShortName">active[7:0]</obj_property>
-      <obj_property name="ObjectShortName">active[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/h_count" type="array">
-      <obj_property name="ElementShortName">h_count[10:0]</obj_property>
-      <obj_property name="ObjectShortName">h_count[10:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/v_count" type="array">
-      <obj_property name="ElementShortName">v_count[10:0]</obj_property>
-      <obj_property name="ObjectShortName">v_count[10:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/displayEngine/v_clk" type="logic">
-      <obj_property name="ElementShortName">v_clk</obj_property>
-      <obj_property name="ObjectShortName">v_clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_topLevel/vga" type="array">
-      <obj_property name="ElementShortName">vga[11:0]</obj_property>
-      <obj_property name="ObjectShortName">vga[11:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/frame/pixel_read" type="array">
-      <obj_property name="ElementShortName">pixel_read[7:0]</obj_property>
-      <obj_property name="ObjectShortName">pixel_read[7:0]</obj_property>
+   <wvobject fp_name="/tb_commandProcessor/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
    </wvobject>
 </wave_config>
