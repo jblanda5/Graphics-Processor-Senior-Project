@@ -22,6 +22,7 @@
 
 module vga_controller(
     input wire clk,
+    input wire reset,
     output reg Hsync, //Horizontal Sync signal  
     output reg Vsync,  
     output reg [7:0]active,
@@ -29,11 +30,20 @@ module vga_controller(
     output wire [10:0]v_count
     );
 wire v_clk; //This will be used to increment the vertical counter. Will be high on reset and low elsewhere
-h_counter Hcounter(clk, v_clk, h_count);
-v_counter Vcounter(v_clk, v_count);
+h_counter Hcounter(
+.clk(clk), 
+.reset(reset), 
+.v_clk(v_clk), 
+.h_count(h_count)
+);
+v_counter Vcounter(
+.v_clk(v_clk), 
+.reset(reset), 
+.v_count(v_count)
+);
 
 always @(posedge clk) begin
-//Vsync
+    //Vsync
     if (v_count <= 599) begin //From 0 to 599, Vsync is 0 (low-active) and video is active
         Vsync <= 0;
     end
@@ -50,8 +60,8 @@ always @(posedge clk) begin
         Vsync <= 0;
     end
 
-//Hsync
-//Every value is 1 clock cycle early, as it won't take effect until the next cycle.
+    //Hsync
+    //Every value is 1 clock cycle early, as it won't take effect until the next cycle.
     if (h_count <= 798 | h_count == 1055) begin //From 1 to 800, Hsync is 0 (low-active) and video is active
         Hsync <= 0;
     end
@@ -68,19 +78,19 @@ always @(posedge clk) begin
         Hsync <= 0;
     end
     
-//Active check
-active <= 8'b11111111;
-if(v_count > 599) begin //check if its outside active vertical region
-active <= 8'b00000000;
-end
-if(h_count > 798 & ~(h_count == 1055)) begin //check if its outside active horizontal region
-active <= 8'b00000000;
-end
-if(h_count == 1055 & v_count == 599) begin //Niche case: inactive at first pixel of outside vertical area
-active <= 8'b00000000;
-end
-if(h_count == 1055 & v_count == 627) begin //Niche case: active at first pixel of new frame
-active <= 8'b11111111;
-end
+    //Active check
+    active <= 8'b11111111;
+    if(v_count > 599) begin //check if its outside active vertical region
+        active <= 8'b00000000;
+    end
+    if(h_count > 798 & ~(h_count == 1055)) begin //check if its outside active horizontal region
+        active <= 8'b00000000;
+    end
+    if(h_count == 1055 & v_count == 599) begin //Niche case: inactive at first pixel of outside vertical area
+        active <= 8'b00000000;
+    end
+    if(h_count == 1055 & v_count == 627) begin //Niche case: active at first pixel of new frame
+        active <= 8'b11111111;
+    end
 end
 endmodule
