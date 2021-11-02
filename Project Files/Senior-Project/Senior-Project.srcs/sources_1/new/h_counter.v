@@ -22,6 +22,7 @@
 
 module h_counter(
     input wire clk,
+    input wire reset,
     output reg v_clk,
     output reg [10:0] h_count
     );
@@ -31,6 +32,9 @@ module h_counter(
     
     end
     always@(posedge clk) begin
+    if (reset) begin
+        h_count = 11'b00000000000;
+    end
         if (h_count == 11'b10000011101) begin
            h_count <= 11'b00000000000;
             v_clk <= 1;

@@ -22,16 +22,20 @@
 
 module v_counter(
     input wire clk,
+    input wire reset,
     output reg [10:0] v_count
     );
     
     initial begin
-        v_count = 11'b00000000000;
+        v_count <= 11'b00000000000;
     
     end
     always@(posedge clk) begin
+        if (reset) begin
+            v_count <= 11'b00000000000;
+        end
         if (v_count == 11'b01001110011) begin
-           v_count = 11'b00000000000;
+           v_count <= 11'b00000000000;
        end
         else begin
             v_count <= v_count + 11'b1;

@@ -26,7 +26,7 @@ module rgb_lookup(
     );
     reg[3:0] red,green,blue;
     assign vga = (red << 8) + (green << 4) + blue;
-    always @(pixel) begin
+    always @(*) begin
     case(pixel[7:5])
         3'b000 : red <= 4'b0000;
         3'b001 : red <= 4'b0010;
