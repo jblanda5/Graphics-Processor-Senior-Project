@@ -29,7 +29,6 @@ reg clk;
 wire ready;
 wire [10:0]x_out;
 wire [10:0]y_out;
-wire pixelWrite;
 
 drawLine lineDraw(
 .x1(x1),
@@ -39,8 +38,7 @@ drawLine lineDraw(
 .clk(clk),
 .ready(ready),
 .x_out(x_out),
-.y_out(y_out),
-.pixelWrite(pixelWrite)
+.y_out(y_out)
 );
 
 
@@ -52,9 +50,9 @@ y1 <= 0;
 y2 <= 0;
 #1
 x1 <= 0;
-y1 <= 3;
+y1 <= 8;
 x2 <= 9;
-y2 <= 0;
+y2 <= 5;
 while (i<250) begin
 clk <= 0;
 #1

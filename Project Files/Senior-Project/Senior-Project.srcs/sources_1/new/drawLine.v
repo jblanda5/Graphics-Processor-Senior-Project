@@ -27,72 +27,80 @@ input wire [9:0]x2,  //X for second point
 input wire [9:0]y2,  //Y for second point
 input wire clk,
 output reg ready, //Will be used to tell its parent if this module is busy or ready to be used.
-output reg [9:0]x_out,
-output reg [9:0]y_out,
-output reg pixelWrite
+output wire [9:0]x_out,
+output wire [9:0]y_out
 );
 
-function [9:0]pixelCheck(input[10:0]x, input[10:0]y, input[10:0]deltaX, input [10:0]deltaY); begin
-    pixelCheck = (deltaY*x)-(deltaX*y);
-    if (pixelCheck[9] == 1) begin
-    pixelCheck = ~pixelCheck + 1; //Return the 2's compliment as the value is negative.
-    end
-end
-endfunction
+//function [9:0]pixelCheck(input[10:0]x, input[10:0]y, input[10:0]deltaX, input [10:0]deltaY); begin
+//    pixelCheck = (deltaY*x)-(deltaX*y);
+//    if (pixelCheck[9] == 1) begin
+//    pixelCheck = ~pixelCheck + 1; //Return the 2's compliment as the value is negative.
+//    end
+//end
+//endfunction
 
-
+reg [9:0]dx;
+reg [9:0]dy;
+reg [9:0]D; //%%%%Capital D for notation
+//reg [9:0] y; %%%% We don't need this
 reg [9:0]y_current;
 reg [9:0]x_current;
-reg [9:0]y_offset;
-reg [9:0]x_offset;  //Used to move the origin for simplicity of the alogirthm, will be added to the output
-reg [9:0]x2_shift;
-reg [9:0]y2_shift;
-reg [9:0]error_unchanged;
-reg [9:0]error_above;
-reg [9:0]error_below;
+reg increment;
+// Assign outputs to current value + offset
+assign x_out = x_current + x1;
+assign y_out = y_current + y1;
 
 initial begin
 ready <= 1;
 end
 
-always @(posedge x1, y1, x2, y2) begin //Update these for new input values
-y_current <= 0;
+// Set up initial values given a new line to draw.
+always @(posedge x1, y1, x2, y2) begin
+dx <= x2 - x1;
+// Check for underflow
+if (y2 - y1 > y2) begin
+	increment = 0;
+	dy <= ~(y2-y1)+1;
+end
+else begin
+	dy <= y2 - y1;
+	increment = 1;
+end
+D <= x2-x1;
+y_current <= 0; //Start point = (0,0)
 x_current <= 0;
-y_offset <= y1;
-x_offset <= x1;
-x2_shift <= x2 - x1;
-y2_shift <= y2 - y1;
+
 ready <= 0;
 end
 
-always @(posedge clk) begin
-if (~ready) begin //If the module is not in standbye mode...
-    error_unchanged = pixelCheck(x_current, y_current, x2_shift, y2_shift);
-    error_above = pixelCheck(x_current, y_current-1, x2_shift, y2_shift); //If y_current is 0, it will pass 2048 which is fine (returns a high value) as we don't want to use a negative pixel.
-    error_below = pixelCheck(x_current, y_current+1, x2_shift, y2_shift);
-
-    if (error_unchanged <= error_above & error_unchanged <= error_below) begin //If the unchanged value is the lowest error
-        x_out <= x_current + x_offset;
-        y_out <= y_current + y_offset;
+// %%%% Moved the ~ready check inside the clock condition as I believe this is more efficient? If not we can change it back
+always @(posedge (clk & ~ready)) begin //If the module is not in standbye mode...
+    //This assignment cannot be parallelized otherwise the later reduction this clock cycle will never take place.
+    D = D + dy + dy;
+    
+    if (D > (dx + dx)) begin
+		
+		// Increment if dy was positive, decrement if negative
+		if (increment) begin
+			y_current <= y_current + 1;
+		end
+		else begin
+			y_current <= y_current - 1;
+		end
+		
+		// Reduce D by 2*dx
+        D <= D - (dx + dx);
     end
-    else if (error_above <= error_unchanged & error_above <= error_below) begin //If the above value is the lowest error
-        x_out <= x_current + x_offset;
-        y_out <= y_current + y_offset - 1;
-        y_current <= y_current - 1;
-    end
-    else begin //If the below value is the lowest error
-        x_out <= x_current + x_offset;
-        y_out <= y_current + y_offset + 1;
-        y_current <= y_current + 1;
-    end
-    pixelWrite <= 1; //Enable pixel writing
-    if (x_current == x2_shift) begin
-        ready <= 1;
-        pixelWrite <= 0;
-    end
+    
     x_current = x_current + 1; //increment x value
+    
+//    x_out = x_current; %%%%Moving these to outside the module, we want to assign xout and yout as their current plus the offset (dx/dy)
+//    y_out = y_current;
+    
+    if (x_current == dx) begin // %%%% Changing this from x2 to dx as we're normalizing the line to points (0,0) and (dx,dy) then offsetting.
+        ready <= 1;
+    end
 
-end
 end
 
 endmodule
