@@ -38,8 +38,8 @@ endfunction
 //Define our clock
 wire clk;
 clk_wiz_0 clockModule(
-.clk(clk),
-.CLK100MHZ(CLK100MHZ)
+.clk_out1(clk),
+.clk_in1(CLK100MHZ)
 ); //Convert CLK100MHZ to a 40MHz clock
 
 //Define our Frame Buffer module

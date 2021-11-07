@@ -37,7 +37,7 @@ h_counter Hcounter(
 .h_count(h_count)
 );
 v_counter Vcounter(
-.v_clk(v_clk), 
+.clk(v_clk), 
 .reset(reset), 
 .v_count(v_count)
 );
