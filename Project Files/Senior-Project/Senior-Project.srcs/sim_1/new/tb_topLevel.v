@@ -25,10 +25,24 @@ reg CLK100MHZ;
 wire Hsync;
 wire Vsync;
 wire [11:0]vga;
-TopLevel testTopLevel(CLK100MHZ,Hsync,Vsync,vga);
+reg [70:0] dataIn;
+reg write_en;
+TopLevel testTopLevel(CLK100MHZ,Hsync,Vsync,vga,dataIn,write_en);
 
 integer i=0;
   initial begin
+        CLK100MHZ <= 0;
+        dataIn <= 71'b11111111111111111111111111111111111111111111111111111111111111111111111;
+        write_en <= 1;
+        #1;
+        CLK100MHZ <= 1;
+        i = i+1;
+        #1;
+        CLK100MHZ <= 0;
+        dataIn <= 71'b01010101010101010101010101010101010101010101010101010101010101010101010;
+        #1;
+        CLK100MHZ <= 1;
+        #1;  
     while (i<2500000) begin
         CLK100MHZ <= 0;
         #1;
