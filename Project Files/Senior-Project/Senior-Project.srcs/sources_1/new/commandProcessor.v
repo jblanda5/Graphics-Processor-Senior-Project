@@ -46,12 +46,14 @@ always @(posedge clk) begin
             x3 <= 10'b0;
             y3 <= 10'b0;
             if(~empty) begin
-                state <= 2'b01;
-                read_en <= 1; //next clock cycle we'll read data from the FIFO.
+                read_en <= 1;//next clock cycle we'll read data from the FIFO.
+                state <= 2'b01; 
             end
         end
-        
-        2'b01: begin //Read state
+        2'b01: begin //Delay state, this clock cycle is needed for the FIFO data to propogate
+            state <= 2'b10;
+        end
+        2'b10: begin //Read state
             instruction <= dataOut[70:68];
             color <= dataOut[67:60];
             x1 <= dataOut[59:50];
@@ -62,18 +64,19 @@ always @(posedge clk) begin
             y3 <= dataOut[9:0];
             //Move to busy state and turn off read
             read_en <= 0;
-            state <= 2'b10;
+            state <= 2'b11;
         end
 
-        2'b10: begin //busy state
-            if (finished) begin
+        2'b11: begin //busy state
+//            if (finished) begin
                 if (~empty) begin
                     state <= 2'b01; //Have instructions in the FIFO
+                    read_en <= 1;
                 end
                 else begin
                     state <= 2'b00; //No instructions ready, go to idle...
                 end
-            end
+//            end
         end
 
         default: state <= 2'b00; //Default reset

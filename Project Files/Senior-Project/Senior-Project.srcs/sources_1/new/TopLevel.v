@@ -65,16 +65,18 @@ wire full;
 //wire[70:0] dataIn;
 //wire write_en;
 wire empty;
-wire[70:0] dataOut;
+wire read_clk;
 wire read_en;
+wire[70:0] dataOut;
 commandFIFO FIFO(
 .full(full), 
 .din(dataIn), 
 .wr_en(write_en), 
 .empty(empty), 
 .dout(dataOut), 
-.rd_en(read_en), 
-.clk(clk)
+.rd_en(read_en),
+.rd_clk(clk),
+.wr_clk(clk)
 );
 
 //Instantiate Command Processor
