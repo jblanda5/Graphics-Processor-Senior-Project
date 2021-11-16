@@ -24,7 +24,8 @@ module TopLevel(
     output wire Vsync, //Vertical Sync signal
     output wire [11:0] vga, //Pixel output
     input wire[70:0] dataIn,
-    input wire write_en
+    input wire write_en,
+    input wire rtr_drawLine
     );
 //set up our pixel color wire
 wire [7:0] pixel;
@@ -38,7 +39,8 @@ endfunction
 
 //Define our clock
 wire clk;
-clk_wiz_0 clockModule(clk,CLK100MHZ); //Convert CLK100MHZ to a 40MHz clock
+assign clk = CLK100MHZ;
+//clk_wiz_0 clockModule(clk,CLK100MHZ); //Convert CLK100MHZ to a 40MHz clock
 
 //Define our Frame Buffer module
 reg[18:0] writeAddr;
@@ -69,33 +71,26 @@ wire read_clk;
 wire read_en;
 wire[70:0] dataOut;
 commandFIFO FIFO(
-.full(full), 
-.din(dataIn), 
-.wr_en(write_en), 
-.empty(empty), 
-.dout(dataOut), 
+.full(full),
+.din(dataIn),
+.wr_en(write_en),
+.empty(empty),
+.dout(dataOut),
 .rd_en(read_en),
-.rd_clk(clk),
-.wr_clk(clk)
+.clk(clk)
 );
 
 //Instantiate Command Processor
 wire finished;
-wire[2:0] instruction;
-wire [9:0]x1,y1,x2,y2,x3,y3;
+//wire rtr_drawLine;
+wire rts_drawLine;
 commandProcessor command_processor(
 .clk(clk),
-.finished(finished),
-.dataOut(dataOut),
+.Instruction(dataOut),
 .empty(empty),
-.instruction(instruction),
-.color(color),
-.x1(x1),
-.x2(x2),
-.x3(x3),
-.y1(y1),
-.y2(y2),
-.y3(y3),
+.finished(finished),
+.rtr_drawLine(rtr_drawLine),
+.rts_drawLine(rts_drawLine),
 .read_en(read_en)
 );
 endmodule

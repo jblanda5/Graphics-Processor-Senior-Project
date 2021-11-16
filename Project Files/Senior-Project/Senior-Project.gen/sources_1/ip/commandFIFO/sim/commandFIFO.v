@@ -67,13 +67,13 @@ module commandFIFO (
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 core_clk CLK" *)
 input wire clk;
 (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_write:1.0 FIFO_WRITE WR_DATA" *)
-input wire [39 : 0] din;
+input wire [70 : 0] din;
 (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_write:1.0 FIFO_WRITE WR_EN" *)
 input wire wr_en;
 (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_read:1.0 FIFO_READ RD_EN" *)
 input wire rd_en;
 (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_read:1.0 FIFO_READ RD_DATA" *)
-output wire [39 : 0] dout;
+output wire [70 : 0] dout;
 (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_write:1.0 FIFO_WRITE FULL" *)
 output wire full;
 (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_read:1.0 FIFO_READ EMPTY" *)
@@ -85,9 +85,9 @@ output wire empty;
     .C_COUNT_TYPE(0),
     .C_DATA_COUNT_WIDTH(10),
     .C_DEFAULT_VALUE("BlankString"),
-    .C_DIN_WIDTH(40),
+    .C_DIN_WIDTH(71),
     .C_DOUT_RST_VAL("0"),
-    .C_DOUT_WIDTH(40),
+    .C_DOUT_WIDTH(71),
     .C_ENABLE_RLOCS(0),
     .C_FAMILY("artix7"),
     .C_FULL_FLAGS_RST_VAL(0),

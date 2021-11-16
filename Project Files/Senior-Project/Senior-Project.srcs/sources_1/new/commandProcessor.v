@@ -22,64 +22,72 @@
 
 module commandProcessor(
 input wire clk,
-input wire finished,
-input wire[70:0] dataOut,
+input wire[70:0] Instruction,
 input wire empty,
-output reg[2:0] instruction,
-output reg[7:0] color,
-output reg[9:0] x1,x2,x3,
-output reg[9:0] y1,y2,y3,
+input wire finished,
+input wire rtr_drawLine,
+output reg rts_drawLine,
 output reg read_en
 );
-reg [1:0]state;
-
+reg [2:0]state;
 
 always @(posedge clk) begin
     case(state)
-        2'b00: begin //Idle state
-            instruction <= 3'b0;
-            color <= 8'b0;
-            x1 <= 10'b0;
-            y1 <= 10'b0;
-            x2 <= 10'b0;
-            y2 <= 10'b0;
-            x3 <= 10'b0;
-            y3 <= 10'b0;
-            if(~empty) begin
-                read_en <= 1;//next clock cycle we'll read data from the FIFO.
-                state <= 2'b01; 
+        3'b000: begin //Reset state.
+            read_en <= 0;
+            rts_drawLine <= 0;
+            state <= 3'b001;
+        end
+        3'b001: begin //Idle state, no instructions available.
+            if (~empty) begin
+                state <= 3'b101; //GoTo instruction state
+                read_en <= 1;
             end
         end
-        2'b01: begin //Delay state, this clock cycle is needed for the FIFO data to propogate
-            state <= 2'b10;
+        3'b010: begin //Instruction state
+            case(Instruction[70:68])
+                3'b010: begin //This instruction is the DrawLine instruction
+                    if (rtr_drawLine) begin
+                        rts_drawLine <= 1;
+                        state <= 3'b011;
+                    end
+                    else begin
+                        state <= 3'b100;
+                    end
+                end
+                default: state <= 3'b000; //Bad instruction, go to reset
+            endcase
         end
-        2'b10: begin //Read state
-            instruction <= dataOut[70:68];
-            color <= dataOut[67:60];
-            x1 <= dataOut[59:50];
-            y1 <= dataOut[49:40];
-            x2 <= dataOut[39:30];
-            y2 <= dataOut[29:20];
-            x3 <= dataOut[19:10];
-            y3 <= dataOut[9:0];
-            //Move to busy state and turn off read
-            read_en <= 0;
-            state <= 2'b11;
-        end
-
-        2'b11: begin //busy state
-//            if (finished) begin
-                if (~empty) begin
-                    state <= 2'b01; //Have instructions in the FIFO
+        3'b011: begin //Busy state
+            rts_drawLine <= 0;
+            if(finished) begin
+                if (~empty) begin //Instruction ready, go to instruction state
+                    state <= 3'b010;
                     read_en <= 1;
-                end
+                    end
                 else begin
-                    state <= 2'b00; //No instructions ready, go to idle...
+                    state <= 3'b001;
                 end
-//            end
+            end
         end
-
-        default: state <= 2'b00; //Default reset
+        3'b100: begin //Neutral state, module is not RTR.
+        case (Instruction[70:68]) //Read Instruction
+            3'b010: begin //drawLine
+                if (rtr_drawLine) begin
+                    rts_drawLine <= 1;
+                    state <= 3'b011;
+                end
+            end
+        endcase
+        end
+        3'b101: begin //Temp state, let FIFO data propogate
+        read_en <= 0; //Disable read enable to stop the FIFO from outputting.
+        state <= 3'b010;
+        end
+        default: begin
+            read_en <= 0;
+            state <= 3'b000; //Default reset
+        end
     endcase
 end
 endmodule

@@ -3,77 +3,53 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_drawLine_behav.wdb" id="1">
+      <db_ref path="tb_topLevel_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="tb_drawLine" />
+            <top_module name="tb_topLevel" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="14.001 ns"></ZoomEndTime>
-      <Cursor1Time time="1.000 ns"></Cursor1Time>
+      <ZoomEndTime time="13.932 ns"></ZoomEndTime>
+      <Cursor1Time time="10.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="270"></NameColumnWidth>
+      <NameColumnWidth column_width="254"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="14" />
-   <wvobject fp_name="/tb_drawLine/lineDraw/x1" type="array">
-      <obj_property name="ElementShortName">x1[9:0]</obj_property>
-      <obj_property name="ObjectShortName">x1[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/y1" type="array">
-      <obj_property name="ElementShortName">y1[9:0]</obj_property>
-      <obj_property name="ObjectShortName">y1[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/x2" type="array">
-      <obj_property name="ElementShortName">x2[9:0]</obj_property>
-      <obj_property name="ObjectShortName">x2[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/y2" type="array">
-      <obj_property name="ElementShortName">y2[9:0]</obj_property>
-      <obj_property name="ObjectShortName">y2[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/clk" type="logic">
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/ready" type="logic">
-      <obj_property name="ElementShortName">ready</obj_property>
-      <obj_property name="ObjectShortName">ready</obj_property>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/Instruction" type="array">
+      <obj_property name="ElementShortName">Instruction[71:0]</obj_property>
+      <obj_property name="ObjectShortName">Instruction[71:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/x_out" type="array">
-      <obj_property name="ElementShortName">x_out[9:0]</obj_property>
-      <obj_property name="ObjectShortName">x_out[9:0]</obj_property>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/empty" type="logic">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/y_out" type="array">
-      <obj_property name="ElementShortName">y_out[9:0]</obj_property>
-      <obj_property name="ObjectShortName">y_out[9:0]</obj_property>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/finished" type="logic">
+      <obj_property name="ElementShortName">finished</obj_property>
+      <obj_property name="ObjectShortName">finished</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/dx" type="array">
-      <obj_property name="ElementShortName">dx[9:0]</obj_property>
-      <obj_property name="ObjectShortName">dx[9:0]</obj_property>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/rtr_drawLine" type="logic">
+      <obj_property name="ElementShortName">rtr_drawLine</obj_property>
+      <obj_property name="ObjectShortName">rtr_drawLine</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/dy" type="array">
-      <obj_property name="ElementShortName">dy[9:0]</obj_property>
-      <obj_property name="ObjectShortName">dy[9:0]</obj_property>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/rts_drawLine" type="logic">
+      <obj_property name="ElementShortName">rts_drawLine</obj_property>
+      <obj_property name="ObjectShortName">rts_drawLine</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/D" type="array">
-      <obj_property name="ElementShortName">D[9:0]</obj_property>
-      <obj_property name="ObjectShortName">D[9:0]</obj_property>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/read_en" type="logic">
+      <obj_property name="ElementShortName">read_en</obj_property>
+      <obj_property name="ObjectShortName">read_en</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/y_current" type="array">
-      <obj_property name="ElementShortName">y_current[9:0]</obj_property>
-      <obj_property name="ObjectShortName">y_current[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/x_current" type="array">
-      <obj_property name="ElementShortName">x_current[9:0]</obj_property>
-      <obj_property name="ObjectShortName">x_current[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_drawLine/lineDraw/increment" type="logic">
-      <obj_property name="ElementShortName">increment</obj_property>
-      <obj_property name="ObjectShortName">increment</obj_property>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
    </wvobject>
 </wave_config>
