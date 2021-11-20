@@ -84,13 +84,17 @@ commandFIFO FIFO(
 wire finished;
 //wire rtr_drawLine;
 wire rts_drawLine;
+wire [9:0] x1,x2,y1,y2;
 commandProcessor command_processor(
 .clk(clk),
 .Instruction(dataOut),
 .empty(empty),
-.finished(finished),
 .rtr_drawLine(rtr_drawLine),
 .rts_drawLine(rts_drawLine),
-.read_en(read_en)
+.read_en(read_en),
+.x1(x1),
+.x2(x2),
+.y1(y1),
+.y2(y2)
 );
 endmodule

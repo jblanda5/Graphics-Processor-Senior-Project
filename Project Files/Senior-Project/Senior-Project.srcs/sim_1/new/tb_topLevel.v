@@ -38,7 +38,7 @@ initial begin
         #1 CLK100MHZ <= ~CLK100MHZ;
 end
 initial begin
-        rtr_drawLine <= 1;
+        rtr_drawLine <= 0;
         dataIn <= 71'b01010101010101010101010101010101010101010101010101010101010101010101010;
         write_en <= 1;
         #2;
@@ -48,6 +48,14 @@ initial begin
         #2;  
         dataIn <= 71'b00000000000000000000000000000000000000000000000000000000000000000000000;
         #2;
+        #10;
+        rtr_drawLine <= 1;
+        #2;
+        rtr_drawLine <= 0;
+        #10;
+        rtr_drawLine <= 1;
+        #2;
+        rtr_drawLine <= 0;
 end
      
 endmodule

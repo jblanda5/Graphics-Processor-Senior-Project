@@ -24,69 +24,75 @@ module commandProcessor(
 input wire clk,
 input wire[70:0] Instruction,
 input wire empty,
-input wire finished,
 input wire rtr_drawLine,
 output reg rts_drawLine,
-output reg read_en
+output reg read_en,
+output reg [9:0]x1,
+output reg [9:0]x2,
+output reg [9:0]y1,
+output reg [9:0]y2,
+output reg [7:0]color
 );
+
 reg [2:0]state;
+parameter reset = 3'b000;
+parameter idle = 3'b001;
+parameter instruction = 3'b010;
+parameter busyDrawLine = 3'b011;
 
 always @(posedge clk) begin
     case(state)
-        3'b000: begin //Reset state.
+
+        reset: begin //Reset state.
             read_en <= 0;
             rts_drawLine <= 0;
-            state <= 3'b001;
+            state <= idle;
+            x1 <= 0;
+            x2 <= 0;
+            y1 <= 0;
+            y2 <= 0;
+            color <= 0;
         end
-        3'b001: begin //Idle state, no instructions available.
+
+        idle: begin //Idle state, no instructions available.
             if (~empty) begin
-                state <= 3'b101; //GoTo instruction state
-                read_en <= 1;
+                state <= instruction; //GoTo instruction state
             end
         end
-        3'b010: begin //Instruction state
+
+        instruction: begin //Instruction state
             case(Instruction[70:68])
                 3'b010: begin //This instruction is the DrawLine instruction
                     if (rtr_drawLine) begin
+                        color <= Instruction[67:60];
+                        x1 <= Instruction[59:50];
+                        y1 <= Instruction[49:40];
+                        x2 <= Instruction[39:30];
+                        y2 <= Instruction[29:20];
                         rts_drawLine <= 1;
-                        state <= 3'b011;
-                    end
-                    else begin
-                        state <= 3'b100;
-                    end
+                        state <= busyDrawLine;
+                        read_en <= 1;
+                    end //This will latch until rtr is high.
                 end
+
                 default: state <= 3'b000; //Bad instruction, go to reset
             endcase
         end
-        3'b011: begin //Busy state
+
+        busyDrawLine: begin //Busy state
+            read_en <= 0;
             rts_drawLine <= 0;
-            if(finished) begin
+            if(rtr_drawLine) begin //If the draw line is rtr, it is done.
                 if (~empty) begin //Instruction ready, go to instruction state
-                    state <= 3'b010;
-                    read_en <= 1;
+                    state <= instruction;
                     end
                 else begin
-                    state <= 3'b001;
+                    state <= idle;
+                    end
                 end
             end
-        end
-        3'b100: begin //Neutral state, module is not RTR.
-        case (Instruction[70:68]) //Read Instruction
-            3'b010: begin //drawLine
-                if (rtr_drawLine) begin
-                    rts_drawLine <= 1;
-                    state <= 3'b011;
-                end
-            end
-        endcase
-        end
-        3'b101: begin //Temp state, let FIFO data propogate
-        read_en <= 0; //Disable read enable to stop the FIFO from outputting.
-        state <= 3'b010;
-        end
         default: begin
-            read_en <= 0;
-            state <= 3'b000; //Default reset
+            state <= reset;
         end
     endcase
 end
