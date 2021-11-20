@@ -27,8 +27,7 @@ wire Vsync;
 wire [11:0]vga;
 reg [70:0] dataIn;
 reg write_en;
-reg rtr_drawLine;
-TopLevel testTopLevel(CLK100MHZ,Hsync,Vsync,vga,dataIn,write_en,rtr_drawLine);
+TopLevel testTopLevel(CLK100MHZ,Hsync,Vsync,vga,dataIn,write_en);
 
 integer i=0;
 initial begin
@@ -38,24 +37,15 @@ initial begin
         #1 CLK100MHZ <= ~CLK100MHZ;
 end
 initial begin
-        rtr_drawLine <= 0;
-        dataIn <= 71'b01010101010101010101010101010101010101010101010101010101010101010101010;
+        dataIn <= 71'b01000000000000000001100000000100000001111000000010100000000000000000000;
         write_en <= 1;
         #2;
-        dataIn <= 71'b11111111111111111111111111111111111111111111111111111111111111111111111;
+        write_en <= 0;
+        #50;
+        dataIn <= 71'b01000000000000000001100000000100000001111000000010000000000000000000000;
+        write_en <= 1;
         #2;
-        dataIn <= 71'b10101010101010101010101010101010101010101010101010101010101010101010101;
-        #2;  
-        dataIn <= 71'b00000000000000000000000000000000000000000000000000000000000000000000000;
-        #2;
-        #10;
-        rtr_drawLine <= 1;
-        #2;
-        rtr_drawLine <= 0;
-        #10;
-        rtr_drawLine <= 1;
-        #2;
-        rtr_drawLine <= 0;
+        write_en <= 0;
+        
 end
-     
 endmodule

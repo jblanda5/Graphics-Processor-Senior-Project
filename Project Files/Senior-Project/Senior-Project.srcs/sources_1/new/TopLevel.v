@@ -24,8 +24,7 @@ module TopLevel(
     output wire Vsync, //Vertical Sync signal
     output wire [11:0] vga, //Pixel output
     input wire[70:0] dataIn,
-    input wire write_en,
-    input wire rtr_drawLine
+    input wire write_en
     );
 //set up our pixel color wire
 wire [7:0] pixel;
@@ -82,9 +81,10 @@ commandFIFO FIFO(
 
 //Instantiate Command Processor
 wire finished;
-//wire rtr_drawLine;
+wire rtr_drawLine;
 wire rts_drawLine;
 wire [9:0] x1,x2,y1,y2;
+wire [7:0] color;
 commandProcessor command_processor(
 .clk(clk),
 .Instruction(dataOut),
@@ -95,6 +95,23 @@ commandProcessor command_processor(
 .x1(x1),
 .x2(x2),
 .y1(y1),
-.y2(y2)
+.y2(y2),
+.color(color)
 );
+
+//Instantiate Line Drawing Module
+wire [9:0] x_out;
+wire [9:0] y_out;
+drawLine line_drawing(
+.x1(x1),
+.y1(y1),
+.x2(x2),
+.y2(y2),
+.clk(clk),
+.rts(rts_drawLine),
+.rtr(rtr_drawLine),
+.x_out(x_out),
+.y_out(y_out)
+);
+
 endmodule

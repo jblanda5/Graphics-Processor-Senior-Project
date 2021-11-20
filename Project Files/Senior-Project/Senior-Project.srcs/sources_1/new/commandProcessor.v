@@ -38,7 +38,8 @@ reg [2:0]state;
 parameter reset = 3'b000;
 parameter idle = 3'b001;
 parameter instruction = 3'b010;
-parameter busyDrawLine = 3'b011;
+parameter intermediateDrawLine = 3'b011;
+parameter busyDrawLine = 3'b100;
 
 always @(posedge clk) begin
     case(state)
@@ -70,18 +71,22 @@ always @(posedge clk) begin
                         x2 <= Instruction[39:30];
                         y2 <= Instruction[29:20];
                         rts_drawLine <= 1;
-                        state <= busyDrawLine;
+                        state <= intermediateDrawLine;
                         read_en <= 1;
                     end //This will latch until rtr is high.
                 end
 
-                default: state <= 3'b000; //Bad instruction, go to reset
+                default: state <= reset; //Bad instruction, go to reset
             endcase
         end
 
-        busyDrawLine: begin //Busy state
+        intermediateDrawLine: begin // Disable FIFO read, RTS, and move to busy state.
             read_en <= 0;
             rts_drawLine <= 0;
+            state <= busyDrawLine;
+        end
+
+        busyDrawLine: begin //Busy state
             if(rtr_drawLine) begin //If the draw line is rtr, it is done.
                 if (~empty) begin //Instruction ready, go to instruction state
                     state <= instruction;
