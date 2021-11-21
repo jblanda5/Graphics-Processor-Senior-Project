@@ -42,7 +42,7 @@ assign clk = CLK100MHZ;
 //clk_wiz_0 clockModule(clk,CLK100MHZ); //Convert CLK100MHZ to a 40MHz clock
 
 //Define our Frame Buffer module
-reg[18:0] writeAddr;
+wire[18:0] writeAddr;
 reg[7:0] pixel_write;
 wire[18:0] readAddr;
 wire[7:0] pixel_read;
@@ -84,7 +84,7 @@ wire finished;
 wire rtr_drawLine;
 wire rts_drawLine;
 wire [9:0] x1,x2,y1,y2;
-wire [7:0] color;
+wire [7:0] pixel;
 commandProcessor command_processor(
 .clk(clk),
 .Instruction(dataOut),
@@ -96,7 +96,7 @@ commandProcessor command_processor(
 .x2(x2),
 .y1(y1),
 .y2(y2),
-.color(color)
+.color(pixel)
 );
 
 //Instantiate Line Drawing Module
@@ -114,4 +114,13 @@ drawLine line_drawing(
 .y_out(y_out)
 );
 
+//Instantiate output mux
+wire [18:0] drawLineAddr;
+assign drawLineAddr = xyToMem(x_out,y_out);
+outputMux mux(
+.drawLineAddr(drawLineAddr),
+.rtrDrawLine(rtr_drawLine),
+.writeAddr(writeAddr),
+.writeEnable(writeEnable)
+);
 endmodule
