@@ -21,8 +21,10 @@
 
 
 module tb_TEST;
-wire clk, Hsync, Vsync;
+reg clk;
+wire Hsync, Vsync;
 wire [11:0] vga;
+reg write_en;
 reg [3:0] x1, x2, y1, y2;
 TEST DEMO(
     .CLK100MHZ(clk),
@@ -32,13 +34,23 @@ TEST DEMO(
     .x1(x1),
     .y1(y1),
     .x2(x2),
-    .y2(y2)
+    .y2(y2),
+    .write_en(write_en)
 );
+initial begin
+clk <= 0;
+    while(1) begin
+    #1 clk <= ~clk;
+    end
+end
+
 initial begin
 x1 <= 4'b1111;
 y1 <= 4'b1111;
 x2 <= 4'b1111;
 y2 <= 4'b1111;
+#1;
+write_en <= 1;
 end
 
 endmodule

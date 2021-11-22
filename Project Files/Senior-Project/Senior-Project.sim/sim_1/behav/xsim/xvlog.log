@@ -1,2 +1,46 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/commandFIFO/sim/commandFIFO.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module commandFIFO
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/VGA_Controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vga_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/frameBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module frameBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/h_counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module h_counter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/v_counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module v_counter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/TopLevel.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TopLevel
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/rgb_lookup.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rgb_lookup
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/commandProcessor.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module commandProcessor
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/drawLine.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module drawLine
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/outputMux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module outputMux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/TEST.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TEST
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sim_1/new/tb_vgaController.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_vgaController
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sim_1/new/tb_hcount.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_hcount
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sim_1/new/tb_vcount.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_vcount
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sim_1/new/frameBufferTB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module frameBufferTB
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sim_1/new/tb_topLevel.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_topLevel
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sim_1/new/tb_commandProcessor.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_commandProcessor
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sim_1/new/tb_drawLine.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_drawLine
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sim_1/new/tb_FIFO.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_FIFO
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sim_1/new/tb_TEST.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_TEST
