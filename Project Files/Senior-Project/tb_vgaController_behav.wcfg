@@ -3,45 +3,62 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_topLevel_behav.wdb" id="1">
+      <db_ref path="tb_TEST_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="tb_topLevel" />
+            <top_module name="tb_TEST" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="6.210 ns"></ZoomStartTime>
-      <ZoomEndTime time="20.931 ns"></ZoomEndTime>
-      <Cursor1Time time="10.350 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="28.944 ns"></ZoomEndTime>
+      <Cursor1Time time="5.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="234"></NameColumnWidth>
+      <NameColumnWidth column_width="126"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="6" />
-   <wvobject fp_name="/tb_topLevel/testTopLevel/frame/writeAddr" type="array">
-      <obj_property name="ElementShortName">writeAddr[18:0]</obj_property>
-      <obj_property name="ObjectShortName">writeAddr[18:0]</obj_property>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/tb_TEST/DEMO/CLK100MHZ" type="logic">
+      <obj_property name="ElementShortName">CLK100MHZ</obj_property>
+      <obj_property name="ObjectShortName">CLK100MHZ</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/frame/pixel_write" type="array">
-      <obj_property name="ElementShortName">pixel_write[7:0]</obj_property>
-      <obj_property name="ObjectShortName">pixel_write[7:0]</obj_property>
+   <wvobject fp_name="/tb_TEST/DEMO/Hsync" type="logic">
+      <obj_property name="ElementShortName">Hsync</obj_property>
+      <obj_property name="ObjectShortName">Hsync</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/frame/readAddr" type="array">
-      <obj_property name="ElementShortName">readAddr[18:0]</obj_property>
-      <obj_property name="ObjectShortName">readAddr[18:0]</obj_property>
+   <wvobject fp_name="/tb_TEST/DEMO/Vsync" type="logic">
+      <obj_property name="ElementShortName">Vsync</obj_property>
+      <obj_property name="ObjectShortName">Vsync</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/frame/pixel_read" type="array">
-      <obj_property name="ElementShortName">pixel_read[7:0]</obj_property>
-      <obj_property name="ObjectShortName">pixel_read[7:0]</obj_property>
+   <wvobject fp_name="/tb_TEST/DEMO/vga" type="array">
+      <obj_property name="ElementShortName">vga[11:0]</obj_property>
+      <obj_property name="ObjectShortName">vga[11:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/frame/writeEnable" type="logic">
-      <obj_property name="ElementShortName">writeEnable</obj_property>
-      <obj_property name="ObjectShortName">writeEnable</obj_property>
+   <wvobject fp_name="/tb_TEST/DEMO/x1" type="array">
+      <obj_property name="ElementShortName">x1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">x1[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/frame/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
+   <wvobject fp_name="/tb_TEST/DEMO/y1" type="array">
+      <obj_property name="ElementShortName">y1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">y1[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TEST/DEMO/x2" type="array">
+      <obj_property name="ElementShortName">x2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">x2[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TEST/DEMO/y2" type="array">
+      <obj_property name="ElementShortName">y2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">y2[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TEST/DEMO/write_en" type="logic">
+      <obj_property name="ElementShortName">write_en</obj_property>
+      <obj_property name="ObjectShortName">write_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TEST/DEMO/dataIn" type="array">
+      <obj_property name="ElementShortName">dataIn[70:0]</obj_property>
+      <obj_property name="ObjectShortName">dataIn[70:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
 </wave_config>

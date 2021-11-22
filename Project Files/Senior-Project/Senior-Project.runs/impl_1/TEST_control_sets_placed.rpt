@@ -1,0 +1,92 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Sun Nov 21 20:32:42 2021
+| Host         : Apollo running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file TEST_control_sets_placed.rpt
+| Design       : TEST
+| Device       : xc7a100t
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    14 |
+|    Minimum number of control sets                        |    14 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    72 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    14 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     5 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     6 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              35 |           21 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              20 |            8 |
+| Yes          | No                    | No                     |             111 |           36 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              98 |           37 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------+------------------+----------------+--------------+
+|               Clock Signal               |                                                              Enable Signal                                                             |                     Set/Reset Signal                    | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------+------------------+----------------+--------------+
+|  graphicsCard/displayEngine/Hcounter/clk |                                                                                                                                        |                                                         |                1 |              1 |         1.00 |
+|  graphicsCard/clockModule/inst/clk_out1  | graphicsCard/displayEngine/Hcounter/h_count_reg[7]_1                                                                                   | graphicsCard/displayEngine/Hcounter/h_count_reg[10]_0   |                1 |              1 |         1.00 |
+|  graphicsCard/clockModule/inst/clk_out1  | graphicsCard/displayEngine/Vcounter/v_count_reg[1]_1                                                                                   | graphicsCard/displayEngine/Vcounter/Vsync0              |                1 |              1 |         1.00 |
+|  graphicsCard/displayEngine/Hcounter/clk |                                                                                                                                        | graphicsCard/displayEngine/Vcounter/v_count[10]_i_1_n_0 |                4 |             10 |         2.50 |
+|  graphicsCard/clockModule/inst/clk_out1  |                                                                                                                                        | graphicsCard/displayEngine/Hcounter/h_count[10]_i_1_n_0 |                4 |             10 |         2.50 |
+|  graphicsCard/clockModule/inst/clk_out1  | graphicsCard/line_drawing/D[9]_i_1_n_0                                                                                                 | graphicsCard/line_drawing/dx0                           |                4 |             10 |         2.50 |
+|  graphicsCard/clockModule/inst/clk_out1  | graphicsCard/line_drawing/x_current[9]_i_1_n_0                                                                                         |                                                         |                6 |             10 |         1.67 |
+|  graphicsCard/clockModule/inst/clk_out1  | graphicsCard/line_drawing/y_current[9]_i_1_n_0                                                                                         |                                                         |                5 |             10 |         2.00 |
+|  graphicsCard/clockModule/inst/clk_out1  | graphicsCard/FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/E[0]                                 |                                                         |                4 |             20 |         5.00 |
+|  graphicsCard/clockModule/inst/clk_out1  | graphicsCard/FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/wr_en_0[0]                                   |                                                         |                5 |             20 |         4.00 |
+|  graphicsCard/clockModule/inst/clk_out1  |                                                                                                                                        |                                                         |               20 |             34 |         1.70 |
+|  graphicsCard/clockModule/inst/clk_out1  | graphicsCard/line_drawing/dx[9]_i_2_n_0                                                                                                | graphicsCard/line_drawing/dx0                           |               11 |             38 |         3.45 |
+|  graphicsCard/clockModule/inst/clk_out1  | graphicsCard/command_processor/color[7]_i_2_n_0                                                                                        | graphicsCard/command_processor/x10                      |               20 |             48 |         2.40 |
+|  graphicsCard/clockModule/inst/clk_out1  | graphicsCard/FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[1]_0[0] |                                                         |               16 |             51 |         3.19 |
++------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------+------------------+----------------+--------------+
+
+

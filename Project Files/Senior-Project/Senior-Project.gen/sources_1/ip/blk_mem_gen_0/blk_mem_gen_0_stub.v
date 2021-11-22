@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-// Date        : Wed Oct  6 09:50:26 2021
+// Date        : Sun Nov 21 20:31:15 2021
 // Host        : Apollo running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               {c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project
@@ -15,14 +15,19 @@
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* x_core_info = "blk_mem_gen_v8_4_4,Vivado 2021.1" *)
-module blk_mem_gen_0(clka, wea, addra, dina, clkb, enb, addrb, doutb)
-/* synthesis syn_black_box black_box_pad_pin="clka,wea[0:0],addra[18:0],dina[7:0],clkb,enb,addrb[18:0],doutb[7:0]" */;
+module blk_mem_gen_0(clka, ena, wea, addra, dina, douta, clkb, enb, web, addrb, 
+  dinb, doutb)
+/* synthesis syn_black_box black_box_pad_pin="clka,ena,wea[0:0],addra[18:0],dina[7:0],douta[7:0],clkb,enb,web[0:0],addrb[18:0],dinb[7:0],doutb[7:0]" */;
   input clka;
+  input ena;
   input [0:0]wea;
   input [18:0]addra;
   input [7:0]dina;
+  output [7:0]douta;
   input clkb;
   input enb;
+  input [0:0]web;
   input [18:0]addrb;
+  input [7:0]dinb;
   output [7:0]doutb;
 endmodule

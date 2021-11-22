@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module TopLevel(
     input wire CLK100MHZ,
-    output wire Hsync, //Horizontal Sync signal  
+    output wire Hsync, //Horizontal Sync signal
     output wire Vsync, //Vertical Sync signal
     output wire [11:0] vga, //Pixel output
     input wire[70:0] dataIn,
@@ -38,22 +38,35 @@ endfunction
 
 //Define our clock
 wire clk;
-assign clk = CLK100MHZ;
-//clk_wiz_0 clockModule(clk,CLK100MHZ); //Convert CLK100MHZ to a 40MHz clock
+clk_wiz_0 clockModule(clk,CLK100MHZ); //Convert CLK100MHZ to a 40MHz clock
 
 //Define our Frame Buffer module
 wire[18:0] writeAddr;
-reg[7:0] pixel_write;
+wire[7:0] pixel_write;
 wire[18:0] readAddr;
 wire[7:0] pixel_read;
 wire writeEnable;
-frameBuffer frame(writeAddr,pixel_write,readAddr,pixel_read,writeEnable,clk);
+frameBuffer frame(
+.writeAddr(writeAddr),
+.pixel_write(pixel_write),
+.readAddr(readAddr),
+.pixel_read(pixel_read),
+.writeEnable(writeEnable),
+.clk(clk)
+);
 
 //Define our display engine module
 wire [7:0]active;
 wire [10:0] h_count;
 wire [10:0] v_count;
-vga_controller displayEngine(clk,Hsync,Vsync,active,h_count,v_count);
+vga_controller displayEngine(
+.clk(clk),
+.Hsync(Hsync),
+.Vsync(Vsync),
+.active(active),
+.h_count(h_count),
+.v_count(v_count)
+);
 
 //Output pixel read & active
 assign pixel = pixel_read & active;
@@ -84,7 +97,6 @@ wire finished;
 wire rtr_drawLine;
 wire rts_drawLine;
 wire [9:0] x1,x2,y1,y2;
-wire [7:0] pixel;
 commandProcessor command_processor(
 .clk(clk),
 .Instruction(dataOut),
@@ -96,7 +108,7 @@ commandProcessor command_processor(
 .x2(x2),
 .y1(y1),
 .y2(y2),
-.color(pixel)
+.color(pixel_write)
 );
 
 //Instantiate Line Drawing Module

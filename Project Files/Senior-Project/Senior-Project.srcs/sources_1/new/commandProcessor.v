@@ -76,7 +76,10 @@ always @(posedge clk) begin
                     end //This will latch until rtr is high.
                 end
 
-                default: state <= reset; //Bad instruction, go to reset
+                default: begin
+                state <= reset; //Bad instruction, go to reset
+                read_en <= 1; //Read next instruction
+                end
             endcase
         end
 

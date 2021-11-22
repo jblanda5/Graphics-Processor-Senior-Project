@@ -26,6 +26,6 @@ input wire rtrDrawLine,
 output wire [18:0] writeAddr,
 output wire writeEnable
     );
-    assign writeAddr = (rtrDrawLine ? drawLineAddr : 0); //replace 0 with (rtrDrawTriangle ? drawTriangleAddr : 0)
-    assign writeEnable = rtrDrawLine; // add | rtrDrawTriangle
+    assign writeAddr = (rtrDrawLine ? 0 : drawLineAddr); //replace 0 with (rtrDrawTriangle ? 0 : drawTriangleAddr)
+    assign writeEnable = ~(rtrDrawLine); // add | rtrDrawTriangle
 endmodule

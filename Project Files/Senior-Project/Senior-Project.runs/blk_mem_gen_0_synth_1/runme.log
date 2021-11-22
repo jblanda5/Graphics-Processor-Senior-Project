@@ -18,11 +18,11 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 18760
+INFO: [Synth 8-7075] Helper process launched with PID 17692
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1135.574 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1136.656 ; gain = 0.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:72]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:76]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -34,8 +34,8 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [c:/Users/jblan/Document
 	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
 	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
 	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
-	Parameter C_MEM_TYPE bound to: 1 - type: integer 
-	Parameter C_BYTE_SIZE bound to: 8 - type: integer 
+	Parameter C_MEM_TYPE bound to: 2 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
 	Parameter C_ALGORITHM bound to: 1 - type: integer 
 	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
 	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
@@ -47,9 +47,9 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [c:/Users/jblan/Document
 	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
 	Parameter C_RSTRAM_A bound to: 0 - type: integer 
 	Parameter C_INITA_VAL bound to: 0 - type: string 
-	Parameter C_HAS_ENA bound to: 0 - type: integer 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
 	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
-	Parameter C_USE_BYTE_WEA bound to: 1 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
 	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
 	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
 	Parameter C_WRITE_WIDTH_A bound to: 8 - type: integer 
@@ -63,16 +63,16 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [c:/Users/jblan/Document
 	Parameter C_INITB_VAL bound to: 0 - type: string 
 	Parameter C_HAS_ENB bound to: 1 - type: integer 
 	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
-	Parameter C_USE_BYTE_WEB bound to: 1 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
 	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
-	Parameter C_WRITE_MODE_B bound to: READ_FIRST - type: string 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
 	Parameter C_WRITE_WIDTH_B bound to: 8 - type: integer 
 	Parameter C_READ_WIDTH_B bound to: 8 - type: integer 
 	Parameter C_WRITE_DEPTH_B bound to: 480000 - type: integer 
 	Parameter C_READ_DEPTH_B bound to: 480000 - type: integer 
 	Parameter C_ADDRB_WIDTH bound to: 19 - type: integer 
 	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
-	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 1 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
 	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
 	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
 	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
@@ -97,22 +97,22 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [c:/Users/jblan/Document
 	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 1 - type: integer 
 	Parameter C_COUNT_36K_BRAM bound to: 117 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
-	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     5.066956 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_4' declared at 'c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/blk_mem_gen_0/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_4' [c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:241]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (11#1) [c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:72]
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     5.067571 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_4' declared at 'c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/blk_mem_gen_0/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_4' [c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:249]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (11#1) [c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:76]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:02:40 ; elapsed = 00:02:44 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished RTL Elaboration : Time (s): cpu = 00:01:58 ; elapsed = 00:02:00 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:41 ; elapsed = 00:02:45 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:59 ; elapsed = 00:02:01 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:02:41 ; elapsed = 00:02:45 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:59 ; elapsed = 00:02:01 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.177 . Memory (MB): peak = 1854.727 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.126 . Memory (MB): peak = 1851.766 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 118 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -125,40 +125,39 @@ Parsing XDC File [C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Proj
 Finished Parsing XDC File [C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/blk_mem_gen_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1854.727 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1851.766 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.221 . Memory (MB): peak = 1854.727 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.157 . Memory (MB): peak = 1851.766 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:02:52 ; elapsed = 00:02:56 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Constraint Validation : Time (s): cpu = 00:02:06 ; elapsed = 00:02:09 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:02:52 ; elapsed = 00:02:56 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Loading Part and Timing Information : Time (s): cpu = 00:02:06 ; elapsed = 00:02:09 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/blk_mem_gen_0_synth_1/dont_touch.xdc}, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:52 ; elapsed = 00:02:56 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:06 ; elapsed = 00:02:09 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:57 ; elapsed = 00:03:02 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:11 ; elapsed = 00:02:14 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Registers : 
-	               19 Bit    Registers := 1     
-	                8 Bit    Registers := 3     
+	                8 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input    1 Bit        Muxes := 271   
+	   2 Input    1 Bit        Muxes := 270   
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -175,25 +174,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:08 ; elapsed = 00:03:13 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:20 ; elapsed = 00:02:24 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:16 ; elapsed = 00:03:21 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:26 ; elapsed = 00:02:30 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:17 ; elapsed = 00:03:22 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Timing Optimization : Time (s): cpu = 00:02:26 ; elapsed = 00:02:31 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:17 ; elapsed = 00:03:22 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Technology Mapping : Time (s): cpu = 00:02:27 ; elapsed = 00:02:31 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -211,37 +210,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:21 ; elapsed = 00:03:26 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished IO Insertion : Time (s): cpu = 00:02:30 ; elapsed = 00:02:34 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:21 ; elapsed = 00:03:26 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:30 ; elapsed = 00:02:34 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:21 ; elapsed = 00:03:27 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:30 ; elapsed = 00:02:34 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:03:21 ; elapsed = 00:03:27 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:30 ; elapsed = 00:02:34 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:21 ; elapsed = 00:03:27 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:30 ; elapsed = 00:02:34 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:03:21 ; elapsed = 00:03:27 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:30 ; elapsed = 00:02:34 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -257,40 +256,41 @@ Report Cell Usage:
 +------+---------+------+
 |      |Cell     |Count |
 +------+---------+------+
-|1     |LUT2     |     1|
-|2     |LUT3     |    17|
-|3     |LUT5     |    12|
-|4     |LUT6     |   490|
-|5     |MUXF7    |   112|
-|6     |MUXF8    |    56|
-|7     |RAMB18E1 |     1|
-|8     |RAMB36E1 |   117|
-|125   |FDRE     |    18|
+|1     |LUT2     |     2|
+|2     |LUT3     |     2|
+|3     |LUT4     |   234|
+|4     |LUT5     |    50|
+|5     |LUT6     |   512|
+|6     |MUXF7    |   224|
+|7     |MUXF8    |   112|
+|8     |RAMB18E1 |     1|
+|9     |RAMB36E1 |   117|
+|126   |FDRE     |    20|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:21 ; elapsed = 00:03:27 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:30 ; elapsed = 00:02:34 . Memory (MB): peak = 1851.766 ; gain = 715.109
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:03:21 . Memory (MB): peak = 1854.727 ; gain = 719.152
-Synthesis Optimization Complete : Time (s): cpu = 00:03:22 ; elapsed = 00:03:27 . Memory (MB): peak = 1854.727 ; gain = 719.152
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:02:31 . Memory (MB): peak = 1851.766 ; gain = 715.109
+Synthesis Optimization Complete : Time (s): cpu = 00:02:30 ; elapsed = 00:02:35 . Memory (MB): peak = 1851.766 ; gain = 715.109
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.096 . Memory (MB): peak = 1854.727 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 286 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.101 . Memory (MB): peak = 1851.766 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 454 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1854.727 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1851.766 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 8fe6a7b7
+Synth Design complete, checksum: aad53fbb
 INFO: [Common 17-83] Releasing license: Synthesis
 19 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:03:28 ; elapsed = 00:03:33 . Memory (MB): peak = 1854.727 ; gain = 719.152
+synth_design: Time (s): cpu = 00:02:34 ; elapsed = 00:02:39 . Memory (MB): peak = 1851.766 ; gain = 715.109
 INFO: [Common 17-1381] The checkpoint 'C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/blk_mem_gen_0_synth_1/blk_mem_gen_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP blk_mem_gen_0, cache-ID = 3c724850fc20589b
-INFO: [Coretcl 2-1174] Renamed 241 cell refs.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP blk_mem_gen_0, cache-ID = 4d195ab78e6a5e99
+INFO: [Coretcl 2-1174] Renamed 242 cell refs.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/blk_mem_gen_0_synth_1/blk_mem_gen_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file blk_mem_gen_0_utilization_synth.rpt -pb blk_mem_gen_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Oct  6 09:50:27 2021...
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 21 20:31:16 2021...

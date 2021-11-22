@@ -31,14 +31,20 @@ module frameBuffer(
     // Clock
     input wire clk
     );
-    blk_mem_gen_0 frameBufferMemory( //This is wrong and needs to be fixed.
+    wire [7:0] douta;
+    wire [7:0] dinb;
+    blk_mem_gen_0 frameBufferMemory(
     .addrb(readAddr),
     .addra(writeAddr),
     .clkb(clk),
     .clka(clk),
     .doutb(pixel_read),
     .dina(pixel_write),
+    .ena(writeEnable),
     .wea(writeEnable),
-    .enb(1)
+    .enb(1'b1),
+    .douta(douta),
+    .dinb(dinb),
+    .web(1'b0)
     ); //Frame buffer for 800x600.
 endmodule
