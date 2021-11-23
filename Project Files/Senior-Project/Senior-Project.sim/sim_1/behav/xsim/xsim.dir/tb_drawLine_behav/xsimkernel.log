@@ -1,7 +1,7 @@
-Running: xsim.dir/tb_drawLine_behav/xsimk.exe -simmode gui -wdb tb_drawLine_behav.wdb -simrunnum 0 -socket 58751
+Running: xsim.dir/tb_drawLine_behav/xsimk.exe -simmode gui -wdb tb_drawLine_behav.wdb -simrunnum 0 -socket 49475
 Design successfully loaded
-Design Loading Memory Usage: 6700 KB (Peak: 6700 KB)
-Design Loading CPU Usage: 31 ms
+Design Loading Memory Usage: 6952 KB (Peak: 6952 KB)
+Design Loading CPU Usage: 0 ms
 Simulation completed
-Simulation Memory Usage: 7348 KB (Peak: 7348 KB)
-Simulation CPU Usage: 31 ms
+Simulation Memory Usage: 7680 KB (Peak: 7680 KB)
+Simulation CPU Usage: 15 ms

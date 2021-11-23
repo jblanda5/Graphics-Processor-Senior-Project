@@ -32,7 +32,7 @@ module TEST(
     input wire write_en
 );
     wire [70:0] dataIn;
-    assign dataIn = (3'b010 << 68) | (8'b11100000 << 60) | (6'b0 << 52) | (x1 << 50) | (6'b0 << 42) | (y1 << 40) | (6'b0 << 32) | (x2 << 30) | (6'b0 << 22) | (y2 << 20) | (22'b0);
+    assign dataIn = 71'b0 | (3'b010 << 68) | (8'b11100000 << 60) | (x1 << 55) | (y1 << 45) | (x2 << 35) | (y2 << 25);
     
 TopLevel graphicsCard(
     .CLK100MHZ(CLK100MHZ),

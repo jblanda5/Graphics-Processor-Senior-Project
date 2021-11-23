@@ -1,6 +1,6 @@
 Vivado Simulator v2021.1
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto d60e5e22d8424dde8b802b7f42c296dc --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_4 -L fifo_generator_v13_2_5 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_TEST_behav xil_defaultlib.tb_TEST xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto d60e5e22d8424dde8b802b7f42c296dc --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_4 -L fifo_generator_v13_2_5 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_drawLine_behav xil_defaultlib.tb_drawLine xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -8,31 +8,7 @@ Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.rgb_lookup
-Compiling module unisims_ver.IBUF
-Compiling module unisims_ver.PLLE2_ADV(CLKFBOUT_MULT=42,CLKIN...
-Compiling module unisims_ver.BUFG
-Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
-Compiling module xil_defaultlib.clk_wiz_0
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
-Compiling module xil_defaultlib.blk_mem_gen_0
-Compiling module xil_defaultlib.frameBuffer
-Compiling module xil_defaultlib.h_counter
-Compiling module xil_defaultlib.v_counter
-Compiling module xil_defaultlib.vga_controller
-Compiling module fifo_generator_v13_2_5.fifo_generator_v13_2_5_bhv_ver_s...
-Compiling module fifo_generator_v13_2_5.fifo_generator_v13_2_5_bhv_ver_p...
-Compiling module fifo_generator_v13_2_5.fifo_generator_v13_2_5_CONV_VER(...
-Compiling module fifo_generator_v13_2_5.fifo_generator_vlog_beh(C_COMMON...
-Compiling module xil_defaultlib.commandFIFO
-Compiling module xil_defaultlib.commandProcessor
 Compiling module xil_defaultlib.drawLine
-Compiling module xil_defaultlib.outputMux
-Compiling module xil_defaultlib.TopLevel
-Compiling module xil_defaultlib.TEST
-Compiling module xil_defaultlib.tb_TEST
+Compiling module xil_defaultlib.tb_drawLine
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_TEST_behav
+Built simulation snapshot tb_drawLine_behav

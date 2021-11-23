@@ -30,22 +30,16 @@ output wire [9:0]x_out,
 output wire [9:0]y_out
 );
 
-function [9:0]abs(input[9:0] a);
-    abs = (a[9])? ~a+1 : a;
-endfunction
-
 reg [9:0]dx;
 reg [9:0]dy;
-reg [9:0]negdx;
-reg [9:0]negdy;
-reg [9:0]D;
+reg [11:0]D;
 reg [9:0]y_current;
 reg [9:0]x_current;
-wire [9:0]Dnextx;
-wire [9:0]Dnexty;
+wire [11:0]Dnextx;
+wire [11:0]Dnexty;
 // Assign outputs to current value + offset
-assign x_out = x_current + x1;
-assign y_out = y_current + y1;
+assign x_out = x_current;
+assign y_out = y_current;
 assign Dnextx = D + dy + dy;
 assign Dnexty = D + dx + dx;
 
@@ -64,8 +58,6 @@ always @(posedge clk) begin
         reset: begin
             dx <= 0;
             dy <= 0;
-            negdx <= 0;
-            negdy <= 0;
             D <= 0;
             y_current <= 0;
             x_current <= 0;
@@ -81,32 +73,28 @@ always @(posedge clk) begin
         end
        
         value: begin
-            dx <= (x2 - x1);
-            dy <= (y2 - y1);
-            negdx <= (x1 - x2);
-            negdy <= (y1 - y2);
-            y_current <= 0;
-            x_current <= 0;
-            if ((x2-x1) >= (y2-y1)) begin //go into bigX
-               
+            dx <= (x2 > x1) ? (x2 - x1) : (x1 - x2); //absolute value dx
+            dy <= (y2 > y1) ? (y2 - y1) : (y1 - y2); //absolute value dy
+            y_current <= y1;
+            x_current <= x1;
+            if (((x2>x1)?(x2-x1):(x1-x2)) >= ((y2>y1)?(y2-y1):(y1-y2))) begin //go into bigX
                 if(x2 >= x1) begin //Positive dx
-                    D <= (x2 - x1) + (y2 - y1) + (y2 - y1); //Initial Value of D
+                    D <= (y2>y1) ? ((x2 - x1) + (y2 - y1) + (y2 - y1)) : ((x2-x1) + (y1-y2) + (y1-y2)); //Initial Value of D
                     state <= bigX;
                 end
                 else begin
-                    D <= (x1 - x2) + (y2 - y1) + (y2 - y1); //Initial Value of D
+                    D <= (y2>y1) ? ((x1 - x2) + (y2 - y1) + (y2 - y1)) : ((x1-x2) + (y1-y2) + (y1-y2)); //Initial Value of D
                     state <= negX; //Negative X increment
 
                 end
             end
             else begin //go into bigY
-               
-                if(y2 >= y1) begin //Positive dy
-                    D <= (y2 - y1) + (x2 - x1) + (x2 - x1); //Initial Value of D
+                if (y2 >= y1) begin //Positive dy
+                    D <= (x2>x1) ? ((y2 - y1) + (x2 - x1) + (x2 - x1)) : ((y2 - y1) + (x1 - x2) + (x1 - x2)); //Initial Value of D
                     state <= bigY;
                 end
                 else begin
-                    D <= (y1 - y2) + (x2 - x1) + (x2 - x1); //Initial Value of D
+                    D <= (x2>x1) ? ((y1 - y2) + (x2 - x1) + (x2 - x1)) : ((y1 - y2) + (x1 - x2) + (x1 - x2)); //Initial Value of D
                     state <= negY; //Negative Y increment
                 end
             end
@@ -114,45 +102,44 @@ always @(posedge clk) begin
        
         bigX: begin
             if (D > dx + dx)begin
-                y_current = y_current + 1;
                 D <= Dnextx - dx - dx;
-            end
-            else begin
+                y_current <= (x_current == x2) ? y_current : (y1 > y2) ? (y_current - 1) : (y_current + 1);
+            end else begin
                 D <= Dnextx;
             end
-            if (x_current == dx) begin
+
+            if (x_current == x2) begin
                 state <= idle;
-            end
-            else begin //Not done, increment.
-            x_current <= x_current + 1;
+            end else begin //Not done, increment.
+                x_current <= x_current + 1;
             end
         end
        
         negX: begin
-            if (D > negdx + negdx)begin
-                y_current <= y_current + 1;
-                D <= Dnextx - negdx - negdx;
+            if (D > dx + dx)begin
+                D <= Dnextx - dx - dx;
+                y_current <= (x_current == x2) ? y_current : (y2<y1) ? (y_current - 1) : (y_current + 1);
             end
             else begin
                 D <= Dnextx;
             end
-            if (x_current == negdx) begin
+            if (x_current == x2) begin
                 state <= idle;
             end
             else begin //Not done, increment
-            x_current <= x_current - 1;
+                x_current <= x_current - 1;
             end
         end
        
         bigY: begin
             if (D > dy + dy)begin
-                x_current <= x_current + 1;
                 D <= Dnexty - dy - dy;
+                x_current <= (y_current == y2) ? x_current : (x1 > x2) ? (x_current - 1) : (x_current + 1);
             end
             else begin
                 D <= Dnexty;
             end
-            if (y_current == dy) begin
+            if (y_current == y2) begin
                 state <= idle;
             end
             else begin //Not done, increment
@@ -161,14 +148,14 @@ always @(posedge clk) begin
         end
        
         negY: begin
-            if (D > negdy + negdy) begin
-                x_current <= x_current + 1;
-                D <= Dnexty - negdy - negdy;
+            if (D > dy + dy) begin
+                D <= Dnexty - dy - dy;
+                x_current <= (y_current == y2) ? x_current : ((x2<x1) ? (x_current - 1) : (x_current + 1));
             end
             else begin
                 D <= Dnexty;
             end
-            if (y_current == negdy) begin
+            if (y_current == y2) begin
                 state <= idle;
             end
             else begin //Not done, increment

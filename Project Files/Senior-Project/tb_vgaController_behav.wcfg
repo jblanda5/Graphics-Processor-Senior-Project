@@ -3,136 +3,88 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_TEST_behav.wdb" id="1">
+      <db_ref path="tb_drawLine_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="tb_TEST" />
+            <top_module name="tb_drawLine" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,100.001 ns"></ZoomEndTime>
-      <Cursor1Time time="900.000 ns"></Cursor1Time>
+      <ZoomEndTime time="56.123 ns"></ZoomEndTime>
+      <Cursor1Time time="15.300 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="122"></NameColumnWidth>
+      <NameColumnWidth column_width="106"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="29" />
-   <wvobject fp_name="/tb_TEST/DEMO/CLK100MHZ" type="logic">
-      <obj_property name="ElementShortName">CLK100MHZ</obj_property>
-      <obj_property name="ObjectShortName">CLK100MHZ</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/Hsync" type="logic">
-      <obj_property name="ElementShortName">Hsync</obj_property>
-      <obj_property name="ObjectShortName">Hsync</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/Vsync" type="logic">
-      <obj_property name="ElementShortName">Vsync</obj_property>
-      <obj_property name="ObjectShortName">Vsync</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/vga" type="array">
-      <obj_property name="ElementShortName">vga[11:0]</obj_property>
-      <obj_property name="ObjectShortName">vga[11:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/x1" type="array">
-      <obj_property name="ElementShortName">x1[3:0]</obj_property>
-      <obj_property name="ObjectShortName">x1[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/y1" type="array">
-      <obj_property name="ElementShortName">y1[3:0]</obj_property>
-      <obj_property name="ObjectShortName">y1[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/x2" type="array">
-      <obj_property name="ElementShortName">x2[3:0]</obj_property>
-      <obj_property name="ObjectShortName">x2[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/y2" type="array">
-      <obj_property name="ElementShortName">y2[3:0]</obj_property>
-      <obj_property name="ObjectShortName">y2[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/write_en" type="logic">
-      <obj_property name="ElementShortName">write_en</obj_property>
-      <obj_property name="ObjectShortName">write_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/dataIn" type="array">
-      <obj_property name="ElementShortName">dataIn[70:0]</obj_property>
-      <obj_property name="ObjectShortName">dataIn[70:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/x1" type="array">
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/tb_drawLine/lineDraw/x1" type="array">
       <obj_property name="ElementShortName">x1[9:0]</obj_property>
       <obj_property name="ObjectShortName">x1[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/y1" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/y1" type="array">
       <obj_property name="ElementShortName">y1[9:0]</obj_property>
       <obj_property name="ObjectShortName">y1[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/x2" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/x2" type="array">
       <obj_property name="ElementShortName">x2[9:0]</obj_property>
       <obj_property name="ObjectShortName">x2[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/y2" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/y2" type="array">
       <obj_property name="ElementShortName">y2[9:0]</obj_property>
       <obj_property name="ObjectShortName">y2[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/clk" type="logic">
+   <wvobject fp_name="/tb_drawLine/lineDraw/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/rts" type="logic">
+   <wvobject fp_name="/tb_drawLine/lineDraw/rts" type="logic">
       <obj_property name="ElementShortName">rts</obj_property>
       <obj_property name="ObjectShortName">rts</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/rtr" type="logic">
+   <wvobject fp_name="/tb_drawLine/lineDraw/rtr" type="logic">
       <obj_property name="ElementShortName">rtr</obj_property>
       <obj_property name="ObjectShortName">rtr</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/x_out" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/x_out" type="array">
       <obj_property name="ElementShortName">x_out[9:0]</obj_property>
       <obj_property name="ObjectShortName">x_out[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/y_out" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/y_out" type="array">
       <obj_property name="ElementShortName">y_out[9:0]</obj_property>
       <obj_property name="ObjectShortName">y_out[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/dx" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/dx" type="array">
       <obj_property name="ElementShortName">dx[9:0]</obj_property>
       <obj_property name="ObjectShortName">dx[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/dy" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/dy" type="array">
       <obj_property name="ElementShortName">dy[9:0]</obj_property>
       <obj_property name="ObjectShortName">dy[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/negdx" type="array">
-      <obj_property name="ElementShortName">negdx[9:0]</obj_property>
-      <obj_property name="ObjectShortName">negdx[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/negdy" type="array">
-      <obj_property name="ElementShortName">negdy[9:0]</obj_property>
-      <obj_property name="ObjectShortName">negdy[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/D" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/D" type="array">
       <obj_property name="ElementShortName">D[9:0]</obj_property>
       <obj_property name="ObjectShortName">D[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/y_current" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/y_current" type="array">
       <obj_property name="ElementShortName">y_current[9:0]</obj_property>
       <obj_property name="ObjectShortName">y_current[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/x_current" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/x_current" type="array">
       <obj_property name="ElementShortName">x_current[9:0]</obj_property>
       <obj_property name="ObjectShortName">x_current[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/Dnextx" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/Dnextx" type="array">
       <obj_property name="ElementShortName">Dnextx[9:0]</obj_property>
       <obj_property name="ObjectShortName">Dnextx[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/Dnexty" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/Dnexty" type="array">
       <obj_property name="ElementShortName">Dnexty[9:0]</obj_property>
       <obj_property name="ObjectShortName">Dnexty[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TEST/DEMO/graphicsCard/line_drawing/state" type="array">
+   <wvobject fp_name="/tb_drawLine/lineDraw/state" type="array">
       <obj_property name="ElementShortName">state[3:0]</obj_property>
       <obj_property name="ObjectShortName">state[3:0]</obj_property>
    </wvobject>
