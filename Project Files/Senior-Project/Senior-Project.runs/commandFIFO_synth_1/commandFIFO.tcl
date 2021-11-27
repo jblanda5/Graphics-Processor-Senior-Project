@@ -92,7 +92,7 @@ set_property ip_output_repo {c:/Users/jblan/Documents/GitHub/Graphics-Processor-
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/commandFIFO/commandFIFO.xci}}
+read_ip -quiet {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/ip/commandFIFO/commandFIFO.xci}}
 set_property used_in_implementation false [get_files -all {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/commandFIFO/commandFIFO.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.gen/sources_1/ip/commandFIFO/commandFIFO_ooc.xdc}}]
 

@@ -55,30 +55,42 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module blk_mem_gen_0 (
   clka,
+  ena,
   wea,
   addra,
   dina,
+  douta,
   clkb,
   enb,
+  web,
   addrb,
+  dinb,
   doutb
 );
 
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA CLK" *)
 input wire clka;
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA EN" *)
+input wire ena;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA WE" *)
 input wire [0 : 0] wea;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA ADDR" *)
 input wire [18 : 0] addra;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_LATENCY 1" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA DIN" *)
 input wire [7 : 0] dina;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_LATENCY 1" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT" *)
+output wire [7 : 0] douta;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK" *)
 input wire clkb;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB EN" *)
 input wire enb;
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB WE" *)
+input wire [0 : 0] web;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB ADDR" *)
 input wire [18 : 0] addrb;
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB DIN" *)
+input wire [7 : 0] dinb;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME BRAM_PORTB, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_LATENCY 1" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB DOUT" *)
 output wire [7 : 0] doutb;
@@ -95,8 +107,8 @@ output wire [7 : 0] doutb;
     .C_CTRL_ECC_ALGO("NONE"),
     .C_HAS_AXI_ID(0),
     .C_AXI_ID_WIDTH(4),
-    .C_MEM_TYPE(1),
-    .C_BYTE_SIZE(8),
+    .C_MEM_TYPE(2),
+    .C_BYTE_SIZE(9),
     .C_ALGORITHM(1),
     .C_PRIM_TYPE(1),
     .C_LOAD_INIT_FILE(1),
@@ -108,9 +120,9 @@ output wire [7 : 0] doutb;
     .C_RST_PRIORITY_A("CE"),
     .C_RSTRAM_A(0),
     .C_INITA_VAL("0"),
-    .C_HAS_ENA(0),
+    .C_HAS_ENA(1),
     .C_HAS_REGCEA(0),
-    .C_USE_BYTE_WEA(1),
+    .C_USE_BYTE_WEA(0),
     .C_WEA_WIDTH(1),
     .C_WRITE_MODE_A("WRITE_FIRST"),
     .C_WRITE_WIDTH_A(8),
@@ -124,16 +136,16 @@ output wire [7 : 0] doutb;
     .C_INITB_VAL("0"),
     .C_HAS_ENB(1),
     .C_HAS_REGCEB(0),
-    .C_USE_BYTE_WEB(1),
+    .C_USE_BYTE_WEB(0),
     .C_WEB_WIDTH(1),
-    .C_WRITE_MODE_B("READ_FIRST"),
+    .C_WRITE_MODE_B("WRITE_FIRST"),
     .C_WRITE_WIDTH_B(8),
     .C_READ_WIDTH_B(8),
     .C_WRITE_DEPTH_B(480000),
     .C_READ_DEPTH_B(480000),
     .C_ADDRB_WIDTH(19),
     .C_HAS_MEM_OUTPUT_REGS_A(0),
-    .C_HAS_MEM_OUTPUT_REGS_B(1),
+    .C_HAS_MEM_OUTPUT_REGS_B(0),
     .C_HAS_MUX_OUTPUT_REGS_A(0),
     .C_HAS_MUX_OUTPUT_REGS_B(0),
     .C_MUX_PIPELINE_STAGES(0),
@@ -158,23 +170,23 @@ output wire [7 : 0] doutb;
     .C_DISABLE_WARN_BHV_RANGE(1),
     .C_COUNT_36K_BRAM("117"),
     .C_COUNT_18K_BRAM("1"),
-    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     5.066956 mW")
+    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     5.067571 mW")
   ) inst (
     .clka(clka),
     .rsta(1'D0),
-    .ena(1'D0),
+    .ena(ena),
     .regcea(1'D0),
     .wea(wea),
     .addra(addra),
     .dina(dina),
-    .douta(),
+    .douta(douta),
     .clkb(clkb),
     .rstb(1'D0),
     .enb(enb),
     .regceb(1'D0),
-    .web(1'B0),
+    .web(web),
     .addrb(addrb),
-    .dinb(8'B0),
+    .dinb(dinb),
     .doutb(doutb),
     .injectsbiterr(1'D0),
     .injectdbiterr(1'D0),
