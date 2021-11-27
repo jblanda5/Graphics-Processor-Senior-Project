@@ -23,8 +23,9 @@ module TopLevel(
     output wire Hsync, //Horizontal Sync signal
     output wire Vsync, //Vertical Sync signal
     output wire [11:0] vga, //Pixel output
-    input wire[70:0] dataIn,
-    input wire write_en
+    input wire [7:0] PMOD,
+    input wire pi_rts_raw,
+    output wire fpga_rtr
     );
 //set up our pixel color wire
 wire [7:0] pixel;
@@ -76,8 +77,8 @@ assign readAddr = xyToMem(h_count,v_count);
 
 //Instantiate FIFO object
 wire full;
-//wire[70:0] dataIn;
-//wire write_en;
+wire[70:0] dataIn;
+wire write_en;
 wire empty;
 wire read_clk;
 wire read_en;
@@ -134,5 +135,15 @@ outputMux mux(
 .rtrDrawLine(rtr_drawLine),
 .writeAddr(writeAddr),
 .writeEnable(writeEnable)
+);
+
+//Instantiate Interface Module
+InterfaceModule interface(
+.clk(clk), 
+.pi_rts_raw(pi_rts_raw), 
+.PMOD(PMOD),
+.dataIn(dataIn),
+.write_en(write_en),
+.fpga_rtr(fpga_rtr)
 );
 endmodule
