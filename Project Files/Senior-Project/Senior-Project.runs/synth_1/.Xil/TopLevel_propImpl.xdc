@@ -29,6 +29,8 @@ set_property src_info {type:XDC file:1 line:107 export:INPUT save:INPUT read:REA
 set_property -dict { PACKAGE_PIN D14   IOSTANDARD LVCMOS33 } [get_ports { pi_rts_raw }]; #IO_L1P_T0_AD0P_15 Sch=jb[1]
 set_property src_info {type:XDC file:1 line:108 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN F16   IOSTANDARD LVCMOS33 } [get_ports { fpga_rtr }]; #IO_L14N_T2_SRCC_15 Sch=jb[2]
+set_property src_info {type:XDC file:1 line:109 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN G16   IOSTANDARD LVCMOS33 } [get_ports { reset }]; #IO_L13N_T2_MRCC_15 Sch=jb[3]
 set_property src_info {type:XDC file:1 line:155 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN A3    IOSTANDARD LVCMOS33 } [get_ports { vga[8] }]; #IO_L8N_T1_AD14N_35 Sch=vga_r[0]
 set_property src_info {type:XDC file:1 line:156 export:INPUT save:INPUT read:READ} [current_design]

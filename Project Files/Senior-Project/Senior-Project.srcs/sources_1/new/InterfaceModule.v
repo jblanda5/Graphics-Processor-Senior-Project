@@ -28,7 +28,8 @@ output reg [70:0] dataIn,
 output reg write_en,
 output reg fpga_rtr,
 output reg [3:0]counter,
-input wire full
+input wire full,
+input wire resetPin
 );
 
 //reg reset, reset_p1;
@@ -45,6 +46,9 @@ parameter waitForPi = 3'b101;
 always @ (posedge clk) begin
 pi_rts_p1 <= pi_rts_raw;
 pi_rts <= pi_rts_p1;
+if (resetPin) begin
+state <= reset;
+end
     case(state)
         reset: begin
             dataIn <= 0;

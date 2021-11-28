@@ -26,7 +26,8 @@ module TopLevel(
     input wire [7:0] PMOD,
     input wire pi_rts_raw,
     output wire fpga_rtr,
-    output wire [3:0]counter
+    output wire [3:0]counter,
+    input wire reset
     );
 //set up our pixel color wire
 wire [7:0] pixel;
@@ -147,6 +148,7 @@ InterfaceModule interface(
 .write_en(write_en),
 .fpga_rtr(fpga_rtr),
 .counter(counter),
-.full(full)
+.full(full),
+.resetPin(reset)
 );
 endmodule
