@@ -28,6 +28,8 @@ reg clk;
 wire [70:0]dataIn;
 wire write_en;
 wire fpga_rtr;
+wire [3:0] counter;
+reg full;
 
 InterfaceModule TESTINTERFACE(
 clk, 
@@ -35,7 +37,9 @@ pi_rts_raw,
 PMOD,
 dataIn,
 write_en,
-fpga_rtr
+fpga_rtr,
+counter,
+full
 );
 
 initial begin
@@ -46,7 +50,7 @@ clk <= 0;
 end
 
 initial begin
-
+full <= 0;
 while (1) begin
     pi_rts_raw <= 1; //should have valid data when RTS is high
     PMOD <= 8'b11111111;

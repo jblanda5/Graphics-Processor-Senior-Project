@@ -64,13 +64,13 @@ pi_rts <= pi_rts_p1;
         instruction: begin
             dataIn <= (dataIn << 8) | PMOD;
             fpga_rtr <= 0;
-            counter <= counter + 1;
-            if (counter < 8) begin
+            if (counter <= 8) begin
                 state <= waitForPi;
+                counter <= counter + 1;
             end
             else begin
                 write_en <= 1;
-                counter <= 4'b0000;
+                counter <= 0;
                 state <= delayState;
             end
         end
