@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Sat Nov 27 21:19:41 2021
+| Date         : Sat Nov 27 22:40:50 2021
 | Host         : Endeavor running 64-bit major release  (build 9200)
 | Command      : report_utilization -file TopLevel_utilization_synth.rpt -pb TopLevel_utilization_synth.pb
 | Design       : TopLevel
@@ -56,8 +56,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 0     |          Yes |         Set |            - |
-| 217   |          Yes |       Reset |            - |
+| 1     |          Yes |         Set |            - |
+| 216   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -147,7 +147,7 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  217 |        Flop & Latch |
+| FDRE     |  216 |        Flop & Latch |
 | LUT2     |  170 |                 LUT |
 | LUT6     |  135 |                 LUT |
 | LUT4     |  126 |                 LUT |
@@ -158,6 +158,7 @@ Table of Contents
 | LUT1     |   11 |                 LUT |
 | IBUF     |    9 |                  IO |
 | DSP48E1  |    2 |    Block Arithmetic |
+| FDSE     |    1 |        Flop & Latch |
 +----------+------+---------------------+
 
 

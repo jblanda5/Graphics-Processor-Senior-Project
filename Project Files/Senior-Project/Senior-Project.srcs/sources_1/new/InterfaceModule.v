@@ -51,7 +51,7 @@ pi_rts <= pi_rts_p1;
             fpga_rtr <= 0;
             write_en <= 0;
             state <= idle;
-            counter <= 0;
+            counter <= 1;
         end
 
         idle: begin
