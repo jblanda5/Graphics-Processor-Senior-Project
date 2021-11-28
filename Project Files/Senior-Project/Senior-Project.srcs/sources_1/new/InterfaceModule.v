@@ -27,7 +27,8 @@ input wire [7:0] PMOD,
 output reg [70:0] dataIn,
 output reg write_en,
 output reg fpga_rtr,
-output reg [3:0]counter
+output reg [3:0]counter,
+input wire full
 );
 
 //reg reset, reset_p1;
