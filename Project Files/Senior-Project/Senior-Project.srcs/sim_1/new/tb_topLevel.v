@@ -48,92 +48,169 @@ end
 initial begin
         #570; //Wait for PLL to catch up.
         PMOD <= 8'b00101110;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
         pi_rts_raw <= 1;
-        while (fpga_rtr) begin
-        #2;
+        while (fpga_rtr == 1) begin
+        #10;
         end
-        while (~fpga_rtr) begin
-        #2;
         pi_rts_raw <= 0;
-        end
         PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
         pi_rts_raw <= 1;
-        while (fpga_rtr) begin
-        #2;
+        while (fpga_rtr == 1) begin
+        #10;
         end
-        while (~fpga_rtr) begin
-        #2;
         pi_rts_raw <= 0;
-        end
-        #2;
         PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
         pi_rts_raw <= 1;
-        while (fpga_rtr) begin
-        #2;
+        while (fpga_rtr == 1) begin
+        #10;
         end
-        while (~fpga_rtr) begin
-        #2;
         pi_rts_raw <= 0;
-        end
-        #2;
         PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
         pi_rts_raw <= 1;
-        while (fpga_rtr) begin
-        #2;
+        while (fpga_rtr == 1) begin
+        #10;
         end
-        while (~fpga_rtr) begin
-        #2;
         pi_rts_raw <= 0;
-        end
-        #2;
-        PMOD <= 8'b11111111;
-        pi_rts_raw <= 1;
-        while (fpga_rtr) begin
-        #2;
-        end
-        while (~fpga_rtr) begin
-        #2;
-        pi_rts_raw <= 0;
-        end
-        #2;
-        PMOD <= 8'b11111111;
-        pi_rts_raw <= 1;
-        while (fpga_rtr) begin
-        #2;
-        end
-        while (~fpga_rtr) begin
-        #2;
-        pi_rts_raw <= 0;
-        end
-        #2; 
-        PMOD <= 8'b11110000;
-        pi_rts_raw <= 1;
-        while (fpga_rtr) begin
-        #2;
-        end
-        while (~fpga_rtr) begin
-        #2;
-        pi_rts_raw <= 0;
-        end
-        #2; 
         PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
         pi_rts_raw <= 1;
-        while (fpga_rtr) begin
-        #2;
+        while (fpga_rtr == 1) begin
+        #10;
         end
-        while (~fpga_rtr) begin
-        #2;
         pi_rts_raw <= 0;
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
         end
-        #2;
-        PMOD <= 8'b0000000;
         pi_rts_raw <= 1;
-        while (fpga_rtr) begin
-        #2;
+        while (fpga_rtr == 1) begin
+        #10;
         end
-        while (~fpga_rtr) begin
-        #2;
         pi_rts_raw <= 0;
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
         end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        
+        #570; //Beeg delay
+        PMOD <= 8'b00101111;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        
 end
 endmodule
