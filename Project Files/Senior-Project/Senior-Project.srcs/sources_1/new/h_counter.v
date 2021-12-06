@@ -27,7 +27,7 @@ module h_counter(
     output reg [10:0] h_count
     );
     
-    initial begin
+    initial begin //Initial Condition, TODO: Replace, violates best practice
         h_count = 11'b00000000000;
     
     end
@@ -35,12 +35,12 @@ module h_counter(
     if (reset) begin
         h_count = 11'b00000000000;
     end
-        if (h_count == 11'b10000011101) begin
+        if (h_count == 11'b10000011101) begin //If we've reached the end of the screen, reset
            h_count <= 11'b00000000000;
-            v_clk <= 1;
+            v_clk <= 1; //Increment v_counter
        end
        else begin
-            h_count <= h_count + 11'b1;
+            h_count <= h_count + 11'b1; //Increment
             v_clk <= 0;
        end
 

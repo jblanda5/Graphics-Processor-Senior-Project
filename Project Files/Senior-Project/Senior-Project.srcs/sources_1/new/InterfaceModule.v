@@ -65,10 +65,10 @@ end
             end
         end
         
-        instruction: begin
+        instruction: begin //Read byte
             dataIn <= (dataIn << 8) | PMOD;
             fpga_rtr <= 0;
-            if (counter <= 8) begin
+            if (counter <= 8) begin //If all 9 pieces are sent, wait for Pi to finish
                 state <= waitForPi;
                 counter <= counter + 1;
             end
@@ -78,14 +78,14 @@ end
                 state <= delayState;
             end
         end
-        delayState: begin
+        delayState: begin //Delay state to make up for the double flopped input signal
             write_en <= 0;
             state <= delayState2;
         end
-        delayState2: begin
+        delayState2: begin //Delay state to make up for the double flopped input signal
             state <= idle;
         end
-        waitForPi: begin
+        waitForPi: begin //Wait for pi's RTS to go low to avoid false data reception
             if (pi_rts == 0) begin
                 state <= idle;
             end
