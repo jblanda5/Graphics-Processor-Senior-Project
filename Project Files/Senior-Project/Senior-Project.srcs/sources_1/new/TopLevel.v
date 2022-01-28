@@ -105,7 +105,9 @@ commandProcessor command_processor(
 .Instruction(dataOut),
 .empty(empty),
 .rtr_drawLine(rtr_drawLine),
+.rtr_blankScreen(rtr_blank_screen),
 .rts_drawLine(rts_drawLine),
+.rts_blankScreen(rts_blank_screen),
 .read_en(read_en),
 .x1(x1),
 .x2(x2),
@@ -115,8 +117,8 @@ commandProcessor command_processor(
 );
 
 //Instantiate Line Drawing Module
-wire [9:0] x_out;
-wire [9:0] y_out;
+wire [9:0] x_out_drawLine;
+wire [9:0] y_out_drawLine;
 drawLine line_drawing(
 .x1(x1),
 .y1(y1),
@@ -125,16 +127,33 @@ drawLine line_drawing(
 .clk(clk),
 .rts(rts_drawLine),
 .rtr(rtr_drawLine),
-.x_out(x_out),
-.y_out(y_out)
+.x_out(x_out_drawLine),
+.y_out(y_out_drawLine)
+);
+
+//Instantiate Blank Screen Module
+wire [9:0] x_out_blanking;
+wire [9:0] y_out_blanking;
+wire rtr_blank_screen;
+wire rts_blank_screen;
+blank_screen blankScreen(
+.clk(clk),
+.rts(rts_blank_screen),
+.rtr(rtr_blank_screen),
+.x_out(x_out_blanking),
+.y_out(y_out_blanking)
 );
 
 //Instantiate output mux
 wire [18:0] drawLineAddr;
-assign drawLineAddr = xyToMem(x_out,y_out);
+wire [18:0] blankScreenAddr;
+assign drawLineAddr = xyToMem(x_out_drawLine,y_out_drawLine);
+assign blankScreenAddr = xyToMem(x_out_blanking, y_out_blanking);
 outputMux mux(
 .drawLineAddr(drawLineAddr),
+.blankScreenAddr(blankScreenAddr),
 .rtrDrawLine(rtr_drawLine),
+.rtrBlankScreen(rtr_blank_screen),
 .writeAddr(writeAddr),
 .writeEnable(writeEnable)
 );

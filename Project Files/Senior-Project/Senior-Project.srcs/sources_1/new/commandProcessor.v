@@ -25,7 +25,9 @@ input wire clk,
 input wire[70:0] Instruction,
 input wire empty,
 input wire rtr_drawLine,
+input wire rtr_blankScreen,
 output reg rts_drawLine,
+output reg rts_blankScreen,
 output reg read_en,
 output reg [9:0]x1,
 output reg [9:0]x2,
@@ -38,8 +40,8 @@ reg [2:0]state;
 parameter reset = 3'b000;
 parameter idle = 3'b001;
 parameter instruction = 3'b010;
-parameter intermediateDrawLine = 3'b011;
-parameter busyDrawLine = 3'b100;
+parameter intermediate = 3'b011;
+parameter busy = 3'b100;
 
 always @(posedge clk) begin
     case(state)
@@ -71,7 +73,16 @@ always @(posedge clk) begin
                         x2 <= Instruction[39:30];
                         y2 <= Instruction[29:20];
                         rts_drawLine <= 1;
-                        state <= intermediateDrawLine;
+                        state <= intermediate;
+                        read_en <= 1;
+                    end //This will latch until rtr is high.
+                end
+                
+                3'b011: begin //This instruction is the blank screen instruction
+                    if (rtr_drawLine) begin
+                        color <= Instruction[67:60];
+                        rts_blankScreen <= 1;
+                        state <= intermediate;
                         read_en <= 1;
                     end //This will latch until rtr is high.
                 end
@@ -83,14 +94,15 @@ always @(posedge clk) begin
             endcase
         end
 
-        intermediateDrawLine: begin // Disable FIFO read, RTS, and move to busy state.
+        intermediate: begin // Disable FIFO read, RTS, and move to busy state.
             read_en <= 0;
             rts_drawLine <= 0;
-            state <= busyDrawLine;
+            rts_blankScreen <= 0;
+            state <= busy;
         end
 
-        busyDrawLine: begin //Busy state
-            if(rtr_drawLine) begin //If the draw line is rtr, it is done.
+        busy: begin //Busy state
+            if(rtr_drawLine & rtr_blankScreen) begin //If the draw line and blank screen is rtr, it is done.
                 if (~empty) begin //Instruction ready, go to instruction state
                     state <= instruction;
                     end

@@ -3,65 +3,57 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_Interface_behav.wdb" id="1">
+      <db_ref path="tb_topLevel_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="tb_Interface" />
+            <top_module name="tb_topLevel" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="113.701 ns"></ZoomEndTime>
-      <Cursor1Time time="60.000 ns"></Cursor1Time>
+      <ZoomStartTime time="737.290 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,052.542 ns"></ZoomEndTime>
+      <Cursor1Time time="950.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="90"></NameColumnWidth>
+      <NameColumnWidth column_width="120"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
-   <wvobject fp_name="/tb_Interface/TESTINTERFACE/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/Instruction" type="array">
+      <obj_property name="ElementShortName">Instruction[70:0]</obj_property>
+      <obj_property name="ObjectShortName">Instruction[70:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_Interface/TESTINTERFACE/pi_rts_raw" type="logic">
-      <obj_property name="ElementShortName">pi_rts_raw</obj_property>
-      <obj_property name="ObjectShortName">pi_rts_raw</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_Interface/TESTINTERFACE/PMOD" type="array">
-      <obj_property name="ElementShortName">PMOD[7:0]</obj_property>
-      <obj_property name="ObjectShortName">PMOD[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_Interface/TESTINTERFACE/dataIn" type="array">
-      <obj_property name="ElementShortName">dataIn[70:0]</obj_property>
-      <obj_property name="ObjectShortName">dataIn[70:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_Interface/TESTINTERFACE/write_en" type="logic">
-      <obj_property name="ElementShortName">write_en</obj_property>
-      <obj_property name="ObjectShortName">write_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_Interface/TESTINTERFACE/fpga_rtr" type="logic">
-      <obj_property name="ElementShortName">fpga_rtr</obj_property>
-      <obj_property name="ObjectShortName">fpga_rtr</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_Interface/TESTINTERFACE/counter" type="array">
-      <obj_property name="ElementShortName">counter[3:0]</obj_property>
-      <obj_property name="ObjectShortName">counter[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_Interface/TESTINTERFACE/full" type="logic">
-      <obj_property name="ElementShortName">full</obj_property>
-      <obj_property name="ObjectShortName">full</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_Interface/TESTINTERFACE/pi_rts" type="logic">
-      <obj_property name="ElementShortName">pi_rts</obj_property>
-      <obj_property name="ObjectShortName">pi_rts</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_Interface/TESTINTERFACE/pi_rts_p1" type="logic">
-      <obj_property name="ElementShortName">pi_rts_p1</obj_property>
-      <obj_property name="ObjectShortName">pi_rts_p1</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_Interface/TESTINTERFACE/state" type="array">
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/state" type="array">
       <obj_property name="ElementShortName">state[2:0]</obj_property>
       <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/blankScreen/x_out" type="array">
+      <obj_property name="ElementShortName">x_out[9:0]</obj_property>
+      <obj_property name="ObjectShortName">x_out[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/blankScreen/y_out" type="array">
+      <obj_property name="ElementShortName">y_out[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y_out[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/mux/writeAddr" type="array">
+      <obj_property name="ElementShortName">writeAddr[18:0]</obj_property>
+      <obj_property name="ObjectShortName">writeAddr[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/blankScreenAddr" type="array">
+      <obj_property name="ElementShortName">blankScreenAddr[18:0]</obj_property>
+      <obj_property name="ObjectShortName">blankScreenAddr[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/mux/blankScreenAddr" type="array">
+      <obj_property name="ElementShortName">blankScreenAddr[18:0]</obj_property>
+      <obj_property name="ObjectShortName">blankScreenAddr[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/mux/writeEnable" type="logic">
+      <obj_property name="ElementShortName">writeEnable</obj_property>
+      <obj_property name="ObjectShortName">writeEnable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/mux/rtrBlankScreen" type="logic">
+      <obj_property name="ElementShortName">rtrBlankScreen</obj_property>
+      <obj_property name="ObjectShortName">rtrBlankScreen</obj_property>
    </wvobject>
 </wave_config>
