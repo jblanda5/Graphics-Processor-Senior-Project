@@ -26,19 +26,19 @@ module v_counter(
     output reg [10:0] v_count
     );
     
-    initial begin
+    initial begin //Initial Condition, TODO: Replace, violates best practice
         v_count <= 11'b00000000000;
     
     end
     always@(posedge clk) begin
-        if (reset) begin
+        if (reset) begin //Reset condition
             v_count <= 11'b00000000000;
         end
-        if (v_count == 11'b01001110011) begin
+        if (v_count == 11'b01001110011) begin //If we've reached the last line, reset
            v_count <= 11'b00000000000;
        end
         else begin
-            v_count <= v_count + 11'b1;
+            v_count <= v_count + 11'b1; //Increment
        end
 
     end
