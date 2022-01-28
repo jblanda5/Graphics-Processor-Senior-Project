@@ -22,10 +22,12 @@
 
 module outputMux(
 input wire [18:0] drawLineAddr,
+input wire [18:0] blankScreenAddr,
 input wire rtrDrawLine,
+input wire rtrBlankScreen,
 output wire [18:0] writeAddr,
 output wire writeEnable
     );
-    assign writeAddr = (rtrDrawLine ? 0 : drawLineAddr); //replace 0 with (rtrDrawTriangle ? 0 : drawTriangleAddr)
-    assign writeEnable = ~(rtrDrawLine); // add | rtrDrawTriangle
+    assign writeAddr = (rtrDrawLine ? (rtrBlankScreen ? 0 : blankScreenAddr) : drawLineAddr); //replace 0 with (rtrDrawTriangle ? 0 : drawTriangleAddr)
+    assign writeEnable = ~(rtrDrawLine & rtrBlankScreen); // add & rtrDrawTriangle
 endmodule

@@ -47,7 +47,7 @@ initial begin
 end
 initial begin
         #570; //Wait for PLL to catch up.
-        PMOD <= 8'b00101110;
+        PMOD <= 8'b00110000;
         while (fpga_rtr == 0) begin
         #10;
         end
