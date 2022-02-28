@@ -99,12 +99,9 @@ commandFIFO FIFO(
 wire finished;
 wire rtr_drawLine;
 wire rts_drawLine;
-wire rtr_triangle;
-wire rts_triangle;
-wire done;
-wire next;
-wire [9:0] x_curr1, x_curr2, y_curr;
-wire [9:0] x1,x2,x3,y1,y2,y3;
+wire [9:0] x1,x2,y1,y2;
+wire rtr_blank_screen;
+wire rts_blank_screen;
 commandProcessor command_processor(
 .clk(clk),
 .Instruction(dataOut),
@@ -114,19 +111,10 @@ commandProcessor command_processor(
 .rts_drawLine(rts_drawLine),
 .rts_blankScreen(rts_blank_screen),
 .read_en(read_en),
-.done(done),
-.next(next),
 .x1(x1),
 .x2(x2),
-.x3(x3),
 .y1(y1),
 .y2(y2),
-.y3(y3),
-.x_curr1(x_curr1),
-.x_curr2(x_curr2),
-.y_curr(y_curr),
-.rtr_triangle(rtr_triangle),
-.rts_triangle(rts_triangle),
 .color(pixel_write)
 );
 
@@ -148,8 +136,6 @@ drawLine line_drawing(
 //Instantiate Blank Screen Module
 wire [9:0] x_out_blanking;
 wire [9:0] y_out_blanking;
-wire rtr_blank_screen;
-wire rts_blank_screen;
 blank_screen blankScreen(
 .clk(clk),
 .rts(rts_blank_screen),
