@@ -26,13 +26,17 @@ input wire[70:0] Instruction,
 input wire empty,
 input wire rtr_drawLine,
 input wire rtr_blankScreen,
+input wire rtr_drawTriangle,
 output reg rts_drawLine,
 output reg rts_blankScreen,
+output reg rts_drawTriangle,
 output reg read_en,
 output reg [9:0]x1,
 output reg [9:0]x2,
+output reg [9:0]x3,
 output reg [9:0]y1,
 output reg [9:0]y2,
+output reg [9:0]y3,
 output reg [7:0]color
 );
 
@@ -48,7 +52,9 @@ always @(posedge clk) begin
 
         reset: begin //Reset state.
             read_en <= 0;
+            rts_blankScreen <= 0;
             rts_drawLine <= 0;
+            rts_drawTriangle <= 0;
             state <= idle;
             x1 <= 0;
             x2 <= 0;
@@ -86,6 +92,19 @@ always @(posedge clk) begin
                         read_en <= 1;
                     end //This will latch until rtr is high.
                 end
+                
+                3'b100: begin //This instruction is the draw triangle instruction
+                        color <= Instruction[67:60];
+                        x1 <= Instruction[59:50];
+                        y1 <= Instruction[49:40];
+                        x2 <= Instruction[39:30];
+                        y2 <= Instruction[29:20];
+                        x3 <= Instruction[19:10];
+                        y3 <= Instruction[9:0];
+                        rts_drawTriangle <= 1;
+                        state <= intermediate;
+                        read_en <= 1;
+                end
 
                 default: begin
                 state <= reset; //Bad instruction, go to reset
@@ -98,11 +117,12 @@ always @(posedge clk) begin
             read_en <= 0;
             rts_drawLine <= 0;
             rts_blankScreen <= 0;
+            rts_drawTriangle <= 0;
             state <= busy;
         end
 
         busy: begin //Busy state
-            if(rtr_drawLine & rtr_blankScreen) begin //If the draw line and blank screen is rtr, it is done.
+            if(rtr_drawLine & rtr_blankScreen & rtr_drawTriangle) begin //If the draw line, draw Triangle, and blank screen is rtr, it is done.
                 if (~empty) begin //Instruction ready, go to instruction state
                     state <= instruction;
                     end

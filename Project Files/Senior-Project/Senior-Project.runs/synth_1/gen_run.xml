@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1645730194">
-  <File Type="PA-TCL" Name="trianglePoints.tcl"/>
-  <File Type="REPORTS-TCL" Name="trianglePoints_reports.tcl"/>
-  <File Type="RDS-RDS" Name="trianglePoints.vds"/>
-  <File Type="RDS-UTIL" Name="trianglePoints_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="trianglePoints_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="trianglePoints.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1646872394">
+  <File Type="PA-TCL" Name="TopLevel.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="TopLevel_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="TopLevel_reports.tcl"/>
+  <File Type="RDS-RDS" Name="TopLevel.vds"/>
+  <File Type="RDS-UTIL" Name="TopLevel_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="TopLevel_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="TopLevel.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="TopLevel_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="TopLevel_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/VGA_Controller.v">
@@ -103,7 +106,21 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/trianglePoints.v">
+    <File Path="$PSRCDIR/sources_1/new/drawSide.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/drawHorizontal.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/drawTriangle.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -112,7 +129,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="trianglePoints"/>
+      <Option Name="TopModule" Val="TopLevel"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

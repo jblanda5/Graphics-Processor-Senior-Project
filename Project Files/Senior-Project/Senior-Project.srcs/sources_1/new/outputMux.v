@@ -23,11 +23,13 @@
 module outputMux(
 input wire [18:0] drawLineAddr,
 input wire [18:0] blankScreenAddr,
+input wire [18:0] drawTriangleAddr,
 input wire rtrDrawLine,
 input wire rtrBlankScreen,
+input wire rtrDrawTriangle,
 output wire [18:0] writeAddr,
 output wire writeEnable
     );
-    assign writeAddr = (rtrDrawLine ? (rtrBlankScreen ? 0 : blankScreenAddr) : drawLineAddr); //replace 0 with (rtrDrawTriangle ? 0 : drawTriangleAddr)
-    assign writeEnable = ~(rtrDrawLine & rtrBlankScreen); // add & rtrDrawTriangle
+    assign writeAddr = (rtrDrawLine ? (rtrBlankScreen ? (rtrDrawTriangle ? 0 :drawTriangleAddr) : blankScreenAddr) : drawLineAddr); //replace 0 with (rtrDrawTriangle ? 0 : drawTriangleAddr)
+    assign writeEnable = ~(rtrDrawLine & rtrBlankScreen & rtrDrawTriangle); // add & rtrDrawTriangle
 endmodule
