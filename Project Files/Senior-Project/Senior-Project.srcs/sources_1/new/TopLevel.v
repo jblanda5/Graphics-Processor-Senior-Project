@@ -176,8 +176,10 @@ assign blankScreenAddr = xyToMem(x_out_blanking, y_out_blanking);
 outputMux mux(
 .drawLineAddr(drawLineAddr),
 .blankScreenAddr(blankScreenAddr),
+.drawTriangleAddr(drawTriangleAddr),
 .rtrDrawLine(rtr_drawLine),
 .rtrBlankScreen(rtr_blank_screen),
+.rtrDrawTriangle(rtr_drawTriangle),
 .writeAddr(writeAddr),
 .writeEnable(writeEnable)
 );

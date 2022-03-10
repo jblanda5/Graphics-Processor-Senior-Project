@@ -1,8 +1,8 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date             : Wed Mar  9 19:35:44 2022
-| Host             : Endeavor running 64-bit major release  (build 9200)
+| Date             : Thu Mar 10 14:39:19 2022
+| Host             : Apollo running 64-bit major release  (build 9200)
 | Command          : report_power -file TopLevel_power_routed.rpt -pb TopLevel_power_summary_routed.pb -rpx TopLevel_power_routed.rpx
 | Design           : TopLevel
 | Device           : xc7a100tcsg324-1
@@ -53,16 +53,16 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.003 |        8 |       --- |             --- |
-| Slice Logic    |     0.004 |     3493 |       --- |             --- |
-|   LUT as Logic |     0.004 |     1752 |     63400 |            2.76 |
+| Slice Logic    |     0.005 |     3729 |       --- |             --- |
+|   LUT as Logic |     0.004 |     1821 |     63400 |            2.87 |
 |   CARRY4       |    <0.001 |      224 |     15850 |            1.41 |
 |   Register     |    <0.001 |      530 |    126800 |            0.42 |
 |   F7/F8 Muxes  |    <0.001 |      169 |     63400 |            0.27 |
-|   Others       |     0.000 |      294 |       --- |             --- |
-| Signals        |     0.007 |     3239 |       --- |             --- |
-| Block RAM      |     0.002 |    119.5 |       135 |           88.52 |
+|   Others       |     0.000 |      412 |       --- |             --- |
+| Signals        |     0.007 |     3390 |       --- |             --- |
+| Block RAM      |     0.001 |    119.5 |       135 |           88.52 |
 | PLL            |     0.098 |        1 |         6 |           16.67 |
-| DSPs           |    <0.001 |        3 |       240 |            1.25 |
+| DSPs           |     0.001 |        4 |       240 |            1.67 |
 | I/O            |    <0.001 |       30 |       210 |           14.29 |
 | Static Power   |     0.103 |          |           |                 |
 | Total          |     0.220 |          |           |                 |
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.044 |       0.026 |      0.018 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.045 |       0.027 |      0.018 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.068 |       0.050 |      0.018 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -160,8 +160,8 @@ Table of Contents
 |     frameBufferMemory |     0.004 |
 |       U0              |     0.004 |
 |   line_drawing        |     0.002 |
-|   triangle_drawing    |     0.003 |
-|     side1             |     0.002 |
+|   triangle_drawing    |     0.004 |
+|     side1             |     0.001 |
 |     side2             |     0.002 |
 +-----------------------+-----------+
 

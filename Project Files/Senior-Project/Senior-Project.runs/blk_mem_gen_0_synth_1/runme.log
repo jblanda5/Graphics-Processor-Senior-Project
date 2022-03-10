@@ -9,8 +9,7 @@
   **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
     ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 
-Sourcing tcl script 'C:/Users/jblan/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
 source blk_mem_gen_0.tcl -notrace
 WARNING: [Vivado 12-9135] Ignoring repo path (C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/blk_mem_gen_0_synth_1/Files/vivado-boards/new/board_files) because it contains no board files
 INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP blk_mem_gen_0, cache-ID = 9976550139733484.
-INFO: [Common 17-206] Exiting Vivado at Wed Mar  9 19:31:34 2022...
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 10 13:42:53 2022...

@@ -1,8 +1,8 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date                      : Wed Mar  9 19:35:00 2022
-| Host                      : Endeavor running 64-bit major release  (build 9200)
+| Date                      : Thu Mar 10 14:38:35 2022
+| Host                      : Apollo running 64-bit major release  (build 9200)
 | Command                   : report_io -file TopLevel_io_placed.rpt
 | Design                    : TopLevel
 | Device                    : xc7a100t
