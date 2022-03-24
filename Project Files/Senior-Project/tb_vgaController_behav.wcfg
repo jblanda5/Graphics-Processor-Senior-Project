@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2,290.010 ns"></ZoomStartTime>
-      <ZoomEndTime time="2,379.999 ns"></ZoomEndTime>
-      <Cursor1Time time="2,365.000 ns"></Cursor1Time>
+      <ZoomStartTime time="137.363452 us"></ZoomStartTime>
+      <ZoomEndTime time="213.452382 us"></ZoomEndTime>
+      <Cursor1Time time="200.770893 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="113"></NameColumnWidth>
+      <NameColumnWidth column_width="105"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="6" />
+   <WVObjectSize size="14" />
    <wvobject fp_name="/tb_topLevel/testTopLevel/triangle_drawing/x_out" type="array">
       <obj_property name="ElementShortName">x_out[9:0]</obj_property>
       <obj_property name="ObjectShortName">x_out[9:0]</obj_property>
@@ -43,5 +43,37 @@
    <wvobject fp_name="/tb_topLevel/testTopLevel/frame/writeAddr" type="array">
       <obj_property name="ElementShortName">writeAddr[18:0]</obj_property>
       <obj_property name="ObjectShortName">writeAddr[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/triangle_drawing/rtr" type="logic">
+      <obj_property name="ElementShortName">rtr</obj_property>
+      <obj_property name="ObjectShortName">rtr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/triangle_drawing/state" type="array">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/triangle_drawing/y1" type="array">
+      <obj_property name="ElementShortName">y1[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y1[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/triangle_drawing/y_curr1" type="array">
+      <obj_property name="ElementShortName">y_curr1[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y_curr1[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/triangle_drawing/rtr_draw" type="logic">
+      <obj_property name="ElementShortName">rtr_draw</obj_property>
+      <obj_property name="ObjectShortName">rtr_draw</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/FIFO/dout" type="array">
+      <obj_property name="ElementShortName">dout[70:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[70:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/FIFO/empty" type="logic">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
    </wvobject>
 </wave_config>

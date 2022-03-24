@@ -105,6 +105,9 @@ always @(posedge clk) begin
             if (rts) begin
                 rtr <= 0;
                 state <= setup;
+                //Let side modules enter their setup state as if rts is high, data is currently valid.
+                rts1 <= 1;
+                rts2 <= 1;
             end
             else begin
                 rtr <= 1;
@@ -113,8 +116,8 @@ always @(posedge clk) begin
         
         setup: begin
            if (rtr1 & rtr2) begin
-                rts1 <= 1;
-                rts2 <= 1;
+                rts1 <= 0;
+                rts2 <= 0;
                 if (y1 >= y2) begin
                     state <= flat_bottom;
                 end
@@ -129,7 +132,7 @@ always @(posedge clk) begin
             rts2 <= 0;
             if (y_curr1 == y_curr2) begin
                 enable1 <= 1;
-                enable2 <= 2;
+                enable2 <= 1;
                 rts_draw <= 1;
                 state <= intermediate;
             end
@@ -161,7 +164,7 @@ always @(posedge clk) begin
             if (y_curr1 == y1) begin
                 state <= reset;
             end
-            if (y1 > y2) begin
+            else if (y1 > y2) begin
                 state <= flat_bottom;
             end
             else begin
