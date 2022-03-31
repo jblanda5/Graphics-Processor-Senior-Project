@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Thu Mar 10 14:37:43 2022
+| Date         : Thu Mar 31 15:09:20 2022
 | Host         : Apollo running 64-bit major release  (build 9200)
 | Command      : report_utilization -file TopLevel_utilization_synth.rpt -pb TopLevel_utilization_synth.pb
 | Design       : TopLevel
@@ -147,13 +147,13 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT2     |  492 |                 LUT |
-| LUT4     |  431 |                 LUT |
-| LUT6     |  398 |                 LUT |
+| LUT2     |  495 |                 LUT |
+| LUT4     |  427 |                 LUT |
+| LUT6     |  401 |                 LUT |
 | FDRE     |  396 |        Flop & Latch |
-| LUT3     |  230 |                 LUT |
-| CARRY4   |  216 |          CarryLogic |
-| LUT5     |  111 |                 LUT |
+| LUT3     |  228 |                 LUT |
+| CARRY4   |  217 |          CarryLogic |
+| LUT5     |  112 |                 LUT |
 | LUT1     |   25 |                 LUT |
 | OBUF     |   19 |                  IO |
 | IBUF     |   10 |                  IO |

@@ -102,6 +102,9 @@ always @(posedge clk) begin
         end
        
         bigX: begin
+            if (x_current == x2) begin
+                state <= idle;
+            end
             if (enable) begin
                 if (D > dx + dx)begin
                     D <= Dnextx - dx - dx;
@@ -119,6 +122,9 @@ always @(posedge clk) begin
         end
        
         negX: begin
+            if (x_current == x2) begin
+                state <= idle;
+            end
             if (enable) begin
                 if (D > dx + dx)begin
                     D <= Dnextx - dx - dx;
@@ -137,6 +143,9 @@ always @(posedge clk) begin
         end
        
         bigY: begin
+            if (y_current == y2) begin
+                state <= idle;
+            end
             if (enable) begin
                 if (D > dy + dy)begin
                     D <= Dnexty - dy - dy;
@@ -155,6 +164,9 @@ always @(posedge clk) begin
         end
        
         negY: begin
+            if (y_current == y2) begin
+                state <= idle;
+            end
             if (enable) begin
                 if (D > dy + dy) begin
                     D <= Dnexty - dy - dy;

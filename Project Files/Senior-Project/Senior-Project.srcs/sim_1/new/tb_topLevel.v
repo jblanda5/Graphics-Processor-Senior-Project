@@ -129,8 +129,20 @@ initial begin
         end
         pi_rts_raw <= 0;
         
-        #20000; //Beeg delay
-        PMOD <= 8'b01000000; //opcode + 1/2 color
+        #40; //delay
+        //For some reason I need an empty bit here
+        PMOD <= 8'b00000000;
+        while (fpga_rtr == 0) begin
+        #10;
+        end
+        pi_rts_raw <= 1;
+        while (fpga_rtr == 1) begin
+        #10;
+        end
+        pi_rts_raw <= 0;
+        
+        
+        PMOD <= 8'b01001111; //opcode + 1/2 color
         while (fpga_rtr == 0) begin
         #10;
         end
