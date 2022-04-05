@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Wed Mar  9 19:20:00 2022
+# Process ID: 8948
+# Current directory: C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13204 C:\Users\jblan\Documents\GitHub\Graphics-Processor-Senior-Project\Project Files\Senior-Project\Senior-Project.xpr
+# Log file: C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/vivado.log
+# Journal file: C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.xpr}
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top TopLevel [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode DisplayOnly [current_project]
+reset_run blk_mem_gen_0_synth_1
+launch_runs blk_mem_gen_0_synth_1
+wait_on_run blk_mem_gen_0_synth_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1

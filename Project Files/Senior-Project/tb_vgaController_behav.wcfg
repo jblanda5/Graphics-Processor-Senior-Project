@@ -11,49 +11,53 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="737.290 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,052.542 ns"></ZoomEndTime>
-      <Cursor1Time time="950.000 ns"></Cursor1Time>
+      <ZoomStartTime time="14,556.380 ns"></ZoomStartTime>
+      <ZoomEndTime time="14,812.513 ns"></ZoomEndTime>
+      <Cursor1Time time="44,202.750 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="120"></NameColumnWidth>
-      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+      <NameColumnWidth column_width="154"></NameColumnWidth>
+      <ValueColumnWidth column_width="169"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="9" />
-   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/Instruction" type="array">
-      <obj_property name="ElementShortName">Instruction[70:0]</obj_property>
-      <obj_property name="ObjectShortName">Instruction[70:0]</obj_property>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/tb_topLevel/testTopLevel/triangle_drawing/y_out" type="array">
+      <obj_property name="ElementShortName">y_out[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y_out[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/triangle_drawing/x_out" type="array">
+      <obj_property name="ElementShortName">x_out[9:0]</obj_property>
+      <obj_property name="ObjectShortName">x_out[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/FIFO/empty" type="logic">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/FIFO/dout" type="array">
+      <obj_property name="ElementShortName">dout[70:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[70:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/state" type="array">
       <obj_property name="ElementShortName">state[2:0]</obj_property>
       <obj_property name="ObjectShortName">state[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/blankScreen/x_out" type="array">
-      <obj_property name="ElementShortName">x_out[9:0]</obj_property>
-      <obj_property name="ObjectShortName">x_out[9:0]</obj_property>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/read_en" type="logic">
+      <obj_property name="ElementShortName">read_en</obj_property>
+      <obj_property name="ObjectShortName">read_en</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/blankScreen/y_out" type="array">
-      <obj_property name="ElementShortName">y_out[9:0]</obj_property>
-      <obj_property name="ObjectShortName">y_out[9:0]</obj_property>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/command_processor/color" type="array">
+      <obj_property name="ElementShortName">color[7:0]</obj_property>
+      <obj_property name="ObjectShortName">color[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/mux/writeAddr" type="array">
-      <obj_property name="ElementShortName">writeAddr[18:0]</obj_property>
-      <obj_property name="ObjectShortName">writeAddr[18:0]</obj_property>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/triangle_drawing/state" type="array">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/blankScreenAddr" type="array">
-      <obj_property name="ElementShortName">blankScreenAddr[18:0]</obj_property>
-      <obj_property name="ObjectShortName">blankScreenAddr[18:0]</obj_property>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/triangle_drawing/side1/rtr" type="logic">
+      <obj_property name="ElementShortName">rtr</obj_property>
+      <obj_property name="ObjectShortName">rtr</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/mux/blankScreenAddr" type="array">
-      <obj_property name="ElementShortName">blankScreenAddr[18:0]</obj_property>
-      <obj_property name="ObjectShortName">blankScreenAddr[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/mux/writeEnable" type="logic">
-      <obj_property name="ElementShortName">writeEnable</obj_property>
-      <obj_property name="ObjectShortName">writeEnable</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_topLevel/testTopLevel/mux/rtrBlankScreen" type="logic">
-      <obj_property name="ElementShortName">rtrBlankScreen</obj_property>
-      <obj_property name="ObjectShortName">rtrBlankScreen</obj_property>
+   <wvobject fp_name="/tb_topLevel/testTopLevel/triangle_drawing/side2/rtr" type="logic">
+      <obj_property name="ElementShortName">rtr</obj_property>
+      <obj_property name="ObjectShortName">rtr</obj_property>
    </wvobject>
 </wave_config>

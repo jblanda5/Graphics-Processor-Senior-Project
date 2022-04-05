@@ -99,11 +99,17 @@ commandFIFO FIFO(
 wire finished;
 wire rtr_drawLine;
 wire rts_drawLine;
-wire [9:0] x1,x2,y1,y2;
+wire rtr_drawTriangle;
+wire rts_drawTriangle;
+wire [9:0] x1,x2,x3,y1,y2,y3;
+wire rtr_blank_screen;
+wire rts_blank_screen;
 commandProcessor command_processor(
 .clk(clk),
 .Instruction(dataOut),
 .empty(empty),
+.rtr_drawTriangle(rtr_drawTriangle),
+.rts_drawTriangle(rts_drawTriangle),
 .rtr_drawLine(rtr_drawLine),
 .rtr_blankScreen(rtr_blank_screen),
 .rts_drawLine(rts_drawLine),
@@ -111,9 +117,27 @@ commandProcessor command_processor(
 .read_en(read_en),
 .x1(x1),
 .x2(x2),
+.x3(x3),
 .y1(y1),
 .y2(y2),
+.y3(y3),
 .color(pixel_write)
+);
+//Instantiate Triangle Drawing Module
+wire [9:0] x_out_drawTriangle;
+wire [9:0] y_out_drawTriangle;
+drawTriangle triangle_drawing(
+.x1(x1),
+.y1(y1),
+.x2(x2),
+.y2(y2),
+.x3(x3),
+.y3(y3),
+.clk(clk),
+.rts(rts_drawTriangle),
+.rtr(rtr_drawTriangle),
+.x_out(x_out_drawTriangle),
+.y_out(y_out_drawTriangle)
 );
 
 //Instantiate Line Drawing Module
@@ -134,8 +158,6 @@ drawLine line_drawing(
 //Instantiate Blank Screen Module
 wire [9:0] x_out_blanking;
 wire [9:0] y_out_blanking;
-wire rtr_blank_screen;
-wire rts_blank_screen;
 blank_screen blankScreen(
 .clk(clk),
 .rts(rts_blank_screen),
@@ -147,13 +169,17 @@ blank_screen blankScreen(
 //Instantiate output mux
 wire [18:0] drawLineAddr;
 wire [18:0] blankScreenAddr;
+wire [18:0] drawTriangleAddr;
+assign drawTriangleAddr = xyToMem(x_out_drawTriangle,y_out_drawTriangle);
 assign drawLineAddr = xyToMem(x_out_drawLine,y_out_drawLine);
 assign blankScreenAddr = xyToMem(x_out_blanking, y_out_blanking);
 outputMux mux(
 .drawLineAddr(drawLineAddr),
 .blankScreenAddr(blankScreenAddr),
+.drawTriangleAddr(drawTriangleAddr),
 .rtrDrawLine(rtr_drawLine),
 .rtrBlankScreen(rtr_blank_screen),
+.rtrDrawTriangle(rtr_drawTriangle),
 .writeAddr(writeAddr),
 .writeEnable(writeEnable)
 );

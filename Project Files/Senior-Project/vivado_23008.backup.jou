@@ -1,0 +1,328 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Fri Jan 28 15:30:23 2022
+# Process ID: 23008
+# Current directory: C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9280 C:\Users\jblan\Documents\GitHub\Graphics-Processor-Senior-Project\Project Files\Senior-Project\Senior-Project.xpr
+# Log file: C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/vivado.log
+# Journal file: C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.xpr}
+close [ open {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/blank_screen.v} w ]
+add_files {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sources_1/new/blank_screen.v}}
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top blank_screen [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode DisplayOnly [current_project]
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sim_1/new/tb_blank_screen.v} w ]
+add_files -fileset sim_1 {{C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.srcs/sim_1/new/tb_blank_screen.v}}
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_blank_screen [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode DisplayOnly [current_project]
+launch_simulation
+launch_simulation
+open_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+source tb_blank_screen.tcl
+current_wave_config {tb_vgaController_behav.wcfg}
+add_wave {{/tb_blank_screen/rts}} {{/tb_blank_screen/rtr}} {{/tb_blank_screen/x_out}} {{/tb_blank_screen/y_out}} {{/tb_blank_screen/clk}} {{/tb_blank_screen/reset}} 
+restart
+run 20 ns
+run 20 ns
+save_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+source tb_blank_screen.tcl
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+run 20 us
+close_sim
+launch_simulation
+open_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+source tb_blank_screen.tcl
+close_sim
+launch_simulation
+open_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+source tb_blank_screen.tcl
+close_sim
+launch_simulation
+open_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+source tb_blank_screen.tcl
+close_sim
+launch_simulation
+open_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+source tb_blank_screen.tcl
+close_sim
+launch_simulation
+open_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+source tb_blank_screen.tcl
+close_sim
+launch_simulation
+open_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+source tb_blank_screen.tcl
+close_sim
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top TopLevel [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode DisplayOnly [current_project]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/impl_1/TopLevel.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/impl_1/TopLevel.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+close_hw_manager
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/impl_1/TopLevel.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/impl_1/TopLevel.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/impl_1/TopLevel.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+close_hw_manager
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_topLevel [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode DisplayOnly [current_project]
+launch_simulation
+open_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+source tb_topLevel.tcl
+restart
+current_wave_config {tb_vgaController_behav.wcfg}
+add_wave {{/tb_topLevel/testTopLevel/command_processor/Instruction}} 
+run 20 us
+current_wave_config {tb_vgaController_behav.wcfg}
+add_wave {{/tb_topLevel/testTopLevel/command_processor/state}} 
+restart
+run 20 us
+restart
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+current_wave_config {tb_vgaController_behav.wcfg}
+add_wave {{/tb_topLevel/testTopLevel/blankScreen/x_out}} 
+current_wave_config {tb_vgaController_behav.wcfg}
+add_wave {{/tb_topLevel/testTopLevel/blankScreen/y_out}} 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/impl_1/TopLevel.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/impl_1/TopLevel.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+save_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+source tb_topLevel.tcl
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 us
+current_wave_config {tb_vgaController_behav.wcfg}
+add_wave {{/tb_topLevel/testTopLevel/mux/writeAddr}} 
+current_wave_config {tb_vgaController_behav.wcfg}
+add_wave {{/tb_topLevel/testTopLevel/mux/writeEnable}} 
+current_wave_config {tb_vgaController_behav.wcfg}
+add_wave {{/tb_topLevel/testTopLevel/mux/rtrBlankScreen}} 
+restart
+run 20 ns
+run 20 us
+run 20 us
+current_wave_config {tb_vgaController_behav.wcfg}
+add_wave {{/tb_topLevel/testTopLevel/blankScreenAddr}} 
+restart
+run 20 us
+save_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+source tb_topLevel.tcl
+current_wave_config {tb_vgaController_behav.wcfg}
+add_wave {{/tb_topLevel/testTopLevel/mux/blankScreenAddr}} 
+save_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/tb_vgaController_behav.wcfg}
+source tb_topLevel.tcl
+run 20 us
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/jblan/Documents/GitHub/Graphics-Processor-Senior-Project/Project Files/Senior-Project/Senior-Project.runs/impl_1/TopLevel.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+close_sim

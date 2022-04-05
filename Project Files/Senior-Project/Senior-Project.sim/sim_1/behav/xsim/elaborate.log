@@ -31,6 +31,9 @@ Compiling module fifo_generator_v13_2_5.fifo_generator_v13_2_5_CONV_VER(...
 Compiling module fifo_generator_v13_2_5.fifo_generator_vlog_beh(C_COMMON...
 Compiling module xil_defaultlib.commandFIFO
 Compiling module xil_defaultlib.commandProcessor
+Compiling module xil_defaultlib.drawSide
+Compiling module xil_defaultlib.drawHorizontal
+Compiling module xil_defaultlib.drawTriangle
 Compiling module xil_defaultlib.drawLine
 Compiling module xil_defaultlib.blank_screen
 Compiling module xil_defaultlib.outputMux
