@@ -1,8 +1,8 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date             : Thu Mar 31 15:11:17 2022
-| Host             : Apollo running 64-bit major release  (build 9200)
+| Date             : Thu Apr  7 21:51:22 2022
+| Host             : Endeavor running 64-bit major release  (build 9200)
 | Command          : report_power -file TopLevel_power_routed.rpt -pb TopLevel_power_summary_routed.pb -rpx TopLevel_power_routed.rpx
 | Design           : TopLevel
 | Device           : xc7a100tcsg324-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.220        |
+| Total On-Chip Power (W)  | 0.221        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.117        |
+| Dynamic (W)              | 0.118        |
 | Device Static (W)        | 0.103        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.0         |
@@ -53,19 +53,19 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.003 |        8 |       --- |             --- |
-| Slice Logic    |     0.005 |     3731 |       --- |             --- |
-|   LUT as Logic |     0.004 |     1821 |     63400 |            2.87 |
-|   CARRY4       |    <0.001 |      225 |     15850 |            1.42 |
+| Slice Logic    |     0.005 |     3811 |       --- |             --- |
+|   LUT as Logic |     0.004 |     1885 |     63400 |            2.97 |
+|   CARRY4       |    <0.001 |      234 |     15850 |            1.48 |
 |   Register     |    <0.001 |      530 |    126800 |            0.42 |
 |   F7/F8 Muxes  |    <0.001 |      169 |     63400 |            0.27 |
 |   Others       |     0.000 |      412 |       --- |             --- |
-| Signals        |     0.008 |     3384 |       --- |             --- |
+| Signals        |     0.008 |     3428 |       --- |             --- |
 | Block RAM      |     0.001 |    119.5 |       135 |           88.52 |
 | PLL            |     0.098 |        1 |         6 |           16.67 |
 | DSPs           |     0.001 |        4 |       240 |            1.67 |
-| I/O            |    <0.001 |       30 |       210 |           14.29 |
+| I/O            |     0.001 |       30 |       210 |           14.29 |
 | Static Power   |     0.103 |          |           |                 |
-| Total          |     0.220 |          |           |                 |
+| Total          |     0.221 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -149,7 +149,7 @@ Table of Contents
 +-----------------------+-----------+
 | Name                  | Power (W) |
 +-----------------------+-----------+
-| TopLevel              |     0.117 |
+| TopLevel              |     0.118 |
 |   FIFO                |     0.001 |
 |     U0                |     0.001 |
 |       inst_fifo_gen   |     0.001 |

@@ -31,7 +31,8 @@ input wire [9:0]y3,
 output wire [9:0]x_out,
 output reg [9:0]y_out,
 output reg rtr,
-input wire rts
+input wire rts,
+output wire [3:0]side1_state
 );
 reg enable1;
 reg enable2;
@@ -39,6 +40,8 @@ reg rts1;
 wire rtr1;
 reg rts2;
 wire rtr2;
+wire done1;
+wire done2;
 wire [9:0] x_curr1, y_curr1;
 wire [9:0] x_curr2, y_curr2;
 
@@ -53,7 +56,9 @@ drawSide side1(
 .rtr(rtr1),
 .x_out(x_curr1),
 .y_out(y_curr1),
-.enable(enable1)
+.enable(enable1),
+.state(side1_state),
+.done(done1)
 );
 
 drawSide side2(
@@ -66,7 +71,9 @@ drawSide side2(
 .rtr(rtr2),
 .x_out(x_curr2),
 .y_out(y_curr2),
-.enable(enable2)
+.enable(enable2),
+.state(),
+.done(done2)
 );
 
 reg rts_draw;
@@ -88,6 +95,10 @@ parameter flat_top = 4'b0011;
 parameter idle = 4'b0100;
 parameter draw = 4'b0101;
 parameter intermediate = 4'b0110;
+parameter catchup1 = 4'b0111;
+parameter catchup2 = 4'b1000;
+parameter catchup3 = 4'b1001;
+parameter catchup4 = 4'b1010;
 always @(posedge clk) begin
     case(state)
         reset: begin
@@ -140,17 +151,75 @@ always @(posedge clk) begin
                 enable1 <= 0;
                 enable2 <= 1;
                 rts_draw <= 0;
+                state <= catchup1;
             end
             else begin //y_curr2 > y_curr1
                 enable1 <= 1;
                 enable2 <= 0;
                 rts_draw <= 0;
+                state <= catchup2;
             end
         end
     
         flat_top: begin// Use code from bottom
+            rts1 <= 0;
+            rts2 <= 0;
+            if (y_curr1 == y_curr2) begin
+                enable1 <= 1;
+                enable2 <= 1;
+                rts_draw <= 1;
+                state <= intermediate;
+            end
+            else if (y_curr1 < y_curr2) begin
+                enable1 <= 0;
+                enable2 <= 1;
+                rts_draw <= 0;
+                state <= catchup3;
+            end
+            else begin //y_curr2 > y_curr1
+                enable1 <= 1;
+                enable2 <= 0;
+                rts_draw <= 0;
+                state <= catchup4;
+            end
         end
-        
+    
+    catchup1: begin
+        if (y_curr1-1 == y_curr2) begin
+            enable1 <= 0;
+            enable2 <= 0;
+            rts_draw <= 1;
+            state <= intermediate;
+        end
+    end
+    
+    catchup2: begin
+        if (y_curr1 == y_curr2-1) begin
+            enable1 <= 0;
+            enable2 <= 0;
+            rts_draw <= 1;
+            state <= intermediate;
+        end
+    end
+    
+    catchup3: begin
+        if (y_curr1+1 == y_curr2) begin
+            enable1 <= 0;
+            enable2 <= 0;
+            rts_draw <= 1;
+            state <= intermediate;
+        end
+    end
+    
+    catchup4: begin
+        if (y_curr1 == y_curr2+1) begin
+            enable1 <= 0;
+            enable2 <= 0;
+            rts_draw <= 1;
+            state <= intermediate;
+        end
+    end
+
     intermediate: begin
         y_out <= y_curr1;
         rts_draw <= 0;
@@ -158,10 +227,10 @@ always @(posedge clk) begin
         enable2 <= 0;
         state <= draw;
     end
-    
+
     draw: begin
         if (rtr_draw) begin
-            if (y_curr1 == y1) begin
+            if (done1 & done2)begin
                 state <= reset;
             end
             else if (y1 > y2) begin

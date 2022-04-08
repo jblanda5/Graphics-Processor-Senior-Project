@@ -1,8 +1,8 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Thu Mar 31 15:10:26 2022
-| Host         : Apollo running 64-bit major release  (build 9200)
+| Date         : Thu Apr  7 21:50:41 2022
+| Host         : Endeavor running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file TopLevel_control_sets_placed.rpt
 | Design       : TopLevel
 | Device       : xc7a100t
@@ -41,8 +41,8 @@ Table of Contents
 +--------------------+-------+
 | Total control sets |    30 |
 | >= 0 to < 4        |     4 |
-| >= 4 to < 6        |     0 |
-| >= 6 to < 8        |     1 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     1 |
 | >= 10 to < 12      |    11 |
 | >= 12 to < 14      |     3 |
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              61 |           34 |
+| No           | No                    | No                     |              63 |           36 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              20 |            7 |
-| Yes          | No                    | No                     |             158 |           45 |
+| No           | Yes                   | No                     |              20 |            9 |
+| Yes          | No                    | No                     |             156 |           63 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             291 |           98 |
+| Yes          | Yes                   | No                     |             291 |          118 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -73,36 +73,36 @@ Table of Contents
 +--------------------------------+---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------+------------------+----------------+--------------+
 |          Clock Signal          |                                                       Enable Signal                                                       |              Set/Reset Signal              | Slice Load Count | Bel Load Count | Bels / Slice |
 +--------------------------------+---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------+------------------+----------------+--------------+
+|  displayEngine/Hcounter/clk__0 |                                                                                                                           |                                            |                1 |              1 |         1.00 |
 |  clockModule/inst/clk_out1     | interface/fpga_rtr_i_1_n_0                                                                                                |                                            |                1 |              1 |         1.00 |
 |  clockModule/inst/clk_out1     | displayEngine/Hcounter/h_count_reg[7]_1                                                                                   | displayEngine/Hcounter/h_count_reg[10]_0   |                1 |              1 |         1.00 |
 |  clockModule/inst/clk_out1     | displayEngine/Vcounter/v_count_reg[1]_1                                                                                   | displayEngine/Vcounter/Vsync0              |                1 |              1 |         1.00 |
-|  displayEngine/Hcounter/clk__0 |                                                                                                                           |                                            |                1 |              1 |         1.00 |
-|  clockModule/inst/clk_out1     | triangle_drawing/side1/E[0]                                                                                               |                                            |                2 |              6 |         3.00 |
-|  clockModule/inst/clk_out1     | command_processor/color[7]_i_1_n_0                                                                                        | command_processor/x10                      |                3 |              8 |         2.67 |
+|  clockModule/inst/clk_out1     | triangle_drawing/drawModule/rts_drawTriangle_reg[0]                                                                       |                                            |                3 |              4 |         1.33 |
+|  clockModule/inst/clk_out1     | command_processor/color[7]_i_1_n_0                                                                                        | command_processor/x10                      |                4 |              8 |         2.00 |
+|  displayEngine/Hcounter/clk__0 |                                                                                                                           | displayEngine/Vcounter/v_count[10]_i_1_n_0 |                4 |             10 |         2.50 |
 |  clockModule/inst/clk_out1     |                                                                                                                           | displayEngine/Hcounter/h_count[10]_i_1_n_0 |                5 |             10 |         2.00 |
-|  clockModule/inst/clk_out1     | line_drawing/E[0]                                                                                                         | line_drawing/SR[0]                         |                4 |             10 |         2.50 |
 |  clockModule/inst/clk_out1     | line_drawing/FSM_sequential_state_reg[0]_0[0]                                                                             | line_drawing/SR[0]                         |                4 |             10 |         2.50 |
+|  clockModule/inst/clk_out1     | line_drawing/E[0]                                                                                                         | line_drawing/SR[0]                         |                6 |             10 |         1.67 |
+|  clockModule/inst/clk_out1     | triangle_drawing/side2/x_current[9]_i_1__0_n_0                                                                            | triangle_drawing/side2/dx0                 |                5 |             10 |         2.00 |
+|  clockModule/inst/clk_out1     | triangle_drawing/side2/y_current[9]_i_1__0_n_0                                                                            | triangle_drawing/side2/dx0                 |                6 |             10 |         1.67 |
 |  clockModule/inst/clk_out1     | blankScreen/state_reg_0                                                                                                   |                                            |                4 |             10 |         2.50 |
 |  clockModule/inst/clk_out1     | blankScreen/E[0]                                                                                                          |                                            |                4 |             10 |         2.50 |
-|  clockModule/inst/clk_out1     | triangle_drawing/side2/y_current[9]_i_1__0_n_0                                                                            | triangle_drawing/side2/dx0                 |                5 |             10 |         2.00 |
-|  clockModule/inst/clk_out1     | triangle_drawing/side2/x_current[9]_i_1__0_n_0                                                                            | triangle_drawing/side2/dx0                 |                6 |             10 |         1.67 |
-|  clockModule/inst/clk_out1     | triangle_drawing/drawModule/E[0]                                                                                          | triangle_drawing/drawModule/SR[0]          |                3 |             10 |         3.33 |
-|  clockModule/inst/clk_out1     | triangle_drawing/side1/x_current[9]_i_1_n_0                                                                               | triangle_drawing/side1/dx0                 |                6 |             10 |         1.67 |
+|  clockModule/inst/clk_out1     | triangle_drawing/drawModule/E[0]                                                                                          | triangle_drawing/drawModule/SR[0]          |                5 |             10 |         2.00 |
+|  clockModule/inst/clk_out1     | triangle_drawing/side1/x_current[9]_i_1_n_0                                                                               | triangle_drawing/side1/dx0                 |                5 |             10 |         2.00 |
 |  clockModule/inst/clk_out1     | triangle_drawing/side1/y_current[9]_i_1_n_0                                                                               | triangle_drawing/side1/dx0                 |                6 |             10 |         1.67 |
-|  displayEngine/Hcounter/clk__0 |                                                                                                                           | displayEngine/Vcounter/v_count[10]_i_1_n_0 |                2 |             10 |         5.00 |
 |  clockModule/inst/clk_out1     | line_drawing/D[11]_i_1__1_n_0                                                                                             | line_drawing/SR[0]                         |                5 |             12 |         2.40 |
-|  clockModule/inst/clk_out1     | triangle_drawing/side2/D[11]_i_1__0_n_0                                                                                   | triangle_drawing/side2/dx0                 |                3 |             12 |         4.00 |
+|  clockModule/inst/clk_out1     | triangle_drawing/side2/D[11]_i_1__0_n_0                                                                                   | triangle_drawing/side2/dx0                 |                5 |             12 |         2.40 |
 |  clockModule/inst/clk_out1     | triangle_drawing/side1/D[11]_i_1_n_0                                                                                      | triangle_drawing/side1/dx0                 |                4 |             12 |         3.00 |
 |  clockModule/inst/clk_out1     | line_drawing/dx[9]_i_2_n_0                                                                                                | line_drawing/SR[0]                         |                6 |             20 |         3.33 |
-|  clockModule/inst/clk_out1     | command_processor/x3[9]_i_1_n_0                                                                                           |                                            |                6 |             20 |         3.33 |
-|  clockModule/inst/clk_out1     | FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/E[0]                                 |                                            |                5 |             20 |         4.00 |
-|  clockModule/inst/clk_out1     | FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/wr_en_0[0]                                   |                                            |                4 |             20 |         5.00 |
 |  clockModule/inst/clk_out1     | triangle_drawing/side2/dx                                                                                                 | triangle_drawing/side2/dx0                 |                6 |             20 |         3.33 |
+|  clockModule/inst/clk_out1     | command_processor/x3[9]_i_1_n_0                                                                                           |                                            |                8 |             20 |         2.50 |
 |  clockModule/inst/clk_out1     | triangle_drawing/side1/dx                                                                                                 | triangle_drawing/side1/dx0                 |                6 |             20 |         3.33 |
-|  clockModule/inst/clk_out1     | command_processor/x1[9]_i_2_n_0                                                                                           | command_processor/x10                      |               11 |             40 |         3.64 |
-|  clockModule/inst/clk_out1     |                                                                                                                           |                                            |               33 |             60 |         1.82 |
-|  clockModule/inst/clk_out1     | FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[1]_0[0] |                                            |               19 |             71 |         3.74 |
-|  clockModule/inst/clk_out1     | interface/dataIn[70]_i_2_n_0                                                                                              | interface/dataIn0                          |               18 |             75 |         4.17 |
+|  clockModule/inst/clk_out1     | FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/E[0]                                 |                                            |                6 |             20 |         3.33 |
+|  clockModule/inst/clk_out1     | FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/wr_en_0[0]                                   |                                            |                5 |             20 |         4.00 |
+|  clockModule/inst/clk_out1     | command_processor/x1[9]_i_2_n_0                                                                                           | command_processor/x10                      |               21 |             40 |         1.90 |
+|  clockModule/inst/clk_out1     |                                                                                                                           |                                            |               35 |             62 |         1.77 |
+|  clockModule/inst/clk_out1     | FIFO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[1]_0[0] |                                            |               32 |             71 |         2.22 |
+|  clockModule/inst/clk_out1     | interface/dataIn[70]_i_2_n_0                                                                                              | interface/dataIn0                          |               22 |             75 |         3.41 |
 +--------------------------------+---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------+------------------+----------------+--------------+
 
 

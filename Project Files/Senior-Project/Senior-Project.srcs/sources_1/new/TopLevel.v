@@ -26,8 +26,8 @@ module TopLevel(
     input wire [7:0] PMOD,
     input wire pi_rts_raw,
     output wire fpga_rtr,
-    output wire [3:0]counter,
-    input wire reset
+    input wire reset,
+    output wire [3:0] draw_state
     );
 //set up our pixel color wire
 wire [7:0] pixel;
@@ -137,7 +137,8 @@ drawTriangle triangle_drawing(
 .rts(rts_drawTriangle),
 .rtr(rtr_drawTriangle),
 .x_out(x_out_drawTriangle),
-.y_out(y_out_drawTriangle)
+.y_out(y_out_drawTriangle),
+.side1_state(draw_state)
 );
 
 //Instantiate Line Drawing Module

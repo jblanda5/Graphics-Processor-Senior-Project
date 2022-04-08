@@ -28,7 +28,9 @@ input wire rts, //Will be used to determine if data is received.
 output reg rtr, //Will be used to tell its parent if this module is busy or ready to be used.
 output wire [9:0]x_out,
 output wire [9:0]y_out,
-input wire enable
+input wire enable,
+output reg done,
+output reg [3:0]state
 );
 
 reg [9:0]dx;
@@ -45,7 +47,6 @@ assign Dnextx = D + dy + dy;
 assign Dnexty = D + dx + dx;
 
 
-reg [3:0]state;
 parameter reset = 4'b0000;
 parameter idle = 4'b0001;
 parameter value = 4'b0010;
@@ -70,6 +71,7 @@ always @(posedge clk) begin
             if (rts) begin
                 state <= value;
                 rtr <= 0;
+                done <= 0;
             end
         end
        
@@ -104,6 +106,7 @@ always @(posedge clk) begin
         bigX: begin
             if (x_current == x2) begin
                 state <= idle;
+                done <= 1;
             end
             if (enable) begin
                 if (D > dx + dx)begin
@@ -115,6 +118,7 @@ always @(posedge clk) begin
 
                 if (x_current == x2) begin
                     state <= idle;
+                    done <= 1;
                 end else begin //Not done, increment.
                     x_current <= x_current + 1;
                 end
@@ -124,6 +128,7 @@ always @(posedge clk) begin
         negX: begin
             if (x_current == x2) begin
                 state <= idle;
+                done <= 1;
             end
             if (enable) begin
                 if (D > dx + dx)begin
@@ -135,6 +140,7 @@ always @(posedge clk) begin
                 end
                 if (x_current == x2) begin
                     state <= idle;
+                    done <= 1;
                 end
                 else begin //Not done, increment
                     x_current <= x_current - 1;
@@ -145,6 +151,7 @@ always @(posedge clk) begin
         bigY: begin
             if (y_current == y2) begin
                 state <= idle;
+                done <= 1;
             end
             if (enable) begin
                 if (D > dy + dy)begin
@@ -156,6 +163,7 @@ always @(posedge clk) begin
                 end
                 if (y_current == y2) begin
                     state <= idle;
+                    done <= 1;
                 end
                 else begin //Not done, increment
                 y_current <= y_current + 1;
@@ -166,6 +174,7 @@ always @(posedge clk) begin
         negY: begin
             if (y_current == y2) begin
                 state <= idle;
+                done <= 1;
             end
             if (enable) begin
                 if (D > dy + dy) begin
@@ -177,6 +186,7 @@ always @(posedge clk) begin
                 end
                 if (y_current == y2) begin
                     state <= idle;
+                    done <= 1;
                 end
                 else begin //Not done, increment
                 y_current <= y_current - 1;
