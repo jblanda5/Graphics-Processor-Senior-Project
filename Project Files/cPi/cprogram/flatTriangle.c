@@ -9,7 +9,7 @@ void flatTriangle(int pi, int x1, int y1, int x2, int y2, int x3, int y3, uint8_
     int middle_x, middle_y;
     int new_x, new_y;
     float b;
-    printf("got points (%i,%i), (%i,%i), and (%i,%i)\n",x1,y1,x2,y2,x3,y3);
+//    printf("got points (%i,%i), (%i,%i), and (%i,%i)\n",x1,y1,x2,y2,x3,y3);
     //First: Detect if there is already a flat top/bottom triangle
     if (y1 == y2) {
         if (y3 >= y2) {
@@ -136,6 +136,6 @@ void flatTriangle(int pi, int x1, int y1, int x2, int y2, int x3, int y3, uint8_
     }
     drawTriangle(pi, bottom_x,bottom_y,middle_x,middle_y,new_x,new_y,color);
     drawTriangle(pi, top_x,top_y,middle_x,middle_y,new_x,new_y,color);
-    printf("Drawing a flat-bottom triangle with points x1:%i, y1:%i, x2:%i, y2:%i, x3:%i, y3:%i\n",top_x,top_y,new_x,new_y,middle_x,middle_y);
-    printf("Drawing a flat-top triangle with points x1:%i, y1:%i, x2:%i, y2:%i, x3:%i, y3:%i\n",bottom_x,bottom_y,new_x,new_y,middle_x,middle_y);
+//    printf("Drawing a flat-bottom triangle with points x1:%i, y1:%i, x2:%i, y2:%i, x3:%i, y3:%i\n",top_x,top_y,new_x,new_y,middle_x,middle_y);
+//    printf("Drawing a flat-top triangle with points x1:%i, y1:%i, x2:%i, y2:%i, x3:%i, y3:%i\n",bottom_x,bottom_y,new_x,new_y,middle_x,middle_y);
 }
