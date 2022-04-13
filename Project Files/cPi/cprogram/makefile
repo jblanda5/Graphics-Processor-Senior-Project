@@ -6,7 +6,8 @@ all:
 	gcc -Wall -c sendInstruction.c
 	gcc -Wall -c init.c
 	gcc -Wall -c main.c
-	gcc -o demo main.o init.o instructions.o sendInstruction.o reset.o sendByte.o flatTriangle.o -lpigpiod_if2 -lm
+	gcc -Wall -c lighting.c
+	gcc -o demo main.o init.o instructions.o sendInstruction.o reset.o sendByte.o flatTriangle.o lighting.o -lpigpiod_if2 -lm
 clean:
 	rm flatTriangle.o
 	rm instructions.o

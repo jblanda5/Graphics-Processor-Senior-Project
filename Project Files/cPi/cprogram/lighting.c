@@ -17,6 +17,10 @@ difference[1] = difference[1] / temp;
 difference[2] = difference[2] / temp;
 //Dot Product
 double dotProduct = w_vector[0]*difference[0] + w_vector[1]*difference[1] + w_vector[2]*difference[2];
+if (dotProduct < 0) {
+    dotProduct = dotProduct * (-1);
+}
+    dotProduct = (dotProduct + 0.25)/1.25; //Add ambient lighting
 //Get new lighting value
 uint8_t r = (7 & (color >> 5));
 uint8_t g = (7 & (color >> 2));

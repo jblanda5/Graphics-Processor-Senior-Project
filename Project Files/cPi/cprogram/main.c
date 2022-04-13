@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "instructions.h"
 #include "flatTriangle.h"
+#include "lighting.h"
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
@@ -13,6 +14,34 @@ uint8_t rgb_to_8bit(uint8_t r, uint8_t g, uint8_t b) {
     uint8_t blue = (b*4)/256;
     uint8_t rgb = (red << 5) | (green << 2) | blue;
     return rgb;
+}
+
+double calc_distance(double x[], double y[], double z[], int triangles[][3], int index, int distance) {
+    double x1 = (int)x[triangles[index][0]];
+    double y1 = (int)y[triangles[index][0]];
+    double z1 = (int)z[triangles[index][0]]+distance;
+    double x2 = (int)x[triangles[index][1]];
+    double y2 = (int)y[triangles[index][1]];
+    double z2 = (int)z[triangles[index][1]]+distance;
+    double x3 = (int)x[triangles[index][2]];
+    double y3 = (int)y[triangles[index][2]];
+    double z3 = (int)z[triangles[index][2]]+distance;
+    double dist1 = sqrt(x1*x1+y1*y1+z1*z1);
+    double dist2 = sqrt(x2*x2+y2*y2+z2*z2);
+    double dist3 = sqrt(x3*x3+y3*y3+z3*z3);
+    if (dist1 > dist2 && dist1 > dist3) {
+        return dist1;
+    }
+    else if (dist2 > dist1 && dist2 > dist3) {
+        return dist2;
+    }
+    else {
+        return dist3;
+    }
+    //double added_distance = sqrt((x1*x1) + (y1*y1) + (z1*z1)) + sqrt((x2*x2) + (y2*y2) + (z2*z2)) + sqrt((x3*x3) + (y3*y3) + (z3*z3));
+    //double added_distance = sqrt((double)z1*(double)z1 + (double)z2*(double)z2 + (double)z3*(double)z3);
+    //int added_distance = x1 + x2 + x3 + y1 + y2 + y3 + z1 + z2 + z3;
+    //return added_distance;
 }
 
 void drawBanana(int pi) {
@@ -39,8 +68,7 @@ void drawBanana(int pi) {
     }
 }
 
-void drawTeaPot(int pi, int scale, int distance, int tx, int ty, int tz, double x_angle, double y_angle, double z_angle) {
-    uint8_t color;
+void drawTeaPot(int pi, int scale, int distance, int tx, int ty, int tz, double x_angle, double y_angle, double z_angle, uint8_t color) {
     FILE *fptr = fopen("teapot_points.txt", "r");
     if (fptr == NULL) {
         printf("can't open points file.\n");
@@ -91,26 +119,68 @@ void drawTeaPot(int pi, int scale, int distance, int tx, int ty, int tz, double 
             transformed_z[i] = 1;
         }
     }
-    int x_in1;
-    int y_in1;
-    int x_in2;
-    int y_in2;
-    int x_in3;
-    int y_in3;
-    for (int i=0; i<num_triangles;++i) { //Draw
-        color = rand() % 255;
-        x_in1 = (int)(scale*transformed_x[triangle[i][0]]/(transformed_z[triangle[i][0]]+distance))+400;
-        y_in1 = (int)(scale*transformed_y[triangle[i][0]]/(transformed_z[triangle[i][0]]+distance))+300;
-        x_in2 = (int)(scale*transformed_x[triangle[i][1]]/(transformed_z[triangle[i][1]]+distance))+400;
-        y_in2 = (int)(scale*transformed_y[triangle[i][1]]/(transformed_z[triangle[i][1]]+distance))+300;
-        x_in3 = (int)(scale*transformed_x[triangle[i][2]]/(transformed_z[triangle[i][2]]+distance))+400;
-        y_in3 = (int)(scale*transformed_y[triangle[i][2]]/(transformed_z[triangle[i][2]]+distance))+300;
-        if (x_in1 > 800 || x_in2 > 800 || x_in3 > 800 || x_in1 < 0 || x_in2 < 0 || x_in3 < 0 || y_in1 > 600 || y_in2 > 600 || y_in3 > 600 || y_in1 < 0 || y_in2 < 0 || y_in3 < 0) {
+    //Bubble sort to sort triangles by distance to the viewpoint
+    int temp[3];
+    double x1;
+    double y1;
+    double z1;
+    double x2;
+    double y2;
+    double z2;
+    double x3;
+    double y3;
+    double z3;
+    int lighted_color[num_triangles];
+    for (int i=0; i<num_triangles-1; ++i) {
+        x1 = transformed_x[triangle[i][0]];
+        x2 = transformed_x[triangle[i][1]];
+        x3 = transformed_x[triangle[i][2]];
+        y1 = transformed_y[triangle[i][0]];
+        y2 = transformed_y[triangle[i][1]];
+        y3 = transformed_y[triangle[i][2]];
+        z1 = transformed_z[triangle[i][0]]+distance;
+        z2 = transformed_z[triangle[i][1]]+distance;
+        z3 = transformed_z[triangle[i][2]]+distance;
+        lighted_color[i] = lighting(color,x1,y1,z1,x2,y2,z2,x3,y3,z3);
+        for (int j=0; j<(num_triangles - 1 - i); ++j) {
+            if (calc_distance(transformed_x,transformed_y,transformed_z,triangle,j,distance) > calc_distance(transformed_x,transformed_y,transformed_z,triangle,j+1,distance)) {
+                temp[0] = triangle[j][0];
+                temp[1] = triangle[j][1];
+                temp[2] = triangle[j][2];
+                triangle[j][0] = triangle[j+1][0];
+                triangle[j][1] = triangle[j+1][1];
+                triangle[j][2] = triangle[j+1][2];
+                triangle[j+1][0] = temp[0];
+                triangle[j+1][1] = temp[1];
+                triangle[j+1][2] = temp[2];
+            }
+        }
+    }
+    int x_in1[num_triangles];
+    int y_in1[num_triangles];
+    int x_in2[num_triangles];
+    int y_in2[num_triangles];
+    int x_in3[num_triangles];
+    int y_in3[num_triangles];
+    for (int i=0; i<num_triangles-1;++i) {
+            x_in1[i] = (int)(scale*transformed_x[triangle[i][0]]/(transformed_z[triangle[i][0]]+distance))+400;
+            y_in1[i] = (int)(scale*transformed_y[triangle[i][0]]/(transformed_z[triangle[i][0]]+distance))+300;
+            x_in2[i] = (int)(scale*transformed_x[triangle[i][1]]/(transformed_z[triangle[i][1]]+distance))+400;
+            y_in2[i] = (int)(scale*transformed_y[triangle[i][1]]/(transformed_z[triangle[i][1]]+distance))+300;
+            x_in3[i] = (int)(scale*transformed_x[triangle[i][2]]/(transformed_z[triangle[i][2]]+distance))+400;
+            y_in3[i] = (int)(scale*transformed_y[triangle[i][2]]/(transformed_z[triangle[i][2]]+distance))+300;
+        if (x_in1[i] > 800 || x_in2[i] > 800 || x_in3[i] > 800 || x_in1[i] < 0 || x_in2[i] < 0 || x_in3[i] < 0 || y_in1[i] > 600 || y_in2[i] > 600 || y_in3[i] > 600 || y_in1[i] < 0 || y_in2[i] < 0 || y_in3[i] < 0) {
             printf("Error: vertex out of bounds.\n");
+            x_in1[i] = 0;
+            x_in2[i] = 0;
+            x_in3[i] = 0;
+            y_in1[i] = 0;
+            y_in2[i] = 0;
+            y_in3[i] = 0;
         }
-        else {
-            flatTriangle(pi,x_in1,y_in1,x_in2,y_in2,x_in3,y_in3,color);
-        }
+    }
+    for (int i=0; i<num_triangles-1;++i) { //Draw
+            flatTriangle(pi,x_in1[i],y_in1[i],x_in2[i],y_in2[i],x_in3[i],y_in3[i],lighted_color[i]);
     }
 }
 
@@ -118,8 +188,8 @@ int main(int argc, char *argv[])
 {   
     if (argc == 1) {
     int pi = init();
-    colorScreen(pi,255);
-    drawTeaPot(pi, 700, 10, 0, 0, 0, 3.14159/2, 0, 0);
+    colorScreen(pi,0);
+    drawTeaPot(pi, 700, 10, 0, 0, 0, 3.14159/2, 0, 0, 255);
 //    drawBanana(pi);
     /*
     colorScreen(pi,200);
@@ -135,13 +205,26 @@ int main(int argc, char *argv[])
     else if (strcmp(argv[1],"demo") == 0) {
         int pi = init();
         colorScreen(pi,255);
-        drawTeaPot(pi, 700, 10, 0, 0, 0, 3.14159/2, 0, 0);
-        sleep(5);
-        colorScreen(pi,200);
-        drawBanana(pi);
+        drawTeaPot(pi, 700, 10, 0, 0, 0, 3.14159/4, 3.14159/4, 0, 16);
+        printf("Drew Green tea pot!\n");
+        sleep(10);
+        //colorScreen(pi,200);
+        //drawBanana(pi);
+        int x=0;
+        for (int i=0; i<256; ++i) {
+            drawLine(pi,x,0,x,600,i);
+            drawLine(pi,x+1,0,x+1,600,i);
+            drawLine(pi,x+2,0,x+2,600,i);
+            x = x+3;
+        }
         sleep(10);
         colorScreen(pi,255);
-        drawTeaPot(pi, 700, 10, 0, 0, 0, 0, 0, 0);
+        drawTeaPot(pi, 700, 10, 0, 0, 0, 0, 0, 0, 2);
+        printf("Drew Blue tea pot!\n");
+        sleep(10);
+        colorScreen(pi,0);
+        drawTeaPot(pi, 700, 10, 0, 0, 0, 3.14159/2, 0, 0, 128);
+        printf("Drew Red tea pot!\n");
         terminate(pi);
     }
 }
