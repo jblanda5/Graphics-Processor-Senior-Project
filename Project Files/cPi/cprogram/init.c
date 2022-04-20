@@ -20,14 +20,14 @@ The internal gpio pull-up is enabled, as for a high impedence we want a default 
 gcc -o X X.c -lpigpio
 */
 
-#define BIT7 25
-#define BIT6 24
-#define BIT5 23
-#define BIT4 18
-#define BIT3 22
-#define BIT2 27
-#define BIT1 17
-#define BIT0 4
+#define BIT7 7
+#define BIT6 6
+#define BIT5 5
+#define BIT4 4
+#define BIT3 3
+#define BIT2 2
+#define BIT1 1
+#define BIT0 0
 #define RTS 21
 #define RTR 20
 #define RESET 26

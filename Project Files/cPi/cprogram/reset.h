@@ -2,6 +2,6 @@
 #define RESET_DOT_H
 #include <stdint.h>
 
-void reset(int pi);
+void reset();
 
 #endif

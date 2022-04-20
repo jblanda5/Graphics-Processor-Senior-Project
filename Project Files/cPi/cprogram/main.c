@@ -44,7 +44,7 @@ double calc_distance(double x[], double y[], double z[], int triangles[][3], int
     //return added_distance;
 }
 
-void drawBanana(int pi) {
+void drawBanana() {
     FILE *fptr = fopen("banana.txt", "r");
     int num_lines = 50;
     int x1[num_lines];
@@ -64,11 +64,11 @@ void drawBanana(int pi) {
     }
     fclose(fptr);
     for (int i=0; i<num_lines;++i) {
-        flatTriangle(pi,x1[i],y1[i],x2[i],y2[i],x3[i],y3[i],color[i]);
+        flatTriangle(x1[i],y1[i],x2[i],y2[i],x3[i],y3[i],color[i]);
     }
 }
 
-void drawTeaPot(int pi, int scale, int distance, int tx, int ty, int tz, double x_angle, double y_angle, double z_angle, uint8_t color) {
+void drawTeaPot(int scale, int distance, int tx, int ty, int tz, double x_angle, double y_angle, double z_angle, uint8_t color) {
     FILE *fptr = fopen("teapot_points.txt", "r");
     if (fptr == NULL) {
         printf("can't open points file.\n");
@@ -180,16 +180,16 @@ void drawTeaPot(int pi, int scale, int distance, int tx, int ty, int tz, double 
         }
     }
     for (int i=0; i<num_triangles-1;++i) { //Draw
-            flatTriangle(pi,x_in1[i],y_in1[i],x_in2[i],y_in2[i],x_in3[i],y_in3[i],lighted_color[i]);
+            flatTriangle(x_in1[i],y_in1[i],x_in2[i],y_in2[i],x_in3[i],y_in3[i],lighted_color[i]);
     }
 }
 
 int main(int argc, char *argv[])
 {   
     if (argc == 1) {
-    int pi = init();
-    colorScreen(pi,0);
-    drawTeaPot(pi, 700, 10, 0, 0, 0, 3.14159/2, 0, 0, 255);
+    init();
+    colorScreen(0);
+    drawTeaPot(700, 10, 0, 0, 0, 3.14159/2, 0, 0, 255);
 //    drawBanana(pi);
     /*
     colorScreen(pi,200);
@@ -200,31 +200,30 @@ int main(int argc, char *argv[])
     sleep(15);
     colorScreen(pi,0);
     */
-    terminate(pi);
     }
     else if (strcmp(argv[1],"demo") == 0) {
-        int pi = init();
-        colorScreen(pi,255);
-        drawTeaPot(pi, 700, 10, 0, 0, 0, 3.14159/4, 3.14159/4, 0, 16);
+        init();
+        colorScreen(255);
+        drawTeaPot(700, 10, 0, 0, 0, 3.14159/4, 3.14159/4, 0, 16);
         printf("Drew Green tea pot!\n");
         sleep(10);
         //colorScreen(pi,200);
         //drawBanana(pi);
         int x=0;
         for (int i=0; i<256; ++i) {
-            drawLine(pi,x,0,x,600,i);
-            drawLine(pi,x+1,0,x+1,600,i);
-            drawLine(pi,x+2,0,x+2,600,i);
+            drawLine(x,0,x,600,i);
+            drawLine(x+1,0,x+1,600,i);
+            drawLine(x+2,0,x+2,600,i);
             x = x+3;
         }
         sleep(10);
-        colorScreen(pi,255);
-        drawTeaPot(pi, 700, 10, 0, 0, 0, 0, 0, 0, 2);
+        colorScreen(255);
+        drawTeaPot(700, 10, 0, 0, 0, 0, 0, 0, 2);
         printf("Drew Blue tea pot!\n");
         sleep(10);
-        colorScreen(pi,0);
-        drawTeaPot(pi, 700, 10, 0, 0, 0, 3.14159/2, 0, 0, 128);
+        colorScreen(0);
+        drawTeaPot(700, 10, 0, 0, 0, 3.14159/2, 0, 0, 128);
         printf("Drew Red tea pot!\n");
-        terminate(pi);
+        terminate();
     }
 }

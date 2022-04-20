@@ -1,9 +1,8 @@
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdint.h>
 #include "instructions.h"
-#include "sendByte.h"
 
-void flatTriangle(int pi, int x1, int y1, int x2, int y2, int x3, int y3, uint8_t color) {
+void flatTriangle(int x1, int y1, int x2, int y2, int x3, int y3, uint8_t color) {
     int top_x, top_y;
     int bottom_x, bottom_y;
     int middle_x, middle_y;
@@ -134,8 +133,8 @@ void flatTriangle(int pi, int x1, int y1, int x2, int y2, int x3, int y3, uint8_
         new_x = (int)(((float)new_y - b)*(((float)bottom_x - (float)top_x)/((float)bottom_y - (float)top_y)));
         //Solved for new point to make flat top/bottom
     }
-    drawTriangle(pi, bottom_x,bottom_y,middle_x,middle_y,new_x,new_y,color);
-    drawTriangle(pi, top_x,top_y,middle_x,middle_y,new_x,new_y,color);
+    drawTriangle(bottom_x,bottom_y,middle_x,middle_y,new_x,new_y,color);
+    drawTriangle(top_x,top_y,middle_x,middle_y,new_x,new_y,color);
 //    printf("Drawing a flat-bottom triangle with points x1:%i, y1:%i, x2:%i, y2:%i, x3:%i, y3:%i\n",top_x,top_y,new_x,new_y,middle_x,middle_y);
 //    printf("Drawing a flat-top triangle with points x1:%i, y1:%i, x2:%i, y2:%i, x3:%i, y3:%i\n",bottom_x,bottom_y,new_x,new_y,middle_x,middle_y);
 }

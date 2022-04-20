@@ -3,7 +3,7 @@
 #include "sendInstruction_safe.h"
 #include "reset.h"
 
-void drawLine(int pi, int x1, int y1, int x2, int y2, uint8_t color){
+void drawLine(int x1, int y1, int x2, int y2, uint8_t color){
     //Opcode is 0010
     long long Instruction;
     uint8_t msB;
@@ -19,10 +19,10 @@ void drawLine(int pi, int x1, int y1, int x2, int y2, uint8_t color){
     Instruction = Instruction << 10;
     Instruction += y2;
     Instruction = Instruction << 20;
-    sendInstruction(pi, msB, Instruction);
+    sendInstruction(msB, Instruction);
 }
 
-void drawTriangle(int pi, int x1, int y1, int x2, int y2, int x3, int y3, uint8_t color){
+void drawTriangle(int x1, int y1, int x2, int y2, int x3, int y3, uint8_t color){
     //Opcode is 0100
     long long Instruction;
     uint8_t msB;
@@ -41,10 +41,10 @@ void drawTriangle(int pi, int x1, int y1, int x2, int y2, int x3, int y3, uint8_
     Instruction += x3;
     Instruction = Instruction << 10;
     Instruction += y3;
-    sendInstruction(pi, msB, Instruction);
+    sendInstruction(msB, Instruction);
 }
 
-void colorScreen(int pi, uint8_t color){
+void colorScreen(uint8_t color){
     //Opcode is 0011
     long long Instruction;
     uint8_t msB;
@@ -52,5 +52,5 @@ void colorScreen(int pi, uint8_t color){
     msB += (color >> 4);
     Instruction = color;
     Instruction = Instruction << 60;
-    sendInstruction(pi, msB, Instruction);
+    sendInstruction(msB, Instruction);
 }
