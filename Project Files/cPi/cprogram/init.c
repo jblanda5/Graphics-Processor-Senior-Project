@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <pigpiod_if2.h>
+#include <wiringPi.h>
 
 /*
 Initialize Pins to send data to FPGA
@@ -33,26 +33,21 @@ gcc -o X X.c -lpigpio
 #define RESET 26
 
 
-int init()
+void init()
 {
-    int pi = pigpio_start(NULL, NULL);
+    wiringPiSetupGpio();
 
-    set_mode(pi, BIT7, PI_OUTPUT);
-    set_mode(pi, BIT6, PI_OUTPUT);
-    set_mode(pi, BIT5, PI_OUTPUT);
-    set_mode(pi, BIT4, PI_OUTPUT);
-    set_mode(pi, BIT3, PI_OUTPUT);
-    set_mode(pi, BIT2, PI_OUTPUT);
-    set_mode(pi, BIT1, PI_OUTPUT);
-    set_mode(pi, BIT0, PI_OUTPUT);
-    set_mode(pi, RTS, PI_OUTPUT);
-    set_mode(pi, RESET, PI_OUTPUT);
+    pinMode(BIT7, OUTPUT);
+    pinMode(BIT6, OUTPUT);
+    pinMode(BIT5, OUTPUT);
+    pinMode(BIT4, OUTPUT);
+    pinMode(BIT3, OUTPUT);
+    pinMode(BIT2, OUTPUT);
+    pinMode(BIT1, OUTPUT);
+    pinMode(BIT0, OUTPUT);
+    pinMode(RTS, OUTPUT);
+    pinMode(RESET, OUTPUT);
 
-    set_mode(pi, RTR, PI_INPUT);
-    set_pull_up_down(pi, RTR, PI_PUD_DOWN);
-   return pi;
-}
-
-void terminate(int pi) {
-    pigpio_stop(pi);
+    pinMode(RTR, INPUT);
+    pullUpDnControl(RTR, PUD_DOWN);
 }

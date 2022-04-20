@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <pigpiod_if2.h>
+//#include <stdio.h>
+#include <wiringPi.h>
 #include <stdint.h>
-#include <unistd.h>
+//#include <unistd.h>
 
 #define BIT7 25
 #define BIT6 24
@@ -14,61 +14,61 @@
 #define RTS 21
 #define RTR 20
 
-int sendByte(int pi, uint8_t byte){
+int sendByte(uint8_t byte){
     if ((byte & 128) > 0){
-        gpio_write(pi, BIT7, 1);
+        digitalWrite(BIT7, HIGH);
     }
     else {
-        gpio_write(pi, BIT7, 0);
+        digitalWrite(BIT7, LOW);
     }
     
     if ((byte & 64) > 0){
-        gpio_write(pi, BIT6, 1);
+        digitalWrite(BIT6, HIGH);
     }
     else {
-        gpio_write(pi, BIT6, 0);
+        digitalWrite(BIT6, LOW);
     }
     
     if ((byte & 32) > 0){
-        gpio_write(pi, BIT5, 1);
+        digitalWrite(BIT5, HIGH);
     }
     else {
-        gpio_write(pi, BIT5, 0);
+        digitalWrite(BIT5, LOW);
     }
     
     if ((byte & 16) > 0){
-        gpio_write(pi, BIT4, 1);
+        digitalWrite(BIT4, HIGH);
     }
     else {
-        gpio_write(pi, BIT4, 0);
+        digitalWrite(BIT4, LOW);
     }
     
     if ((byte & 8) > 0){
-        gpio_write(pi, BIT3, 1);
+        digitalWrite(BIT3, HIGH);
     }
     else {
-        gpio_write(pi, BIT3, 0);
+        digitalWrite(BIT3, LOW);
     }
     
     if ((byte & 4) > 0){
-        gpio_write(pi, BIT2, 1);
+        digitalWrite(BIT2, HIGH);
     }
     else {
-        gpio_write(pi, BIT2, 0);
+        digitalWrite(BIT2, LOW);
     }
     
     if ((byte & 2) > 0){
-        gpio_write(pi, BIT1, 1);
+        digitalWrite(BIT1, HIGH);
     }
     else {
-        gpio_write(pi, BIT1, 0);
+        digitalWrite(BIT1, LOW);
     }
     
     if ((byte & 1) > 0){
-        gpio_write(pi, BIT0, 1);
+        digitalWrite(BIT0, HIGH);
     }
     else {
-        gpio_write(pi, BIT0, 0);
+        digitalWrite(BIT0, LOW);
     }
 //    printf("sent byte:%i\n",byte);
     return 0;

@@ -7,7 +7,7 @@ all:
 	gcc -Wall -c init.c
 	gcc -Wall -c main.c
 	gcc -Wall -c lighting.c
-	gcc -o demo main.o init.o instructions.o sendInstruction.o reset.o sendByte.o flatTriangle.o lighting.o -lpigpiod_if2 -lm
+	gcc -o demo main.o init.o instructions.o sendInstruction.o reset.o sendByte.o flatTriangle.o lighting.o -lwiringPi -lm
 clean:
 	rm flatTriangle.o
 	rm instructions.o
